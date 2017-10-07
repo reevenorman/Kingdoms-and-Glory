@@ -5,11 +5,13 @@
  */
 package kingdomsandglory.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author piano
  */
-public class Army implements Serialization {
+public class Army implements Serializable {
     
     private long totalArmy;
     private long totalFootman;
