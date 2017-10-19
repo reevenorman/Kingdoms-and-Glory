@@ -41,10 +41,10 @@ public class PlayerControl {
             return -10;
         }
         if (questionFive < 1) {
-            return -4;
+            return -5;
         }
-        double actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5);
-        long actorTrait = Math.round(actorTraitEquation);
+        double actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5.0);
+        long actorTrait = Math.round(actorTraitEquation); // This is another option -> (int)((actorTraitEquation + 0.5)/1);
         return actorTrait;
     }
 }
