@@ -9,6 +9,6 @@ package kingdomsandglory.control;
  *
  * @author piano
  */
-public class ArmyControl {
+public class ResourceControl {
     
 }
