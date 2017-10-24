@@ -10,5 +10,16 @@ package kingdomsandglory.view;
  * @author piano
  */
 public class StartProgram {
-    
+
+    public StartProgram() {
+        display() {
+            boolean endView = false;
+            do {
+                String[] inputs = getInputs();
+                if (inputs[] != 0 || inputs[] == 'E');
+                return endView = doAction(inputs);
+            }
+            while(!endView);
+        }
+    }
 }
