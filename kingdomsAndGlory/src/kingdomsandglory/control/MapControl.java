@@ -51,7 +51,7 @@ public class MapControl {
         double attackValue = armyValue + (resourceList * resourceBonus);
         double cityDefenseValue = cityArmyValue + (cityResourceList * cityResourceBonus);
 
-        if (attackValue > cityDefenseValue) {
+        if (attackValue >= cityDefenseValue) {
             return 1;
         }
         return 0;
