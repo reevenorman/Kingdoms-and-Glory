@@ -5,6 +5,7 @@
  */
 package kingdomsandglory;
 
+import kingdomsandglory.view.StartProgramView;
 /**
  *
  * @author piano
@@ -15,7 +16,8 @@ public class KingdomsAndGlory {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
     }
     
 }
