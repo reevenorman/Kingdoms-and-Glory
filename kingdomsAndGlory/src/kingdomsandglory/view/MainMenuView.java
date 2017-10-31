@@ -45,13 +45,12 @@ public class MainMenuView {
             Scanner inputName;
             inputName = new Scanner(System.in);
             input[0] = inputName.nextLine();
-            input[0] = input[0].trim().toUpperCase();
+            input[0] = input[0].trim();
             
             
             
-            if (input[0].length() < 2){
+            if (!input[0].equals("G") || !input[0].equals("L") || !input[0].equals("B") || !input[0].equals("H") ){
                 System.out.print("You must enter a valid menu item!\n");
-                continue;
             }
             else {
                 valid = true;
@@ -63,8 +62,7 @@ public class MainMenuView {
     }
 
     private boolean doAction(String[] inputs) {
-        String menuItem = inputs[0];
-        menuItem = menuItem.toUpperCase();
+        char menuItem = inputs[0].toUpperCase().charAt(0);
         
         switch (menuItem){
             case 'G' : startNewGame();
@@ -75,15 +73,13 @@ public class MainMenuView {
                 break;
             case 'H' : helpMenu();
                 break;
-            case 'Q' : return true;
-                break;
             default : 
                 System.out.println("Invalid Input");
         }
+        return false;
             
         }
-        
-        System.out.println("*** MainMenuView - doAction() Called ***");
+
 
     private void startNewGame() {
         System.out.println("*** MainMenu - startNewGame() Called ***");
@@ -101,8 +97,8 @@ public class MainMenuView {
         System.out.println("*** MainMenu - helpMenu() Called ***");
     }
         
-        return false;
+
     }
     
     
-}
+
