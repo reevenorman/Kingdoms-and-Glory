@@ -108,8 +108,8 @@ public class StartProgramView {
             return false;
         }
         System.out.println("========================================\n"
-                        + "Welcome to the game" + playersName
-                        + "We hope you hvae a lot of fun!"
+                        + "Welcome to the game, " + playersName + "!\n"
+                        + "We hope you have a lot of fun!\n"
                         + "========================================\n");
         
         MainMenuView mainMenuView = new MainMenuView();
