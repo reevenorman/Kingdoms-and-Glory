@@ -19,6 +19,10 @@ public class Player implements Serializable{
         this.playerName = playerName;
     }
 
+    public Player() {
+        
+    }
+
     public String getPlayerName() {
         return playerName;
     }

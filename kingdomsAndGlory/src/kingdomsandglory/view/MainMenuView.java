@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package kingdomsandglory.view;
 
 /**
  *
- * @author reeve
+ * @author piano
  */
-public class kingdomsandglory {
-    
-    
-    public static void main(String[] args) {
-        Player playerOne = new Player();
-        
-        
+public class MainMenuView {
+    public void displayMainMenuView() {
+        System.out.println("*** displayMainMenuView() called ***");
     }
     
 }
