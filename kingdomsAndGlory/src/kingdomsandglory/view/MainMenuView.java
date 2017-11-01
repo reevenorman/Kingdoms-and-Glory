@@ -49,7 +49,7 @@ public class MainMenuView {
             
             
             
-            if (!input[0].equals("G") || !input[0].equals("L") || !input[0].equals("B") || !input[0].equals("H") ){
+            if (input[0].length() == 0){
                 System.out.print("You must enter a valid menu item!\n");
             }
             else {
@@ -62,7 +62,8 @@ public class MainMenuView {
     }
 
     private boolean doAction(String[] inputs) {
-        char menuItem = inputs[0].toUpperCase().charAt(0);
+        char menuItem;
+        menuItem = inputs[0].toUpperCase().charAt(0);
         
         switch (menuItem){
             case 'G' : startNewGame();
