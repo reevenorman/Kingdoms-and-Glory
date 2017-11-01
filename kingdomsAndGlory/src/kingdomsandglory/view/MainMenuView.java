@@ -19,7 +19,7 @@ public class MainMenuView {
             if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
                 return;
             }
-            endView = doAction(inputs);
+            endView = doActionMenu(inputs);
 
         } while (!endView);
     }
@@ -58,10 +58,10 @@ public class MainMenuView {
         }   
         
         
-        return new String[0];
+        return input;
     }
 
-    private boolean doAction(String[] inputs) {
+    private boolean doActionMenu(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
         
@@ -84,6 +84,7 @@ public class MainMenuView {
 
     private void startNewGame() {
         System.out.println("*** MainMenu - startNewGame() Called ***");
+        
     }
 
     private void loadGame() {
