@@ -6,6 +6,7 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.KingdomsAndGlory;
 
 /**
  *
@@ -83,8 +84,9 @@ public class MainMenuView {
 
 
     private void startNewGame() {
-        System.out.println("*** MainMenu - startNewGame() Called ***");
-        
+        createNewGame();
+        GameControl.createNewGame(KingdomsAndGlory.getPlayer());
+        GameMenuView.displayGameMenuView();
     }
 
     private void loadGame() {
@@ -97,6 +99,10 @@ public class MainMenuView {
 
     private void helpMenu() {
         System.out.println("*** MainMenu - helpMenu() Called ***");
+    }
+
+    private void createNewGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
         
 

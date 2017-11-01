@@ -7,8 +7,6 @@ package kingdomsandglory.view;
 
 import kingdomsandglory.model.Player;
 
-
-
 /**
  *
  * @author reeve
@@ -19,10 +17,12 @@ public class GameControl {
         System.out.println("*** savePlayer() called ***");
         return new Player();
     }
-    
-    
+
     public GameControl(String name) {
         System.out.println("*** savePlayer() called ***");
     }
 
+    public static void createNewGame(Player player) {
+        System.out.println("***Game Control - createNewGame() Called***");
+    }
 }
