@@ -46,7 +46,7 @@ public class StartProgramView {
                         + "* you know their strong points as well as their weaknesses. You must gather        *\n"
                         + "* resources from the land that you have left in order to exploit the weaknesses of *\n"
                         + "* the cities and take them back from your enemies.                                 *\n"
-                        + "*                                                                                  *\n" 
+/*                        + "*                                                                                  *\n" 
                         + "* The kingdom of Zenobia has been a place of peace and prosperity for over 100     *\n"
                         + "* years, thanks to you and your fathers before you. Within the kingdom there are   *\n"
                         + "* many cities, each with distinguishing characteristics. In the last several       *\n"
@@ -67,7 +67,7 @@ public class StartProgramView {
                         + "* by searching the rest of your land and collecting resources, you should be able  *\n"
                         + "* to take back all of your cities and free your captive citizens. How you move,    *\n"
                         + "* attack and build your resources is up to you, King of Zenobia.                   *\n"
-                        + "************************************************************************************");
+ */                       + "************************************************************************************");
                   
         System.out.println(welcomeBanner);
         
