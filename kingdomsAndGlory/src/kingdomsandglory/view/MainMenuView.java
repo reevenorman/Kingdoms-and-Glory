@@ -74,6 +74,7 @@ public class MainMenuView {
                 break;
             case 'H' : helpMenu();
                 break;
+            case 'Q' : return true;
             default : 
                 System.out.println("Invalid Input");
         }
