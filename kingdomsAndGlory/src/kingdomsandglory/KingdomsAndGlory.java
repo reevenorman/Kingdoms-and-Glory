@@ -5,6 +5,8 @@
  */
 package kingdomsandglory;
 
+import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Player;
 import kingdomsandglory.view.StartProgramView;
 /**
  *
@@ -12,6 +14,25 @@ import kingdomsandglory.view.StartProgramView;
  */
 public class KingdomsAndGlory {
 
+    private static Player player;
+    private static Game currentGame;
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        KingdomsAndGlory.player = player;
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        KingdomsAndGlory.currentGame = currentGame;
+    }
+    
     /**
      * @param args the command line arguments
      */
