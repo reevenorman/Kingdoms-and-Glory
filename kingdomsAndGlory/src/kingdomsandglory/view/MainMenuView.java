@@ -85,28 +85,22 @@ public class MainMenuView {
 
 
     private void startNewGame() {
-        createNewGame();
         GameControl.createNewGame(KingdomsAndGlory.getPlayer());
         GameMenuView.displayGameMenuView();
     }
 
     private void loadGame() {
-        System.out.println("*** MainMenu - loadGame() Called ***");
+        System.out.println("*** MainMenuView - loadGame() Called ***");
     }
 
     private void backgroundStory() {
-        System.out.println("*** MainMenu - bakcgroundStory() Called ***");
+        System.out.println("*** MainMenuView - backgroundStory() Called ***");
     }
 
     private void helpMenu() {
-        System.out.println("*** MainMenu - helpMenu() Called ***");
+        HelpMenuView.displayHelpMenuView();
     }
-
-    private void createNewGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
-
+       
     }
     
     
