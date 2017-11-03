@@ -11,8 +11,9 @@ import java.util.Scanner;
  *
  * @author piano
  */
-public class GameMenuView {
-    static void displayGameMenuView() {
+public class MapView {
+
+    static void displayMapView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -31,24 +32,21 @@ public class GameMenuView {
 
         String GameMenuDisplay;
 
-        GameMenuDisplay = " A - Manage Army \n"
-                + " R - Manage Resources \n"
-                + " M - View Map \n"
-                + " H - View Help Menu \n"
-                + " S - Save Game \n"
+        GameMenuDisplay = " V - View A Territory \n"
+                + " M - Move On Map \n"
                 + " B - Go Back \n";
 
         System.out.println(GameMenuDisplay);
 
         while (!valid) {
-            System.out.println("Please choose a game menu Item");
+            System.out.println("Please choose a Map Menu Item");
             Scanner inputName;
             inputName = new Scanner(System.in);
             input[0] = inputName.nextLine();
             input[0] = input[0].trim();
 
             if (input[0].length() == 0) {
-                System.out.print("You must enter a valid game menu item!\n");
+                System.out.print("You must enter a valid Map Menu item!\n");
             } else {
                 valid = true;
             }
@@ -61,20 +59,12 @@ public class GameMenuView {
         menuItem = inputs[0].toUpperCase().charAt(0);
 
         switch (menuItem) {
-            case 'A':
-                ManageArmyView.displayManageArmyView();
-                break;
-            case 'R':
-                ManageResourceView.displayManageResourceView();
+            case 'V':
+                ViewTerritoryView.displayViewTerritoryView();
                 break;
             case 'M':
-                MapView.displayMapView();
+                MoveOnMapView.displayMoveOnMapView();
                 break;
-            case 'H':
-                HelpMenuView.displayHelpMenuView();
-                break;
-            case 'S':
-                saveGame();
             case 'B':
                 return true;
             default:
@@ -86,5 +76,4 @@ public class GameMenuView {
     private static void saveGame() {
         System.out.println("*** Class GameMenuView - saveGame() Called***");
     }
-    
 }
