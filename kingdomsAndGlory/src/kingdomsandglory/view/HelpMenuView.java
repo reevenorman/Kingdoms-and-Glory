@@ -74,10 +74,10 @@ public class HelpMenuView {
                 conquerCitiesInfoView();
                 break;
             case 'B':
-                MainMenuView.displayMainMenuView();
-                break;
-            case 'Q':
                 return true;
+                
+            case 'Q':
+                return false;
             default:
                 System.out.println("Invalid Input");
         }
