@@ -150,7 +150,28 @@ public class HelpMenuView {
     }
 
     private static void conquerCitiesInfoView() {
-        System.out.println("*** HelpMenuView - conquerCitiesInfoView() Called ***");
+        System.out.println("*********************************************************************************************"
+                + "* Manage Army                                                                               *\n" 
+                + "* The following menu will be displayed:                                                     *\n" 
+                + "*                                                                                           *\n" 
+                + "* G - Gain Recruits                                                                         *\n"
+                + "* S - Sell Army                                                                             *\n" 
+                + "* B - Go Back                                                                               *\n" 
+                + "*                                                                                           *\n" 
+                + "* Also displayed with this menu will be a list of the different types of troops/soldiers    *\n"
+                + "* currently in the user’s army and the amount of money that is available as a resource.     *\n"
+                + "* Displayed with the menu is a cost of recruits. The player enters the letter representing  *\n"
+                + "* the command they would like to give the computer. If an invalid key is attempted, the end *\n"
+                + "* user is requested to enter a valid command and the menu is redisplayed. If the user enters*\n"
+                + "* a valid command, depending on the command, the program will show the following for the    *\n"
+                + "* user. If the user requests more army, the program will then ask how many of which type of *\n"
+                + "* soldier. The user then enters the amount thus decreasing money and increasing that aspect *\n"
+                + "* of the army. If the user types an invalid amount in due to the fact that there is not     *\n"
+                + "* enough money, the message displayed will say, “Not enough money.” After the appropriate   *\n"
+                + "* message is displayed to the user the program then reruns the Manage Army Menu. Under the  *\n"
+                + "* command to sell recruits, the user will be asked how many men they would like to sell of  *\n"
+                + "* which type. Once the sale is final, the adjusted numbers will be shown in the list of army*\n"
+                + "* numbers and money numbers.                                                                *\n");
     }
 
 }
