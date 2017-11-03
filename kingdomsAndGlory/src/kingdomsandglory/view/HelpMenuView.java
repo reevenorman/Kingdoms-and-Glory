@@ -75,7 +75,7 @@ public class HelpMenuView {
                 break;
             case 'B':
                 return true;
-                
+
             case 'Q':
                 return false;
             default:
@@ -110,12 +110,12 @@ public class HelpMenuView {
     private static void resourceInfoView() {
         System.out.println("*********************************************************************************************"
                 + "* Manage Resources                                                                          *\n"
-                + "* The following menu will be displayed:                                                     *\n" 
-                + "*                                                                                           *\n" 
+                + "* The following menu will be displayed:                                                     *\n"
+                + "*                                                                                           *\n"
                 + "* B - Buy resource                                                                          *\n"
                 + "* S - Sell resource                                                                         *\n"
                 + "* A - Go Back                                                                               *\n"
-                + "*                                                                                           *\n" 
+                + "*                                                                                           *\n"
                 + "* On the manage resource menu there will be an option to buy and sell your resources. You   *\n"
                 + "* Will also be able to see a list of resources and how many of each you have. The resources *\n"
                 + "* that you will be able to obtain in this game will be Wood, Stone, Metal, and Cloth. Your  *\n"
@@ -130,7 +130,23 @@ public class HelpMenuView {
     }
 
     private static void mapAndMovementInfoView() {
-        System.out.println("*** HelpMenuView - mapAndMovementInfoView() Called ***");
+        System.out.println("*********************************************************************************************"
+                + "* View Map Menu                                                                                   *\n"
+                + "* The following menu will be displayed:                                                           *\n"
+                + "*                                                                                                 *\n"
+                + "* V - View Territory                                                                              *\n"
+                + "* C - Attack Territory                                                                            *\n"
+                + "* X - Move                                                                                        *\n"
+                + "* B - Go Back                                                                                     *\n"
+                + "*                                                                                                 *\n"
+                + "* The player enters the letter representing the command they would like to give the computer.     *\n"
+                + "*If an invalid key is attempted, the end user is requested to enter a valid command the and the   *\n"
+                + "*menu is redisplayed. If the user enters a valid command, depending on the command, the program will      *\n"
+                + "*then redirect the user to the next menu. Displayed with this menu will be a map of the surrounding area. *\n"
+                + "*Cities owned by opposing force will be marked with an ‘X’. Cities that are under your control will be    *\n"
+                + "*marked with an ’Z’. other parts of the map will be a ‘?’ to show that we don’t know what is within that  *\n"
+                + "*specific area. It will then give you the option B to go Back to the Main Menu.                           *\n"
+                + "*********************************************************************************************");
     }
 
     private static void conquerCitiesInfoView() {
