@@ -81,7 +81,7 @@ public class HelpMenuView {
             default:
                 System.out.println("Invalid Input");
         }
-        return false;
+        return true;
     }
 
     private static void armyInfoView() {
@@ -108,7 +108,25 @@ public class HelpMenuView {
     }
 
     private static void resourceInfoView() {
-        System.out.println("*** HelpMenuView - resourceInfoView() Called ***");
+        System.out.println("*********************************************************************************************"
+                + "* Manage Resources                                                                          *\n"
+                + "* The following menu will be displayed:                                                     *\n" 
+                + "*                                                                                           *\n" 
+                + "* B - Buy resource                                                                          *\n"
+                + "* S - Sell resource                                                                         *\n"
+                + "* A - Go Back                                                                               *\n"
+                + "*                                                                                           *\n" 
+                + "* On the manage resource menu there will be an option to buy and sell your resources. You   *\n"
+                + "* Will also be able to see a list of resources and how many of each you have. The resources *\n"
+                + "* that you will be able to obtain in this game will be Wood, Stone, Metal, and Cloth. Your  *\n"
+                + "* money will also be displayed here. If you choose B and buy a resource you will be able to *\n"
+                + "* use your money to buy as much as you can afford of whatever resource you choose. If you   *\n"
+                + "* choose S and decide to sell your resources you will lose as much of whatever resource you *\n"
+                + "* decide to sell but will gain money. You can use this menu to gain more money through      *\n"
+                + "* selling your resources or you can use this menu to gain more resources by spending your   *\n"
+                + "* money. If you enter an incorrect character, the game will tell you that is an invalid     *\n"
+                + "* character and will be asked to try again.                                                 *\n"
+                + "*********************************************************************************************");
     }
 
     private static void mapAndMovementInfoView() {
