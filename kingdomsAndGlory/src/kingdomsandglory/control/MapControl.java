@@ -123,7 +123,7 @@ public class MapControl {
         Random rand = new Random();
         int randResourceAmt = rand.nextInt(101) + 1;
         int randResourceObj = rand.nextInt(3) + 0;
-        int randChanceAmt = rand.nextInt(7) + 0;
+        int randChanceAmt = rand.nextInt(7) + 1;
         
         if (userGambleOption == 0) {    
             outcome = randResourceAmt * 0.2;

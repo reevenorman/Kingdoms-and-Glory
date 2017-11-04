@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.view;
+import kingdomsandglory.control.PlayerControl;
 
 import java.util.Scanner;
 import kingdomsandglory.view.StartProgramView;
@@ -27,12 +28,29 @@ public class ActorTraitResultView {
     private static String[] getInputs() {
         String[] input = new String[1];
         String userInput;
+        int actorTrait;
+        String actorTraitName;
         Boolean valid = false;
+        
+        actorTrait = kingdomsandglory.control.PlayerControl.collectData();
+        switch (actorTrait) {
+            case 1:
+                actorTraitName = "Diplomatic";
+                break;
+            case 2:
+                actorTraitName = "Strategic";
+                break;
+            case 3:
+                actorTraitName = "Charismatic";
+                break; 
+            default:
+                actorTraitName = "Invalid Input";
+        }
 
         System.out.println("========================================\n"
-                        + "Congratulations, " + "(playersName)" + "!\n"
-                        + "You have received the trait of " + "(actorTrait) !\n"
-                        + "You will be known as " + "(playersName)" + " the " + "(actorTrait) !\n"
+                        + "Congratulations, " + "(savePlayerName) accessed" + "!\n"
+                        + "You have received the trait of " + actorTraitName + "!\n"
+                        + "You will be known as " + "(savePlayerName) accessed" + " the " +  actorTraitName + "!\n"
                         + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "\n"

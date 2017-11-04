@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.control;
+import kingdomsandglory.view.ActorTraitViewOne;
+//import kingdomsandglory.view.ActorTraitViewOne;
+//import kingdomsandglory.view.ActorTraitViewTwo;
+//import kingdomsandglory.view.ActorTraitViewThree;
+//import kingdomsandglory.view.ActorTraitViewFour;
+//import kingdomsandglory.view.ActorTraitViewFive;
 
 /**
  *
@@ -11,7 +17,7 @@ package kingdomsandglory.control;
  */
 public class PlayerControl {
 
-    public static long assignActorTrait(long questionOne, long questionTwo, long questionThree, long questionFour, long questionFive) {
+    public static int assignActorTrait(int questionOne, int questionTwo, int questionThree, int questionFour, int questionFive) {
 
         if (questionOne > 3) {
             return -6;
@@ -43,8 +49,31 @@ public class PlayerControl {
         if (questionFive < 1) {
             return -5;
         }
-        double actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5.0);
-        long actorTrait = Math.round(actorTraitEquation); // This is another option -> (int)((actorTraitEquation + 0.5)/1);
+        int actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5);
+        int actorTrait = (int)((actorTraitEquation + 0.5)/1);
+        return actorTrait;
+    }
+    
+    public static int collectData() {
+        int actorTrait;
+        int questionOne;
+        int questionTwo;
+        int questionThree;
+        int questionFour;
+        int questionFive;
+        
+        
+        
+        questionOne = kingdomsandglory.view.ActorTraitViewOne.displayActorTraitViewOne();
+        questionTwo = kingdomsandglory.view.ActorTraitViewTwo.displayActorTraitViewTwo();
+        questionThree = kingdomsandglory.view.ActorTraitViewThree.displayActorTraitViewThree();
+        questionFour = kingdomsandglory.view.ActorTraitViewFour.displayActorTraitViewFour();
+        questionFive = kingdomsandglory.view.ActorTraitViewFive.displayActorTraitViewFive();
+        
+        actorTrait = assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
+        
+        
+        
         return actorTrait;
     }
 }

@@ -13,17 +13,21 @@ import kingdomsandglory.control.PlayerControl;
  * @author piano
  */
 public class ActorTraitViewThree {
-    static void displayActorTraitViewThree() {
+    public static int displayActorTraitViewThree() {
         boolean endView = false;
+        int questionAnswer = 0;
+        
         do {
             String[] inputs = getInputs();
             if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
+                return -1;
             }
-            endView = doAction(inputs);
-
+            questionAnswer = doAction(inputs);
+            return questionAnswer;
+            
         } while (!endView);
     }
+    
 
     private static String[] getInputs() {
         String[] input = new String[1];
@@ -55,26 +59,26 @@ public class ActorTraitViewThree {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private static int doAction(String[] inputs) {
         char menuItem;
+        int questionAnswer = 0;
         menuItem = inputs[0].toUpperCase().charAt(0);
 
         switch (menuItem) {
             case 'A':
-                long questionThree = 1;
-                ActorTraitViewFour.displayActorTraitViewFour();
+                questionAnswer = 1;
                 break;
             case 'B':
-                questionThree = 2;
-                ActorTraitViewFour.displayActorTraitViewFour();
+                questionAnswer = 2;
                 break;
             case 'C':
-                questionThree = 3;
-                ActorTraitViewFour.displayActorTraitViewFour();
+                questionAnswer = 3;
+
                 break;
             default:
                 System.out.println("Invalid Input");
+                questionAnswer = displayActorTraitViewThree();
         }
-        return false;
+        return questionAnswer;
     }
 }

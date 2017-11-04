@@ -26,13 +26,13 @@ public class PlayerControlTest {
         
         System.out.println("test case 1");
                 
-        long questionOne = 1;
-        long questionTwo = 2;
-        long questionThree = 3;
-        long questionFour = 2;
-        long questionFive = 1;
-        long expResult = 2;
-        long result = PlayerControl.assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
+        int questionOne = 1;
+        int questionTwo = 2;
+        int questionThree = 3;
+        int questionFour = 2;
+        int questionFive = 1;
+        int expResult = 2;
+        int result = PlayerControl.assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
         assertEquals(expResult, result);
         
         System.out.println("test case 2");

@@ -99,7 +99,7 @@ public class StartProgramView {
 
     }
 
-    private boolean doAction(String[] inputs) {
+    public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
         Player player= GameControl.savePlayer(playersName);
         if (player == null){
