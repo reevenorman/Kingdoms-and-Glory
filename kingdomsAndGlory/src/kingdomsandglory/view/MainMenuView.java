@@ -86,7 +86,7 @@ public class MainMenuView {
 
     private void startNewGame() {
         GameControl.createNewGame(KingdomsAndGlory.getPlayer());
-        GameMenuView.displayGameMenuView();
+        ActorTraitViewOne.displayActorTraitViewOne();
     }
 
     private void loadGame() {

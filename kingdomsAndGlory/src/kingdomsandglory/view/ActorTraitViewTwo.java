@@ -12,8 +12,8 @@ import kingdomsandglory.control.PlayerControl;
  *
  * @author piano
  */
-public class ActorTraitViewOne {
-    static void displayActorTraitViewOne() {
+public class ActorTraitViewTwo {
+    static void displayActorTraitViewTwo() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -30,14 +30,14 @@ public class ActorTraitViewOne {
         String userInput;
         Boolean valid = false;
 
-        String ActorTraitOneDisplay;
+        String ActorTraitTwoDisplay;
 
-        ActorTraitOneDisplay = " Question 1: When negotiating with a foreign empire, are you more likley to... \n"
-                + " A - Meet formally, and discuss matters of concern through proper channels? \n"
-                + " B - Meet formally, and have a carefully crafted plan of what you want to accomplish? \n"
-                + " C - Meet informally, entertain your guest and convince them of your desires? \n";
+        ActorTraitTwoDisplay = " Question 2: While playiing chess do you... \n"
+                + " A - Play in a way that makes the game fair and beneficial to both parties? \n"
+                + " B - Plan out each move in advance for the greatest chance of winning?\n"
+                + " C - Make your moves based on the current moment? \n";
 
-        System.out.println(ActorTraitOneDisplay);
+        System.out.println(ActorTraitTwoDisplay);
 
         while (!valid) {
             System.out.println("Please answer the question");
@@ -61,16 +61,16 @@ public class ActorTraitViewOne {
 
         switch (menuItem) {
             case 'A':
-                long questionOne = 1;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
+                long questionTwo = 1;
+                ActorTraitViewThree.displayActorTraitViewThree();
                 break;
             case 'B':
-                questionOne = 2;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
+                questionTwo = 2;
+                ActorTraitViewThree.displayActorTraitViewThree();
                 break;
             case 'C':
-                questionOne = 3;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
+                questionTwo = 3;
+                ActorTraitViewThree.displayActorTraitViewThree();
                 break;
             default:
                 System.out.println("Invalid Input");

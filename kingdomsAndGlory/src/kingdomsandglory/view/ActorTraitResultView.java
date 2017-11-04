@@ -6,14 +6,13 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
-import kingdomsandglory.control.PlayerControl;
-
+import kingdomsandglory.view.StartProgramView;
 /**
  *
  * @author piano
  */
-public class ActorTraitViewOne {
-    static void displayActorTraitViewOne() {
+public class ActorTraitResultView {
+    static void displayActorTraitResultView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -30,17 +29,18 @@ public class ActorTraitViewOne {
         String userInput;
         Boolean valid = false;
 
-        String ActorTraitOneDisplay;
-
-        ActorTraitOneDisplay = " Question 1: When negotiating with a foreign empire, are you more likley to... \n"
-                + " A - Meet formally, and discuss matters of concern through proper channels? \n"
-                + " B - Meet formally, and have a carefully crafted plan of what you want to accomplish? \n"
-                + " C - Meet informally, entertain your guest and convince them of your desires? \n";
-
-        System.out.println(ActorTraitOneDisplay);
+        System.out.println("========================================\n"
+                        + "Congratulations, " + "(playersName)" + "!\n"
+                        + "You have received the trait of " + "(actorTrait) !\n"
+                        + "You will be known as " + "(playersName)" + " the " + "(actorTrait) !\n"
+                        + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
+                        + "View your resources to see what advantages you have received! \n"
+                        + "\n"
+                        + "C - Continue \n"
+                        + "========================================\n");
 
         while (!valid) {
-            System.out.println("Please answer the question");
+            System.out.println("Please enter 'C' to continue" );
             Scanner inputName;
             inputName = new Scanner(System.in);
             input[0] = inputName.nextLine();
@@ -60,17 +60,8 @@ public class ActorTraitViewOne {
         menuItem = inputs[0].toUpperCase().charAt(0);
 
         switch (menuItem) {
-            case 'A':
-                long questionOne = 1;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
-                break;
-            case 'B':
-                questionOne = 2;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
-                break;
             case 'C':
-                questionOne = 3;
-                ActorTraitViewTwo.displayActorTraitViewTwo();
+                GameMenuView.displayGameMenuView();
                 break;
             default:
                 System.out.println("Invalid Input");
