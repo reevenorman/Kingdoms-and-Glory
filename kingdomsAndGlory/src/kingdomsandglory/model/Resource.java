@@ -14,37 +14,44 @@ import java.util.Objects;
  */
 public class Resource implements Serializable {
     
-    private String resourceType;
-    private Long resourceQty;
-    private Long moneyQty;
+    public int[] resourceType;
+    public Double resourceQty;
+    public Double moneyQty;
+    
+    public Resource() {
+        this.resourceType = new int[3];
+        this.moneyQty = 0.0;
+        this.resourceQty = 0.0;
+    }
 
-    public Resource(String resourceType, Long resourceQty, Long moneyQty) {
+    
+    public Resource(int[] resourceType, Double resourceQty, Double moneyQty) {
         this.resourceType = resourceType;
         this.resourceQty = resourceQty;
         this.moneyQty = moneyQty;
     }
 
-    public String getResourceType() {
+    public int[] getResourceType() {
         return resourceType;
     }
 
-    public Long getResourceQty() {
+    public Double getResourceQty() {
         return resourceQty;
     }
 
-    public Long getMoneyQty() {
+    public Double getMoneyQty() {
         return moneyQty;
     }
 
-    public void setResourceType(String resourceType) {
+    public void setResourceType(int[] resourceType) {
         this.resourceType = resourceType;
     }
 
-    public void setResourceQty(Long resourceQty) {
+    public void setResourceQty(Double resourceQty) {
         this.resourceQty = resourceQty;
     }
 
-    public void setMoneyQty(Long moneyQty) {
+    public void setMoneyQty(Double moneyQty) {
         this.moneyQty = moneyQty;
     }
 

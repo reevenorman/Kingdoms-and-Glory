@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.control;
+import kingdomsandglory.model.Resource;
+
+import java.util.Random;
 
 /**
  *
@@ -103,5 +106,46 @@ public class MapControl {
             return 1;
         }
         return 0;
+    }
+    
+    public static String moveOutcome(int userGambleOption) {
+        Resource resource = new Resource();
+        double outcome;
+        String resultOutcome = "error";
+        
+                
+        if (userGambleOption < 0) {
+            return "-1";     
+        }
+        if (userGambleOption > 1) {
+            return "-2";      
+        }
+        Random rand = new Random();
+        int randResourceAmt = rand.nextInt(101) + 1;
+        int randResourceObj = rand.nextInt(3) + 0;
+        int randChanceAmt = rand.nextInt(7) + 0;
+        
+        if (userGambleOption == 0) {    
+            outcome = randResourceAmt * 0.2;
+            resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] + (int)outcome;
+            resultOutcome = ("You gained " + outcome + " pieces of " + randResourceObj + ".");
+            return resultOutcome;
+        }
+        if (userGambleOption == 1) {
+            double guarenteedOutcome = randResourceAmt * 0.2;
+            if (randChanceAmt >= 3) {
+                outcome = randResourceAmt * 0.8;
+                resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] + (int)outcome + (int)guarenteedOutcome;
+                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + ".");
+            }
+            else {
+                outcome = randResourceAmt * 0.8;
+                resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] - (int)outcome + (int)guarenteedOutcome;
+                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + "." 
+                    + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + randResourceObj + ".");
+            }
+            
+        }  
+        return resultOutcome;
     }
 }
