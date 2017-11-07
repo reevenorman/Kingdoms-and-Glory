@@ -144,5 +144,32 @@ public class MapControlTest {
         result = MapControl.battleOutcome(armyValue, resourceList, cityArmyValue, cityResourceList);
         assertEquals(expResult, result);
     }
-    
+
+    /**
+     * Test of moveOutcome method, of class MapControl.
+     */
+    @Test
+    public void testMoveOutcome() {
+        System.out.println("moveOutcome");
+        
+        System.out.println("test case 1");
+        int userGambleOption = 0;
+        int expResult = 1;
+        String result = MapControl.moveOutcome(userGambleOption);
+        assertEquals(expResult, result);
+        
+        System.out.println("test case 2");
+        userGambleOption = -1;
+        expResult = -1;
+        result = MapControl.moveOutcome(userGambleOption);
+        assertEquals(expResult, result);
+        
+        System.out.println("test case 3");
+        userGambleOption = 2;
+        expResult = -2;
+        result = MapControl.moveOutcome(userGambleOption);
+        assertEquals(expResult, result);
+    }
+
+        
 }
