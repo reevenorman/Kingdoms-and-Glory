@@ -85,7 +85,7 @@ public class MainMenuView {
 
 
     private void startNewGame() {
-        GameControl.createNewGame(KingdomsAndGlory.getPlayer());
+        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayer());
         ActorTraitResultView.displayActorTraitResultView();
     }
 
