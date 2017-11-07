@@ -49,7 +49,7 @@ public class PlayerControl {
         if (questionFive < 1) {
             return -5;
         }
-        int actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5);
+        double actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5.0);
         int actorTrait = (int)((actorTraitEquation + 0.5)/1);
         return actorTrait;
     }
