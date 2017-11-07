@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author reeve
  */
 public class Player implements Serializable{
-    private String playerName;
+    public String playerName;
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -27,7 +27,7 @@ public class Player implements Serializable{
         return playerName;
     }
 
-    public void setPlayerName(String playerName) {
+    public static void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
