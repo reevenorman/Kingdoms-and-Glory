@@ -9,9 +9,10 @@ package kingdomsandglory.view;
  *
  * @author piano
  */
-public class ManageResourceView {
-
-    public void displayManageResourceView() {
-        System.out.println("*** Class ManageResourceView - ManageResourceView() Called***");
-    }
+public interface ViewInterface {
+    
+    public void display();
+    public String[] getInputs();
+    public String getInput(String promptMessage);
+    public boolean doAction(String[] inputs);
 }

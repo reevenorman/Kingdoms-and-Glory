@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author reeve
  */
 public class Player implements Serializable{
-    public String playerName;
+    public static String playerName;
 
     public Player(String playerName) {
         this.playerName = playerName;
@@ -23,11 +23,11 @@ public class Player implements Serializable{
         
     }
 
-    public String getPlayerName() {
+    public static String getPlayerName() {
         return playerName;
     }
 
-    public static void setPlayerName(String playerName) {
+    public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 

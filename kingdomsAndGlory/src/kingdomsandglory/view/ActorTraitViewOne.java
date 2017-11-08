@@ -13,7 +13,7 @@ import kingdomsandglory.control.PlayerControl;
  * @author piano
  */
 public class ActorTraitViewOne {
-    public static int displayActorTraitViewOne() {
+    public int displayActorTraitViewOne() {
         boolean endView = false;
         int questionAnswer = 0;
         
@@ -28,7 +28,7 @@ public class ActorTraitViewOne {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -58,7 +58,7 @@ public class ActorTraitViewOne {
         return input;
     }
 
-    public static int doAction(String[] inputs) {
+    public int doAction(String[] inputs) {
         char menuItem;
         int questionAnswer = 0;
         menuItem = inputs[0].toUpperCase().charAt(0);

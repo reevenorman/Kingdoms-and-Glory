@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class MoveOnMapView {
 
-    static void displayMoveOnMapView() {
+       public void displayMoveOnMapView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,7 +25,7 @@ public class MoveOnMapView {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -56,26 +56,26 @@ public class MoveOnMapView {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
         char moveDirection;
         moveDirection = inputs[0].toUpperCase().charAt(0);
-
+        MoveOutcomeView moveOutcomeView = new MoveOutcomeView();
         switch (moveDirection) {
             case 'E':
                 moveNorth();
-                MoveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.displayMoveOutcomeView();
                 break;
             case 'D':
                 moveSouth();
-                MoveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.displayMoveOutcomeView();
                 break;
             case 'F':
                 moveEast();
-                MoveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.displayMoveOutcomeView();
                 break;
             case 'S':
                 moveWest();
-                MoveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.displayMoveOutcomeView();
                 break;
             case 'B':
                 return true;
@@ -85,23 +85,19 @@ public class MoveOnMapView {
         return false;
     }
 
-    private static void saveGame() {
-        System.out.println("*** Class GameMenuView - saveGame() Called***");
-    }
-
-    private static void moveNorth() {
+    private void moveNorth() {
         System.out.println("*** Class MoveOnMap - moveNorth() Called***");
     }
 
-    private static void moveSouth() {
+    private void moveSouth() {
         System.out.println("*** Class MoveOnMap - moveSouth() Called***");
     }
 
-    private static void moveEast() {
+    private void moveEast() {
         System.out.println("*** Class MoveOnMap - moveEast() Called***");
     }
 
-    private static void moveWest() {
+    private void moveWest() {
         System.out.println("*** Class MoveOnMap - moveWest() Called***");
     }
 }

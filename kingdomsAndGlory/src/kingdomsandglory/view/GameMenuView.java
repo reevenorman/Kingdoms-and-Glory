@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author piano
  */
 public class GameMenuView {
-    static void displayGameMenuView() {
+        public void displayGameMenuView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -24,7 +24,7 @@ public class GameMenuView {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -56,22 +56,26 @@ public class GameMenuView {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
 
         switch (menuItem) {
             case 'A':
-                ManageArmyView.displayManageArmyView();
+                ManageArmyView manageArmyView = new ManageArmyView();
+                manageArmyView.displayManageArmyView();
                 break;
             case 'R':
-                ManageResourceView.displayManageResourceView();
+                ManageResourceView manageResourceView = new ManageResourceView();
+                manageResourceView.displayManageResourceView();
                 break;
             case 'M':
-                MapView.displayMapView();
+                MapView mapView = new MapView();
+                mapView.displayMapView();
                 break;
             case 'H':
-                HelpMenuView.displayHelpMenuView();
+                HelpMenuView helpMenuView = new HelpMenuView();
+                helpMenuView.displayHelpMenuView();
                 break;
             case 'S':
                 saveGame();
@@ -83,7 +87,7 @@ public class GameMenuView {
         return false;
     }
 
-    private static void saveGame() {
+    private void saveGame() {
         System.out.println("*** Class GameMenuView - saveGame() Called***");
     }
     

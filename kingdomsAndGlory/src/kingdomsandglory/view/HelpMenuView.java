@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class HelpMenuView {
 
-    static void displayHelpMenuView() {
+    public void displayHelpMenuView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,7 +25,7 @@ public class HelpMenuView {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -56,7 +56,7 @@ public class HelpMenuView {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
 
@@ -84,7 +84,7 @@ public class HelpMenuView {
         return true;
     }
 
-    private static void armyInfoView() {
+    private void armyInfoView() {
         System.out.println("*** The following menu will be displayed:\n"
                 + "\n"
                 + "G - Gain Recruits\n"
@@ -107,7 +107,7 @@ public class HelpMenuView {
                 + "will be shown in the list of army numbers and money numbers. ***");
     }
 
-    private static void resourceInfoView() {
+    private void resourceInfoView() {
         System.out.println("*********************************************************************************************"
                 + "* Manage Resources                                                                          *\n"
                 + "* The following menu will be displayed:                                                     *\n"
@@ -129,7 +129,7 @@ public class HelpMenuView {
                 + "*********************************************************************************************");
     }
 
-    private static void mapAndMovementInfoView() {
+    private void mapAndMovementInfoView() {
         System.out.println("*********************************************************************************************"
                 + "* View Map Menu                                                                                           *\n"
                 + "* The following menu will be displayed:                                                                   *\n"
@@ -149,7 +149,7 @@ public class HelpMenuView {
                 + "*********************************************************************************************");
     }
 
-    private static void conquerCitiesInfoView() {
+    private void conquerCitiesInfoView() {
         System.out.println("*********************************************************************************************"
                 + "* Manage Army                                                                               *\n" 
                 + "* The following menu will be displayed:                                                     *\n" 

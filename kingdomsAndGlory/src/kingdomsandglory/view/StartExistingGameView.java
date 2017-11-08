@@ -10,7 +10,7 @@ package kingdomsandglory.view;
  * @author reeve
  */
 public class StartExistingGameView {
-    public static void displayStartExistingGameView() {
+    public void displayStartExistingGameView() {
         System.out.println("*** StartExistingGameView Class - displayStartExistingGameView() Called***");
     }
 }

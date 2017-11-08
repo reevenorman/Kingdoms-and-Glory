@@ -13,7 +13,7 @@ import kingdomsandglory.control.MapControl;
  * @author reeve
  */
 public class MoveOutcomeView {
-    static void displayMoveOutcomeView() {
+        void displayMoveOutcomeView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,7 +25,7 @@ public class MoveOutcomeView {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -58,7 +58,7 @@ public class MoveOutcomeView {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
         char gambleOption;
         int userGambleOption;
         String message;

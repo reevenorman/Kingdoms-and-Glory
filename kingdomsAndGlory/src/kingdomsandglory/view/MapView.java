@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class MapView {
 
-    static void displayMapView() {
+     public void displayMapView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,7 +25,7 @@ public class MapView {
         } while (!endView);
     }
 
-    private static String[] getInputs() {
+    private String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -54,7 +54,7 @@ public class MapView {
         return input;
     }
 
-    private static boolean doAction(String[] inputs) {
+    private boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
 
@@ -63,7 +63,8 @@ public class MapView {
                 ViewTerritoryView.displayViewTerritoryView();
                 break;
             case 'M':
-                MoveOnMapView.displayMoveOnMapView();
+                MoveOnMapView moveOnMapView = new MoveOnMapView();
+                moveOnMapView.displayMoveOnMapView();
                 break;
             case 'B':
                 return true;
@@ -71,9 +72,5 @@ public class MapView {
                 System.out.println("Invalid Input");
         }
         return false;
-    }
-
-    private static void saveGame() {
-        System.out.println("*** Class GameMenuView - saveGame() Called***");
     }
 }
