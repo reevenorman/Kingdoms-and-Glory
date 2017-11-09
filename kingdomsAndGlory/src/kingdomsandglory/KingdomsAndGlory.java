@@ -8,6 +8,7 @@ package kingdomsandglory;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Player;
 import kingdomsandglory.view.StartProgramView;
+
 /**
  *
  * @author piano
