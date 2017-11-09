@@ -85,8 +85,9 @@ public class MainMenuView {
 
 
     private void startNewGame() {
-        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayer());
-        ActorTraitResultView.displayActorTraitResultView();
+        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayerName());
+        ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
+        actorTraitResultView.displayActorTraitResultView();
     }
 
     private void loadGame() {
@@ -98,7 +99,8 @@ public class MainMenuView {
     }
 
     private void helpMenu() {
-        HelpMenuView.displayHelpMenuView();
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
        
     }

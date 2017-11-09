@@ -10,7 +10,7 @@ package kingdomsandglory.view;
  * @author piano
  */
 public class ViewTerritoryView {
-    static void displayViewTerritoryView() {
+        static void displayViewTerritoryView() {
         System.out.println("*** Class ViewTerritoryView - View TerritoryView() Called***");
 }
 }

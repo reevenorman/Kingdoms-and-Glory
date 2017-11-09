@@ -54,26 +54,5 @@ public class PlayerControl {
         return actorTrait;
     }
     
-    public static int collectData() {
-        int actorTrait;
-        int questionOne;
-        int questionTwo;
-        int questionThree;
-        int questionFour;
-        int questionFive;
-        
-        
-        
-        questionOne = kingdomsandglory.view.ActorTraitViewOne.displayActorTraitViewOne();
-        questionTwo = kingdomsandglory.view.ActorTraitViewTwo.displayActorTraitViewTwo();
-        questionThree = kingdomsandglory.view.ActorTraitViewThree.displayActorTraitViewThree();
-        questionFour = kingdomsandglory.view.ActorTraitViewFour.displayActorTraitViewFour();
-        questionFive = kingdomsandglory.view.ActorTraitViewFive.displayActorTraitViewFive();
-        
-        actorTrait = assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
-        
-        
-        
-        return actorTrait;
-    }
+
 }

@@ -6,7 +6,6 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
-import static jdk.nashorn.internal.objects.NativeString.trim;
 import kingdomsandglory.model.Player;
 
 /**
@@ -101,7 +100,7 @@ public class StartProgramView {
 
     public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
-        Player player= GameControl.savePlayer(playersName);
+        Player player= kingdomsandglory.control.GameControl.savePlayer(playersName);
         if (player == null){
             System.out.println("Could not create the player. \n"
                     + "Enter a different name.");

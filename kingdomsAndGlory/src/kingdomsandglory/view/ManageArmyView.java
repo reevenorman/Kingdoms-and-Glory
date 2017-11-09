@@ -11,7 +11,7 @@ package kingdomsandglory.view;
  */
 public class ManageArmyView {
     
-    static void displayManageArmyView() {
+        public void displayManageArmyView() {
         System.out.println("*** Class ManageArmyView - ManageArmyView() Called***");
     }
 }
