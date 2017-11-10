@@ -7,34 +7,18 @@ package kingdomsandglory.view;
 
 import java.util.Scanner;
 import kingdomsandglory.model.Player;
+import kingdomsandglory.KingdomsAndGlory;
 
 /**
  *
  * @author piano
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
-    public void displayStartProgramView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            inputs[0].toUpperCase();
-            if (inputs.length == 0 || inputs[0].equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-
-        } while (!endView);
-    }
-
-    private String[] getInputs() {
-        String[] input = new String[1];
-        
-        String userInput;
-        
-        
-        String welcomeBanner;
-        welcomeBanner = ("************************************************************************************\n" 
+        @Override
+        public String[] getInputs() {
+            String welcomeBanner;
+            welcomeBanner = ("************************************************************************************\n" 
                         + "*                           Welcome to Kindoms and Glory!                          *\n"
                         + "* Kingdoms and Glory is a text based role playing game. In this game you take on   *\n"
                         + "* the role of King, and you decide what kind of king you’ll be. Your kingdom,      *\n"
@@ -66,41 +50,27 @@ public class StartProgramView {
                         + "* by searching the rest of your land and collecting resources, you should be able  *\n"
                         + "* to take back all of your cities and free your captive citizens. How you move,    *\n"
                         + "* attack and build your resources is up to you, King of Zenobia.                   *\n"
- */                       + "************************************************************************************");
+ */                     + "************************************************************************************");
                   
-        System.out.println(welcomeBanner);
+            System.out.println(welcomeBanner);
         
-        boolean valid = false;
-        
-        while (!valid){
-            System.out.println("Please Enter Player's name");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-            
-            
-            if (input[0].length() < 2){
-                System.out.print("You must enter a value!\n");
-                continue;
-            }
-            else {
-                valid = true;
-            }            
-        }   
-        
-        System.out.println("**** getInputs() called ***");
-        
-        String[] inputs = new String[1];
-        inputs[0] = "testinput";
-        
-        return input;
+            String value = this.getInput("Please Enter Your Name");
+            String[] inputs = new String[1];
+            inputs[0] = value;
+            return inputs; 
 
     }
 
+    @Override
     public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
-        Player player= kingdomsandglory.control.GameControl.savePlayer(playersName);
+        Player player = new Player();
+        
+        player.setPlayerName(playersName);
+        
+        KingdomsAndGlory.setPlayer(player);
+
+        
         if (player == null){
             System.out.println("Could not create the player. \n"
                     + "Enter a different name.");
@@ -112,7 +82,7 @@ public class StartProgramView {
                         + "========================================\n");
         
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
         
     
                 

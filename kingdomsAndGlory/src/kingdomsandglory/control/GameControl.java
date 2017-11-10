@@ -6,7 +6,7 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.model.Player;
-import kingdomsandglory.model.Player.setPlayerName;
+import kingdomsandglory.KingdomsAndGlory;
 
 /**
  *
@@ -14,12 +14,11 @@ import kingdomsandglory.model.Player.setPlayerName;
  */
 public class GameControl {
 
-    public static Player savePlayer(String playerName) {
-        if (playerName == null || playerName.length() < 1) {
+    public static Player savePlayer(Player player) {
+        if (player == null) {
             return null;
         }
-        Player player = new Player();
-        setPlayerName(playerName);
+        KingdomsAndGlory.setPlayer(player);
       
         return player;
     }

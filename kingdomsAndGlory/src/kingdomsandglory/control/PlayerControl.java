@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.control;
-import kingdomsandglory.view.ActorTraitViewOne;
-//import kingdomsandglory.view.ActorTraitViewOne;
 //import kingdomsandglory.view.ActorTraitViewTwo;
 //import kingdomsandglory.view.ActorTraitViewThree;
 //import kingdomsandglory.view.ActorTraitViewFour;

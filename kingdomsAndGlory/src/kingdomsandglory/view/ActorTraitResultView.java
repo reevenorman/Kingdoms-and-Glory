@@ -4,16 +4,19 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.view;
-import kingdomsandglory.control.PlayerControl;
 
+import kingdomsandglory.control.PlayerControl;
 import java.util.Scanner;
+import static kingdomsandglory.control.PlayerControl.assignActorTrait;
 import kingdomsandglory.view.StartProgramView;
+
 /**
  *
  * @author piano
  */
-public class ActorTraitResultView {
-        void displayActorTraitResultView() {
+public class ActorTraitResultView extends View {
+
+    void displayActorTraitResultView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,16 +28,143 @@ public class ActorTraitResultView {
         } while (!endView);
     }
 
-    private String[] getInputs() {
-        String[] input = new String[1];
+    @Override
+    public String[] getInputs() {
+        String[] inputs = new String[5];
         String userInput;
         int actorTrait;
         String actorTraitName;
         Boolean valid = false;
+        String questionAnswer = "";
+        String actorTraitDisplay;
         
-        actorTrait = collectData();
+        actorTraitDisplay = " Question 1: When negotiating with a foreign empire, are you more likley to... \n"
+                + " A - Meet formally, and discuss matters of concern through proper channels? \n"
+                + " B - Meet formally, and have a carefully crafted plan of what you want to accomplish? \n"
+                + " C - Meet informally, entertain your guest and convince them of your desires? \n";
+
+        questionAnswer = this.checkInput(actorTraitDisplay);
+        inputs[0] = questionAnswer;
         
-        switch (actorTrait) {
+        actorTraitDisplay = " Question 2: While playiing chess do you... \n"
+                + " A - Play in a way that makes the game fair and beneficial to both parties? \n"
+                + " B - Plan out each move in advance for the greatest chance of winning?\n"
+                + " C - Make your moves based on the current moment? \n";
+
+        questionAnswer = this.checkInput(actorTraitDisplay);
+        inputs[1] = questionAnswer;
+        
+
+        actorTraitDisplay = " Question 3: When you want something from someone else, do you... \n"
+                + " A - Kindly ask them for it, promising mutual benefit? \n"
+                + " B - Pre-meditate the most effective way to get what you want without losing anything? \n"
+                + " C - Charm them into giving you what you want? \n";
+
+        questionAnswer = this.checkInput(actorTraitDisplay);
+        inputs[2] = questionAnswer;
+
+        actorTraitDisplay = " Question 4: Your treasurer has been taking gold from your vault. Will you... \n"
+                + " A - Bring him to justice in the juducial courts of the kingdom? \n"
+                + " B - Set a trap to convict him? \n"
+                + " C - Slay him in the thralls of your anger? \n";
+
+        questionAnswer = this.checkInput(actorTraitDisplay);
+        inputs[3] = questionAnswer;
+
+        actorTraitDisplay = " Question 5: When you gain a victory, do you... \n"
+                + " A - Have a modest gathering, to acknowledge the victory? \n"
+                + " B - Begin plotting for your next impending victory? \n"
+                + " C - Celebrate all night long? \n";
+
+        questionAnswer = this.checkInput(actorTraitDisplay);
+        inputs[4] = questionAnswer;
+
+        return inputs;
+
+    }
+
+    private String checkInput(String actorTraitDisplay) {
+        boolean valid = false;
+        while (!valid) {
+            System.out.println(actorTraitDisplay);
+
+            String question1 = this.getInput("Please Selection an Option");
+
+            char question = question1.toUpperCase().charAt(0);
+
+            switch (question) {
+                case 'A':
+                    return "1";
+
+                case 'B':
+                    return "2";
+
+                case 'C':
+                    return "3";
+
+                default:
+                    System.out.println("Invalid Input");
+                    break;
+            }
+        }
+        return null;
+
+    }
+
+//        actorTrait = collectData();
+//        
+//        switch (actorTrait) {
+//            case 1:
+//                actorTraitName = "Diplomatic";
+//                break;
+//            case 2:
+//                actorTraitName = "Strategic";
+//                break;
+//            case 3:
+//                actorTraitName = "Charismatic";
+//                break; 
+//            default:
+//                actorTraitName = "Invalid Input";
+//        }
+//        
+//        String playerName = "Unknown";
+//        playerName = kingdomsandglory.model.Player.getPlayerName();
+//        
+//        System.out.println("========================================\n"
+//                        + "Congratulations, " + "(savePlayerName) accessed" + "!\n"
+//                        + "You have received the trait of " + actorTraitName + "!\n"
+//                        + "You will be known as " + "(savePlayerName) accessed" + " the " +  actorTraitName + "!\n"
+//                        + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
+//                        + "View your resources to see what advantages you have received! \n"
+//                        + "\n"
+//                        + "C - Continue \n"
+//                        + "========================================\n");
+//
+//        while (!valid) {
+//            System.out.println("Please enter 'C' to continue" );
+//            Scanner inputName;
+//            inputName = new Scanner(System.in);
+//            input[0] = inputName.nextLine();
+//            input[0] = input[0].trim();
+//
+//            if (input[0].length() == 0) {
+//                System.out.print("You must enter a valid answer!\n");
+//            } else {
+//                valid = true;
+//            }
+//        }
+//        return input;
+//    }
+    @Override
+    public boolean doAction(String[] inputs) {
+        int[] sendInputs = new int[5];
+        sendInputs = this.convertInput(inputs);
+        int traitresult;
+        traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
+        
+        String actorTraitName = "unknown";
+       
+        switch (traitresult) {
             case 1:
                 actorTraitName = "Diplomatic";
                 break;
@@ -52,67 +182,42 @@ public class ActorTraitResultView {
         playerName = kingdomsandglory.model.Player.getPlayerName();
         
         System.out.println("========================================\n"
-                        + "Congratulations, " + "(savePlayerName) accessed" + "!\n"
+                        + "Congratulations, " + playerName + "!\n"
                         + "You have received the trait of " + actorTraitName + "!\n"
-                        + "You will be known as " + "(savePlayerName) accessed" + " the " +  actorTraitName + "!\n"
+                        + "You will be known as " + playerName + " the " +  actorTraitName + "!\n"
                         + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "\n"
-                        + "C - Continue \n"
                         + "========================================\n");
 
-        while (!valid) {
-            System.out.println("Please enter 'C' to continue" );
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() == 0) {
-                System.out.print("You must enter a valid answer!\n");
-            } else {
-                valid = true;
-            }
-        }
-        return input;
-    }
-
-    private boolean doAction(String[] inputs) {
-        char menuItem;
-        menuItem = inputs[0].toUpperCase().charAt(0);
-
-        switch (menuItem) {
-            case 'C':
-                GameMenuView gameMenuView = new GameMenuView();
-                gameMenuView.displayGameMenuView();
-                break;
-            default:
-                System.out.println("Invalid Input");
-        }
         return false;
     }
 
-
-    public int collectData() {
-        int actorTrait;
-        int questionOne;
-        int questionTwo;
-        int questionThree;
-        int questionFour;
-        int questionFive;
+    
+    private int[] convertInput (String[] inputs) {
+        int[] numberInputs = new int[5];
+        char change;
+        int answerInput;
         
         
+        for (int i = 0; i < inputs.length; i++) {
+            change = inputs[i].toUpperCase().charAt(0);
+            switch (change) {
+            case 'A':
+                answerInput = 1;
+                break;
+            case 'B':
+                answerInput = 2;
+                break;
+            case 'C':
+                answerInput = 3;
+                break;
+            }
+            numberInputs[i] = change;
+            
+        }
+        return numberInputs;
         
-        questionOne = kingdomsandglory.view.ActorTraitViewOne.displayActorTraitViewOne();
-        questionTwo = kingdomsandglory.view.ActorTraitViewTwo.displayActorTraitViewTwo();
-        questionThree = kingdomsandglory.view.ActorTraitViewThree.displayActorTraitViewThree();
-        questionFour = kingdomsandglory.view.ActorTraitViewFour.displayActorTraitViewFour();
-        questionFive = kingdomsandglory.view.ActorTraitViewFive.displayActorTraitViewFive();
-        
-        actorTrait = assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
-        
-        
-        
-        return actorTrait;
     }
+
 }

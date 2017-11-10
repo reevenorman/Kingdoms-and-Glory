@@ -12,20 +12,10 @@ import kingdomsandglory.KingdomsAndGlory;
  *
  * @author piano
  */
-public class MainMenuView {
-    public void displayMainMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doActionMenu(inputs);
+public class MainMenuView extends View {
 
-        } while (!endView);
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         
         String[] input = new String[1];
         String userInput;
@@ -41,28 +31,15 @@ public class MainMenuView {
         
         System.out.println(mainMenuDisplay);
         
-        while (!valid){
-            System.out.println("Please choose a menu Item");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-            
-            
-            
-            if (input[0].length() == 0){
-                System.out.print("You must enter a valid menu item!\n");
-            }
-            else {
-                valid = true;
-            }            
-        }   
+        String value = this.getInput("Please choose a menu Item");
+        String[] inputs = new String[1];
+        inputs[0] = value;
+        return inputs;        
         
-        
-        return input;
     }
-
-    private boolean doActionMenu(String[] inputs) {
+    
+    @Override
+    public boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
         
@@ -85,7 +62,7 @@ public class MainMenuView {
 
 
     private void startNewGame() {
-        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayerName());
+        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayer());
         ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
         actorTraitResultView.displayActorTraitResultView();
     }
@@ -102,6 +79,7 @@ public class MainMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
     }
+
        
     }
     

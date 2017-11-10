@@ -14,15 +14,20 @@ import kingdomsandglory.view.StartProgramView;
  * @author piano
  */
 public class KingdomsAndGlory {
+    
+    public void main(String[] args) {
+    StartProgramView startProgramView = new StartProgramView();
+    startProgramView.display();
+    }
 
     private static Player player = null;
     private static Game currentGame = null;
 
-    public static Player getPlayerName() {
+    public static Player getPlayer() {
         return player;
     }
 
-    public static void setPlayerName(Player player) {
+    public static void setPlayer(Player player) {
         KingdomsAndGlory.player = player;
     }
 
@@ -33,13 +38,7 @@ public class KingdomsAndGlory {
     public static void setCurrentGame(Game currentGame) {
         KingdomsAndGlory.currentGame = currentGame;
     }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
-    }
+
+
     
 }
