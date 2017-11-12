@@ -6,7 +6,7 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.model.Player;
-import kingdomsglory.kingdomsandgloryMain;
+import kingdomsandglory.main.kingdomsandgloryMain;
 
 /**
  *

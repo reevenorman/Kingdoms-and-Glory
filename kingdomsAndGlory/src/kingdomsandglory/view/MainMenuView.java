@@ -6,7 +6,7 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
-import kingdomsglory.kingdomsandgloryMain;
+import kingdomsandglory.main.kingdomsandgloryMain;
 
 /**
  *

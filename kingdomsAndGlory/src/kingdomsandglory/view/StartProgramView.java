@@ -7,7 +7,7 @@ package kingdomsandglory.view;
 
 import java.util.Scanner;
 import kingdomsandglory.model.Player;
-import kingdomsglory.kingdomsandgloryMain;
+import kingdomsandglory.main.kingdomsandgloryMain;
 
 /**
  *
