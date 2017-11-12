@@ -6,7 +6,7 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.model.Player;
-import kingdomsandglory.KingdomsAndGlory;
+import kingdomsglory.kingdomsandgloryMain;
 
 /**
  *
@@ -18,7 +18,7 @@ public class GameControl {
         if (player == null) {
             return null;
         }
-        KingdomsAndGlory.setPlayer(player);
+        kingdomsandgloryMain.setPlayer(player);
       
         return player;
     }

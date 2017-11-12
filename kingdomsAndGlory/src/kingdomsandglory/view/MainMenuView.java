@@ -6,7 +6,7 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
-import kingdomsandglory.KingdomsAndGlory;
+import kingdomsglory.kingdomsandgloryMain;
 
 /**
  *
@@ -62,7 +62,7 @@ public class MainMenuView extends View {
 
 
     private void startNewGame() {
-        kingdomsandglory.control.GameControl.createNewGame(KingdomsAndGlory.getPlayer());
+        kingdomsandglory.control.GameControl.createNewGame(kingdomsandgloryMain.getPlayer());
         ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
         actorTraitResultView.displayActorTraitResultView();
     }
