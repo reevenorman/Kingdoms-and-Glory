@@ -11,52 +11,33 @@ import java.util.Scanner;
  *
  * @author piano
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
 
-    public void displayHelpMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-
-        } while (!endView);
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
 
-        String mainMenuDisplay;
+        String helpMenuDisplay;
 
-        mainMenuDisplay = " A - Learn About Army \n"
+        helpMenuDisplay = " A - Learn About Army \n"
                 + " R - Learn About Resources \n"
                 + " M - Learn About Map and Movement \n"
                 + " C - Learn About Waging War and Conquering Cities \n"
                 + " B - Go Back \n";
 
-        System.out.println(mainMenuDisplay);
+        System.out.println(helpMenuDisplay);
 
-        while (!valid) {
-            System.out.println("Please choose a help menu Item");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
+        String value = this.getInput("Please choose a menu Item");
+        String[] inputs = new String[1];
+        inputs[0] = value;
+        return inputs;   
 
-            if (input[0].length() == 0) {
-                System.out.print("You must enter a valid help menu item!\n");
-            } else {
-                valid = true;
-            }
-        }
-        return input;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
 

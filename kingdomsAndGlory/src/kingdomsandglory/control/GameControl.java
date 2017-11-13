@@ -6,7 +6,8 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.model.Player;
-import kingdomsandglory.main.kingdomsandgloryMain;
+import kingdomsandglory.kingdomsandglory;
+import kingdomsandglory.view.StartExistingGameView;
 
 /**
  *
@@ -18,7 +19,7 @@ public class GameControl {
         if (player == null) {
             return null;
         }
-        kingdomsandgloryMain.setPlayer(player);
+        kingdomsandglory.setPlayer(player);
       
         return player;
     }
@@ -32,7 +33,7 @@ public class GameControl {
     }
     
     public static void restartGame() {
-        kingdomsandglory.view.StartExistingGameView savedGame = new kingdomsandglory.view.StartExistingGameView();
+        StartExistingGameView savedGame = new StartExistingGameView();
         savedGame.displayStartExistingGameView();
     }
 }

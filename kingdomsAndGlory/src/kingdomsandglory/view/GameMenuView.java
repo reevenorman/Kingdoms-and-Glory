@@ -75,7 +75,7 @@ public class GameMenuView {
                 break;
             case 'H':
                 HelpMenuView helpMenuView = new HelpMenuView();
-                helpMenuView.displayHelpMenuView();
+                helpMenuView.display();
                 break;
             case 'S':
                 saveGame();

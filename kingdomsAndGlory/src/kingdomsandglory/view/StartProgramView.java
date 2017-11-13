@@ -7,7 +7,7 @@ package kingdomsandglory.view;
 
 import java.util.Scanner;
 import kingdomsandglory.model.Player;
-import kingdomsandglory.main.kingdomsandgloryMain;
+import kingdomsandglory.kingdomsandglory;
 
 /**
  *
@@ -68,7 +68,7 @@ public class StartProgramView extends View {
         
         player.setPlayerName(playersName);
         
-        kingdomsandgloryMain.setPlayer(player);
+        kingdomsandglory.setPlayer(player);
 
         
         if (player == null){
