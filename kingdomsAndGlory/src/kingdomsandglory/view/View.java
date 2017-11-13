@@ -36,6 +36,8 @@ public abstract class View implements ViewInterface {
         String selection = null;
         Scanner inputName;
         inputName = new Scanner(System.in);
+        
+        System.out.println(promptMessage);
 
         while (!valid) {
             inputName = new Scanner(System.in);
@@ -43,7 +45,7 @@ public abstract class View implements ViewInterface {
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                System.out.print(promptMessage);
+                System.out.print("Invalid Input");
                 continue;
             }
             break;

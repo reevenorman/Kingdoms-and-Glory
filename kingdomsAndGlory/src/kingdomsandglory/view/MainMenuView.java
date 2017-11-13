@@ -63,8 +63,9 @@ public class MainMenuView extends View {
 
     private void startNewGame() {
         kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
-        ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
-        actorTraitResultView.displayActorTraitResultView();
+        ActorTraitView actorTraitView = new ActorTraitView();
+        actorTraitView.display();
+        
     }
 
     private void loadGame() {
