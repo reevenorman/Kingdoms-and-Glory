@@ -15,7 +15,7 @@ import kingdomsandglory.view.StartProgramView;
  */
 public class kingdomsandgloryMain {
     
-    public void Main(String[] args) {
+    public void main(String[] args) {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         
