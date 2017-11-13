@@ -11,20 +11,11 @@ import java.util.Scanner;
  *
  * @author piano
  */
-public class GameMenuView {
-        public void displayGameMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
+public class GameMenuView extends View {
 
-        } while (!endView);
-    }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
@@ -39,24 +30,16 @@ public class GameMenuView {
                 + " B - Go Back \n";
 
         System.out.println(GameMenuDisplay);
+           
+        String value = this.getInput("Please Choose a Game Menu Item");
+        String[] inputs = new String[1];
+        inputs[0] = value;
+        return inputs;   
 
-        while (!valid) {
-            System.out.println("Please choose a game menu Item");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() == 0) {
-                System.out.print("You must enter a valid game menu item!\n");
-            } else {
-                valid = true;
-            }
-        }
-        return input;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
 
