@@ -12,7 +12,7 @@ import kingdomsandglory.control.MapControl;
  *
  * @author reeve
  */
-public class MoveOutcomeView extends View {
+public class FortuneOutcomeView extends View {
 
 
     @Override

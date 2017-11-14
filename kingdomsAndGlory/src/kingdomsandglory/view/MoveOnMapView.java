@@ -59,7 +59,7 @@ public class MoveOnMapView {
     private boolean doAction(String[] inputs) {
         char moveDirection;
         moveDirection = inputs[0].toUpperCase().charAt(0);
-        MoveOutcomeView moveOutcomeView = new MoveOutcomeView();
+        FortuneOutcomeView moveOutcomeView = new FortuneOutcomeView();
         switch (moveDirection) {
             case 'E':
                 moveNorth();
