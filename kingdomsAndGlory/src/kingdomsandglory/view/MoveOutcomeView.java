@@ -53,12 +53,12 @@ public class MoveOutcomeView extends View {
         switch (gambleOption) {
             case 'Y':
                 userGambleOption = 1;
-                message = MapControl.moveOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
                 System.out.println(message);
                 return true;
             case 'N':
                 userGambleOption = 0;
-                message = MapControl.moveOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
                 System.out.println(message);
                 return true;
 
