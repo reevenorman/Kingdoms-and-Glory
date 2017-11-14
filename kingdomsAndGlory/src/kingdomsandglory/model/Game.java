@@ -14,24 +14,24 @@ import java.util.Objects;
  * @author reeve
  */
 public class Game implements Serializable{
-       private Date dataTime;
+       private Date dateTime;
        private String gameSave;
 
-    public Game(Date dataTime, String gameSave) {
-        this.dataTime = dataTime;
+    public Game(Date dateTime, String gameSave) {
+        this.dateTime = dateTime;
         this.gameSave = gameSave;
     }
 
-    public Date getDataTime() {
-        return dataTime;
+    public Date getDateTime() {
+        return dateTime;
     }
 
     public String getGameSave() {
         return gameSave;
     }
 
-    public void setDataTime(Date dataTime) {
-        this.dataTime = dataTime;
+    public void setDateTime(Date dataTime) {
+        this.dateTime = dataTime;
     }
 
     public void setGameSave(String gameSave) {
@@ -40,13 +40,13 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "dataTime=" + dataTime + ", gameSave=" + gameSave + '}';
+        return "Game{" + "dateTime=" + dateTime + ", gameSave=" + gameSave + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.dataTime);
+        hash = 89 * hash + Objects.hashCode(this.dateTime);
         hash = 89 * hash + Objects.hashCode(this.gameSave);
         return hash;
     }
@@ -66,7 +66,7 @@ public class Game implements Serializable{
         if (!Objects.equals(this.gameSave, other.gameSave)) {
             return false;
         }
-        if (!Objects.equals(this.dataTime, other.dataTime)) {
+        if (!Objects.equals(this.dateTime, other.dateTime)) {
             return false;
         }
         return true;

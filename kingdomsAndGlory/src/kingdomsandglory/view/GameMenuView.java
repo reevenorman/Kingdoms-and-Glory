@@ -28,7 +28,7 @@ public class GameMenuView extends View {
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
                 + " B - Go Back to Main Menu \n"
-                + " Q - Quit \n";
+                + " X - Quit \n";
 
         System.out.println(GameMenuDisplay);
            
@@ -66,8 +66,8 @@ public class GameMenuView extends View {
             case 'B':
                 MainMenuView mainMenuView = new MainMenuView();
                 mainMenuView.display();
-            case 'Q':
-                java.lang.System.exit(0);
+            case 'X':
+                System.exit(0);
             default:
                 System.out.println("Invalid Input");
         }

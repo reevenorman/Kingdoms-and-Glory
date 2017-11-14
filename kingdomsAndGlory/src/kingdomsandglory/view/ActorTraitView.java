@@ -5,6 +5,8 @@
  */
 package kingdomsandglory.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author piano
@@ -31,7 +33,7 @@ public class ActorTraitView extends View {
         ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
         actorTraitResultView.display();
         
-        String value = this.getInput("Please Type C to Continue.");
+        String value = this.getInput("Please Type Any Letter to Continue.");
         String[] inputs = new String[1];
         inputs[0] = value;    
     
@@ -43,18 +45,16 @@ public class ActorTraitView extends View {
     public boolean doAction(String[] inputs) {
         char menuItem;
         menuItem = inputs[0].toUpperCase().charAt(0);
+        GameMenuView gameMenuView = new GameMenuView();
         
         switch (menuItem){
-            case 'C' : GameMenuView();
+            case 'C' :
+                gameMenuView.display();
                 break;
             default : 
-                System.out.println("Invalid Input");
+                gameMenuView.display();
+                
         }
         return false;
-            
         }
-    private void GameMenuView() {
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
     }
-}
