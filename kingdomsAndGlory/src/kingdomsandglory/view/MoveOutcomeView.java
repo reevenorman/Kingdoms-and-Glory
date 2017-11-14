@@ -5,30 +5,20 @@
  */
 package kingdomsandglory.view;
 
-import java.util.Scanner;
+import java.util.Random;
 import kingdomsandglory.control.MapControl;
 
 /**
  *
  * @author reeve
  */
-public class MoveOutcomeView {
-        void displayMoveOutcomeView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
+public class MoveOutcomeView extends View {
 
-        } while (!endView);
-    }
 
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] input = new String[1];
         String userInput;
-        Boolean valid = false;
 
         String MoveMenuDisplay;
 
@@ -42,37 +32,33 @@ public class MoveOutcomeView {
 
         System.out.println(MoveMenuDisplay);
 
-        while (!valid) {
-            System.out.println("Please Enter Y or N");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() == 0) {
-                System.out.print("Please Enter a Valid Command \n");
-            } else {
-                valid = true;
-            }
-        }
-        return input;
+        String value = this.getInput("Please Type an Answer.");
+        String[] inputs = new String[1];
+        inputs[0] = value;
+        return inputs;   
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char gambleOption;
         int userGambleOption;
         String message;
         gambleOption = inputs[0].toUpperCase().charAt(0);
+        
+        Random rand = new Random();
+        int randResourceAmt = rand.nextInt(101) + 1;
+        int randResourceObj = rand.nextInt(3) + 0;
+        int randChanceAmt = rand.nextInt(7) + 1;
 
         switch (gambleOption) {
             case 'Y':
                 userGambleOption = 1;
-                message = MapControl.moveOutcome(userGambleOption);
+                message = MapControl.moveOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
                 System.out.println(message);
                 return true;
             case 'N':
                 userGambleOption = 0;
-                message = MapControl.moveOutcome(userGambleOption);
+                message = MapControl.moveOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
                 System.out.println(message);
                 return true;
 

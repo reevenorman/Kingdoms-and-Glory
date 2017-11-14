@@ -108,11 +108,10 @@ public class MapControl {
         return 0;
     }
     
-    public static String moveOutcome(int userGambleOption) {
+    public static String moveOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) {
         Resource resource = new Resource();
         double outcome;
         String resultOutcome = "error";
-        
                 
         if (userGambleOption < 0) {
             return "-1";     
@@ -120,10 +119,26 @@ public class MapControl {
         if (userGambleOption > 1) {
             return "-2";      
         }
+        if (randResourceAmt > 101) {
+            return "-3";
+        }
+        if (randResourceAmt < -1) {
+            return "-4";
+        }
+        if (randResourceObj >= 5) {
+            return "-5";
+        }
+        if (randResourceObj < -1) {
+            return "-6";
+        }
+        if (randChanceAmt > 7) {
+            return "-7";
+        }
+        if (randChanceAmt < 0) {
+            return "-8";
+        }
+        
         Random rand = new Random();
-        int randResourceAmt = rand.nextInt(101) + 1;
-        int randResourceObj = rand.nextInt(3) + 0;
-        int randChanceAmt = rand.nextInt(7) + 1;
         
         if (userGambleOption == 0) {    
             outcome = randResourceAmt * 0.2;
