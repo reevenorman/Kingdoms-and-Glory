@@ -11,9 +11,34 @@ import java.util.Scanner;
  *
  * @author piano
  */
-public class MoveOnMapView {
+public class MoveOnMapMenuView extends View {
 
-       public void displayMoveOnMapView() {
+    @Override
+    public String[] getInputs() {
+        String[] input = new String[1];
+        String userInput;
+        Boolean valid = false;
+
+        String MoveOnMapMenuDisplay;
+
+        MoveOnMapMenuDisplay = " E - Move North \n"
+                + " D - Move South \n"
+                + " F - Move East \n"
+                + " S - Move West \n"
+                + " B - Go Back \n";
+
+        System.out.println(MoveOnMapMenuDisplay);
+           
+        String value = this.getInput("Please Choose a Menu Item");
+        String[] inputs = new String[1];
+        inputs[0] = value;
+        return inputs;   
+    }
+    
+    
+    
+    
+    public void displayMoveOnMapView() {
         boolean endView = false;
         do {
             String[] inputs = getInputs();
@@ -25,38 +50,9 @@ public class MoveOnMapView {
         } while (!endView);
     }
 
-    private String[] getInputs() {
-        String[] input = new String[1];
-        String userInput;
-        Boolean valid = false;
 
-        String MoveMenuDisplay;
-
-        MoveMenuDisplay = " E - Move North \n"
-                + " D - Move South \n"
-                + " F - Move East \n"
-                + " S - Move West \n"
-                + " B - Go Back \n";
-
-        System.out.println(MoveMenuDisplay);
-
-        while (!valid) {
-            System.out.println("Please Choose a Direction to Move on the Map");
-            Scanner inputName;
-            inputName = new Scanner(System.in);
-            input[0] = inputName.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() == 0) {
-                System.out.print("Please Enter a Valid Command \n");
-            } else {
-                valid = true;
-            }
-        }
-        return input;
-    }
-
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         char moveDirection;
         moveDirection = inputs[0].toUpperCase().charAt(0);
         MoveOutcomeView moveOutcomeView = new MoveOutcomeView();

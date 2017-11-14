@@ -53,8 +53,8 @@ public class GameMenuView extends View {
                 manageResourceView.displayManageResourceView();
                 break;
             case 'M':
-                MapView mapView = new MapView();
-                mapView.displayMapView();
+                MapMenuView mapMenuView = new MapMenuView();
+                mapMenuView.display();
                 break;
             case 'H':
                 HelpMenuView helpMenuView = new HelpMenuView();
@@ -63,7 +63,8 @@ public class GameMenuView extends View {
             case 'S':
                 saveGame();
             case 'B':
-                return true;
+                MainMenuView mainMenuView = new MainMenuView();
+                mainMenuView.display();
             default:
                 System.out.println("Invalid Input");
         }
