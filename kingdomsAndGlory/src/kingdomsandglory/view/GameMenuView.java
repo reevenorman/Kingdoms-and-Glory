@@ -27,6 +27,7 @@ public class GameMenuView extends View {
                 + " M - View Map \n"
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
+                + " B - Go Back to Main Menu \n"
                 + " Q - Quit \n";
 
         System.out.println(GameMenuDisplay);
@@ -53,8 +54,8 @@ public class GameMenuView extends View {
                 manageResourceView.displayManageResourceView();
                 break;
             case 'M':
-                MapView mapView = new MapView();
-                mapView.displayMapView();
+                MapMenuView mapMenuView = new MapMenuView();
+                mapMenuView.display();
                 break;
             case 'H':
                 HelpMenuView helpMenuView = new HelpMenuView();
@@ -63,6 +64,9 @@ public class GameMenuView extends View {
             case 'S':
                 saveGame();
             case 'B':
+                MainMenuView mainMenuView = new MainMenuView();
+                mainMenuView.display();
+            case 'Q':
                 java.lang.System.exit(0);
             default:
                 System.out.println("Invalid Input");
