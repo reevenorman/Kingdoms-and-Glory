@@ -55,23 +55,23 @@ public class MoveOnMapMenuView extends View {
     public boolean doAction(String[] inputs) {
         char moveDirection;
         moveDirection = inputs[0].toUpperCase().charAt(0);
-        MoveOutcomeView moveOutcomeView = new MoveOutcomeView();
+        FortuneOutcomeView fortuneOutcomeView = new FortuneOutcomeView();
         switch (moveDirection) {
             case 'E':
                 moveNorth();
-                moveOutcomeView.displayMoveOutcomeView();
+                fortuneOutcomeView.display();
                 break;
             case 'D':
                 moveSouth();
-                moveOutcomeView.displayMoveOutcomeView();
+                fortuneOutcomeView.display();
                 break;
             case 'F':
                 moveEast();
-                moveOutcomeView.displayMoveOutcomeView();
+                fortuneOutcomeView.display();
                 break;
             case 'S':
                 moveWest();
-                moveOutcomeView.displayMoveOutcomeView();
+                fortuneOutcomeView.display();
                 break;
             case 'B':
                 return true;
