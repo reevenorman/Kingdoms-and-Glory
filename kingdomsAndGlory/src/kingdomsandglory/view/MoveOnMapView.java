@@ -63,19 +63,19 @@ public class MoveOnMapView {
         switch (moveDirection) {
             case 'E':
                 moveNorth();
-                moveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.display();
                 break;
             case 'D':
                 moveSouth();
-                moveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.display();
                 break;
             case 'F':
                 moveEast();
-                moveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.display();
                 break;
             case 'S':
                 moveWest();
-                moveOutcomeView.displayMoveOutcomeView();
+                moveOutcomeView.display();
                 break;
             case 'B':
                 return true;
