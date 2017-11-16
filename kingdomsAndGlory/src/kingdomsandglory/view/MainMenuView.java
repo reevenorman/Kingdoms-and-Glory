@@ -62,7 +62,10 @@ public class MainMenuView extends View {
 
 
     private void startNewGame() {
-        kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
+        int returnValue = kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
+        if (returnValue < 0) {
+            System.out.println("ERROR - Failed to create new game");
+        }
         ActorTraitView actorTraitView = new ActorTraitView();
         actorTraitView.display();
         

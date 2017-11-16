@@ -14,28 +14,18 @@ import java.util.Objects;
  * @author reeve
  */
 public class Game implements Serializable{
-       private Date dateTime;
-       private String gameSave;
+       private long dateTime;
 
-    public Game(Date dateTime, String gameSave) {
-        this.dateTime = dateTime;
-        this.gameSave = gameSave;
+    public Game() {
+        this.dateTime = System.currentTimeMillis();
     }
 
-    public Date getDateTime() {
+    public long getDateTime() {
         return dateTime;
     }
 
-    public String getGameSave() {
-        return gameSave;
-    }
-
-    public void setDateTime(Date dataTime) {
+    public void setDateTime(long dataTime) {
         this.dateTime = dataTime;
-    }
-
-    public void setGameSave(String gameSave) {
-        this.gameSave = gameSave;
     }
 
     @Override

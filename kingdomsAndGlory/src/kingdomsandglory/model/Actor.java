@@ -14,77 +14,28 @@ import java.util.Objects;
  * @author reeve
  */
 public class Actor implements Serializable {
-        private String nameAddOn;
-        private String playerCharacteristics;
+        private Trait[] traits;
         private Point playerLocation;
 
-    public Actor(String nameAddOn, String playerCharacteristics, Point playerLocation) {
-        this.nameAddOn = nameAddOn;
-        this.playerCharacteristics = playerCharacteristics;
+    public Actor(Trait[] traits, Point playerLocation) {
+        this.traits = traits;
+
         this.playerLocation = playerLocation;
     }
 
-    public String getNameAddOn() {
-        return nameAddOn;
+    public Trait[] getTraits() {
+        return traits;
     }
 
-    public String getPlayerCharacteristics() {
-        return playerCharacteristics;
+    public void setTraits(Trait[] traits) {
+        this.traits = traits;
     }
 
     public Point getPlayerLocation() {
         return playerLocation;
     }
 
-    public void setNameAddOn(String nameAddOn) {
-        this.nameAddOn = nameAddOn;
-    }
-
-    public void setPlayerCharacteristics(String playerCharacteristics) {
-        this.playerCharacteristics = playerCharacteristics;
-    }
-
     public void setPlayerLocation(Point playerLocation) {
         this.playerLocation = playerLocation;
-    }
-
-    @Override
-    public String toString() {
-        return "Character{" + "nameAddOn=" + nameAddOn + ", playerCharacteristics=" + playerCharacteristics + ", playerLocation=" + playerLocation + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 61 * hash + Objects.hashCode(this.nameAddOn);
-        hash = 61 * hash + Objects.hashCode(this.playerCharacteristics);
-        hash = 61 * hash + Objects.hashCode(this.playerLocation);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.nameAddOn, other.nameAddOn)) {
-            return false;
-        }
-        if (!Objects.equals(this.playerCharacteristics, other.playerCharacteristics)) {
-            return false;
-        }
-        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
-            return false;
-        }
-        return true;
-    }
-        
-        
+    }    
 }

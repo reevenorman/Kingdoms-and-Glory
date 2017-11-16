@@ -12,6 +12,7 @@ import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
 import kingdomsandglory.model.Actor;
 import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Trait;
 import kingdomsandglory.view.StartExistingGameView;
 
 /**
@@ -29,6 +30,36 @@ public class GameControl {
         return player;
     }
 
+    public static int createNewGame(Player player) {
+        if (player == null) {
+            return -1;
+        }
+        Game game = new Game();
+        setPlayer(player);
+        kingdomsandglory.setCurrentGame(game);
+        Trait[] traits = new Trait[3];
+        Trait trait = new Trait(strategic, 0, 0, 0, 0, 0);
+        traits[0] = trait;
+        
+        Actor actor = new Actor(traits);
+        
+        items[] = createItems();
+        
+        map = createMap(noOfRows, noOfColumns, items);
+        
+        if (map == null) {
+            return -1;
+        }
+        
+        
+        
+        return 1;
+    }
+    
+    public static void restartGame() {
+        StartExistingGameView savedGame = new StartExistingGameView();
+        savedGame.displayStartExistingGameView();
+    }
     private static void createActors() {
         System.out.println("***GameControl() -- createActor() called***");
     }
@@ -43,30 +74,5 @@ public class GameControl {
 
     public GameControl(String name) {
         System.out.println("*** savePlayer() called ***");
-    }
-
-    public static int createNewGame(Player player) {
-        if (player == null) {
-            return -1;
-        }
-        Game game = new Game(dateTime, gameSave);
-        setPlayer(player);
-        setGameSave(gameSave);
-        Actor[] = createActors();
-        items[] = createItems();
-        map = createMap();
-        
-        if (map == null) {
-            return -1;
-        }
-        
-        
-        
-        return 1;
-    }
-    
-    public static void restartGame() {
-        StartExistingGameView savedGame = new StartExistingGameView();
-        savedGame.displayStartExistingGameView();
     }
 }
