@@ -33,6 +33,7 @@ public class GameControl {
     }
 
     public static int createNewGame(Player player) {
+        
         if (player == null) {
             return -1;
         }
