@@ -14,10 +14,15 @@ import java.util.Objects;
  */
 public class CityScene implements Serializable {
     
-    private Boolean ownership;
-    private Long riskFactor;
+    public Boolean ownership;
+    public int riskFactor;
+    
+    public CityScene() {
+        this.ownership = false;
+        this.riskFactor = 0;
+    }
 
-    public CityScene(Boolean ownership, Long riskFactor) {
+    public CityScene(Boolean ownership, int riskFactor) {
         this.ownership = ownership;
         this.riskFactor = riskFactor;
     }
@@ -26,7 +31,7 @@ public class CityScene implements Serializable {
         return ownership;
     }
 
-    public Long getRiskFactor() {
+    public int getRiskFactor() {
         return riskFactor;
     }
 
@@ -34,7 +39,7 @@ public class CityScene implements Serializable {
         this.ownership = ownership;
     }
 
-    public void setRiskFactor(Long riskFactor) {
+    public void setRiskFactor(int riskFactor) {
         this.riskFactor = riskFactor;
     }
 
