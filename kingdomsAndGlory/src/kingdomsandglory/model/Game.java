@@ -13,31 +13,25 @@ import java.util.Objects;
  *
  * @author reeve
  */
-public class Game implements Serializable{
+
+public class Game implements Serializable {
+       private Player player;
+       private Resource[] resourceType;
+       private Map map;
        private long dateTime;
+
+    public Game(long dateTime) {
+        this.dateTime = dateTime;
+    }
 
     public Game() {
         this.dateTime = System.currentTimeMillis();
     }
 
-    public long getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(long dataTime) {
-        this.dateTime = dataTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Game{" + "dateTime=" + dateTime + ", gameSave=" + gameSave + '}';
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.dateTime);
-        hash = 89 * hash + Objects.hashCode(this.gameSave);
+        hash = 97 * hash + (int) (this.dateTime ^ (this.dateTime >>> 32));
         return hash;
     }
 
@@ -53,15 +47,25 @@ public class Game implements Serializable{
             return false;
         }
         final Game other = (Game) obj;
-        if (!Objects.equals(this.gameSave, other.gameSave)) {
-            return false;
-        }
-        if (!Objects.equals(this.dateTime, other.dateTime)) {
+        if (this.dateTime != other.dateTime) {
             return false;
         }
         return true;
     }
-       
+
+    @Override
+    public String toString() {
+        return "Game{" + "dateTime=" + dateTime + '}';
+    }
+
+    public long getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(long dateTime) {
+        this.dateTime = dateTime;
+    }
+
        
 }
 

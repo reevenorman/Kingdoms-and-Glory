@@ -29,23 +29,23 @@ public class Trait {
        this.cloth = cloth;
     }
    
-      public Trait(String diplomatic, int army, int wood, int metal, int stone, int cloth) {
-       this.diplomatic = diplomatic;
-       this.army = army;
-       this.wood = wood;
-       this.metal = metal;
-       this.stone = stone;
-       this.cloth = cloth;
-    }
-      
-       public Trait(String charismatic, int army, int wood, int metal, int stone, int cloth) {
-       this.diplomatic = diplomatic;
-       this.army = army;
-       this.wood = wood;
-       this.metal = metal;
-       this.stone = stone;
-       this.cloth = cloth;
-    }
+   /*      public Trait(String diplomatic, int army, int wood, int metal, int stone, int cloth) {
+   this.diplomatic = diplomatic;
+   this.army = army;
+   this.wood = wood;
+   this.metal = metal;
+   this.stone = stone;
+   this.cloth = cloth;
+   }
+   
+   public Trait(String charismatic, int army, int wood, int metal, int stone, int cloth) {
+   this.diplomatic = diplomatic;
+   this.army = army;
+   this.wood = wood;
+   this.metal = metal;
+   this.stone = stone;
+   this.cloth = cloth;
+   }*/
     
     public String getStrategic() {
         return strategic;

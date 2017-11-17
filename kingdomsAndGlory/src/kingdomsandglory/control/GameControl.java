@@ -12,6 +12,8 @@ import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
 import kingdomsandglory.model.Actor;
 import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Map;
+import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.Trait;
 import kingdomsandglory.view.StartExistingGameView;
 
@@ -37,21 +39,26 @@ public class GameControl {
         Game game = new Game();
         setPlayer(player);
         kingdomsandglory.setCurrentGame(game);
-        Trait[] traits = new Trait[3];
-        Trait trait = new Trait(strategic, 0, 0, 0, 0, 0);
-        traits[0] = trait;
         
-        Actor actor = new Actor(traits);
+ //     Trait[] traits = new Trait[3];
+ //     Trait trait = new Trait(strategic, 0, 0, 0, 0, 0);
+ //     traits[0] = trait;
+ 
+        Trait[] traits = new Trait[1];
+        Point startingPoint = new Point();
+        Actor actor = new Actor(traits, startingPoint);
         
-        items[] = createItems();
-        
-        map = createMap(noOfRows, noOfColumns, items);
+        Resource[] resources = new Resource[5];
+        resources = createItems();
+        Map map = new Map(5,5);
+        long rowCount = 5;
+        long columnCount = 5;
+        map = createMap(rowCount, columnCount);
+       
         
         if (map == null) {
             return -1;
         }
-        
-        
         
         return 1;
     }
@@ -64,12 +71,16 @@ public class GameControl {
         System.out.println("***GameControl() -- createActor() called***");
     }
 
-    private static void createItems() {
+    public static Resource[] createItems() {
         System.out.println("***GameControl() -- createItems() called***");
+        Resource[] resourceType = new Resource[5];
+        return resourceType;
     }
     
-    private static void createMap() {
+    public static Map createMap(long rowCount, long columnCount) {
         System.out.println("***GameControl() -- createMap() called***");
+        Map map = new Map(rowCount,columnCount);
+        return map;
     }
 
     public GameControl(String name) {
