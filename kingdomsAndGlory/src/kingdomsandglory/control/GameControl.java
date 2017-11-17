@@ -14,6 +14,7 @@ import kingdomsandglory.model.Actor;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Map;
 import kingdomsandglory.model.Resource;
+import kingdomsandglory.model.ResourceEnum;
 import kingdomsandglory.model.Trait;
 import kingdomsandglory.view.StartExistingGameView;
 
@@ -51,7 +52,7 @@ public class GameControl {
         
         Resource[] resources = new Resource[5];
         resources = createItems();
-        Map map = new Map(5,5);
+        Map map;
         long rowCount = 5;
         long columnCount = 5;
         map = createMap(rowCount, columnCount);
@@ -73,18 +74,56 @@ public class GameControl {
     }
 
     public static Resource[] createItems() {
-        System.out.println("***GameControl() -- createItems() called***");
         Resource[] resourceType = new Resource[5];
+        
+        Resource cloth = new Resource();
+        cloth.resourceQty = 0.0;
+        cloth.resourceDiscription = "cloth";
+        resourceType[ResourceEnum.cloth.ordinal()] = cloth;
+        
+        Resource wood = new Resource();
+        wood.resourceQty = 0.0;
+        wood.resourceDiscription = "wood";
+        resourceType[ResourceEnum.wood.ordinal()] = wood;
+        
+        Resource stone = new Resource();
+        stone.resourceQty = 0.0;
+        stone.resourceDiscription = "stone";
+        resourceType[ResourceEnum.stone.ordinal()] = stone;
+        
+        Resource metal = new Resource();
+        metal.resourceQty = 0.0;
+        metal.resourceDiscription = "metal";
+        resourceType[ResourceEnum.metal.ordinal()] = metal;
+        
+        Resource gold = new Resource();
+        gold.resourceQty = 0.0;
+        gold.resourceDiscription = "gold";
+        resourceType[ResourceEnum.gold.ordinal()] = gold;
+        
         return resourceType;
     }
     
     public static Map createMap(long rowCount, long columnCount) {
         System.out.println("***GameControl() -- createMap() called***");
+        if (rowCount < 0 || columnCount < 0)
+            return null;
+        
         Map map = new Map(rowCount,columnCount);
+        map.setColumnCount(columnCount);
+        map.setRowCount(rowCount);
+        
+        Location location = createLocations(rowCount, columnCount);
+        
         return map;
     }
 
     public GameControl(String name) {
         System.out.println("*** savePlayer() called ***");
+    }
+    
+    public static Point createLocations(long rowCount, long columnCount) {
+        System.out.println("*** savePlayer() called ***");
+        
     }
 }

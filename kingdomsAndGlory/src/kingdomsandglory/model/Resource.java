@@ -6,6 +6,7 @@
 package kingdomsandglory.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,12 +16,13 @@ import java.util.Objects;
 public class Resource implements Serializable {
     
     public int[] resourceType;
+    public String resourceDiscription;
     public Double resourceQty;
-    public Double moneyQty;
+
     
     public Resource() {
-        this.resourceType = new int[3];
-        this.moneyQty = 0.0;
+        this.resourceType = new int[5];
+        this.resourceDiscription = "";
         this.resourceQty = 0.0;
     }
 
@@ -28,19 +30,23 @@ public class Resource implements Serializable {
     public Resource(int[] resourceType, Double resourceQty, Double moneyQty) {
         this.resourceType = resourceType;
         this.resourceQty = resourceQty;
-        this.moneyQty = moneyQty;
+        this.resourceDiscription = resourceDiscription;
+    }
+    
+    public String getResourceDiscription() {
+        return resourceDiscription;
     }
 
+    public void setResourceDiscription(String resourceDiscription) {
+        this.resourceDiscription = resourceDiscription;
+    }
+    
     public int[] getResourceType() {
         return resourceType;
     }
 
     public Double getResourceQty() {
         return resourceQty;
-    }
-
-    public Double getMoneyQty() {
-        return moneyQty;
     }
 
     public void setResourceType(int[] resourceType) {
@@ -51,21 +57,17 @@ public class Resource implements Serializable {
         this.resourceQty = resourceQty;
     }
 
-    public void setMoneyQty(Double moneyQty) {
-        this.moneyQty = moneyQty;
-    }
-
     @Override
     public String toString() {
-        return "Resource{" + "resourceType=" + resourceType + ", resourceQty=" + resourceQty + ", moneyQty=" + moneyQty + '}';
+        return "Resource{" + "resourceType=" + resourceType + ", resourceDiscription=" + resourceDiscription + ", resourceQty=" + resourceQty + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.resourceType);
-        hash = 97 * hash + Objects.hashCode(this.resourceQty);
-        hash = 97 * hash + Objects.hashCode(this.moneyQty);
+        int hash = 5;
+        hash = 19 * hash + Arrays.hashCode(this.resourceType);
+        hash = 19 * hash + Objects.hashCode(this.resourceDiscription);
+        hash = 19 * hash + Objects.hashCode(this.resourceQty);
         return hash;
     }
 
@@ -81,17 +83,18 @@ public class Resource implements Serializable {
             return false;
         }
         final Resource other = (Resource) obj;
-        if (!Objects.equals(this.resourceType, other.resourceType)) {
+        if (!Objects.equals(this.resourceDiscription, other.resourceDiscription)) {
+            return false;
+        }
+        if (!Arrays.equals(this.resourceType, other.resourceType)) {
             return false;
         }
         if (!Objects.equals(this.resourceQty, other.resourceQty)) {
             return false;
         }
-        if (!Objects.equals(this.moneyQty, other.moneyQty)) {
-            return false;
-        }
         return true;
     }
+    
     
     
     

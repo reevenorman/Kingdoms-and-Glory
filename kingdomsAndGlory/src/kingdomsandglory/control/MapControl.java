@@ -7,6 +7,7 @@ package kingdomsandglory.control;
 import kingdomsandglory.model.Resource;
 
 import java.util.Random;
+import kingdomsandglory.model.ResourceEnum;
 
 /**
  *
@@ -110,8 +111,12 @@ public class MapControl {
                 resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + "." 
                     + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + randResourceObj + ".");
             }
+                  
+            
             
         }  
         return resultOutcome;
+        
+                
     }
 }
