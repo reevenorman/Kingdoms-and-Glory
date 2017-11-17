@@ -69,6 +69,10 @@ public class Map implements Serializable {
         }
         return true;
     }
+ 
+    int[][] mapLocation = new int[5][5];
     
+    int locationValues = mapLocation[1][1];
+    int mapLocation[0][0] = 25;
     
 }
