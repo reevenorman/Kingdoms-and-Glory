@@ -33,11 +33,11 @@ public class GameControl {
         System.out.println("***GameControl() -- createActor() called***");
     }
 
-    private static void createItems() {
+    private static InventoryItem[] createItems() {
         System.out.println("***GameControl() -- createItems() called***");
     }
     
-    private static void createMap() {
+    private static Map createMap() {
         System.out.println("***GameControl() -- createMap() called***");
     }
 
@@ -46,6 +46,7 @@ public class GameControl {
     }
 
     public static int createNewGame(Player player) {
+        
         if (player == null) {
             return -1;
         }

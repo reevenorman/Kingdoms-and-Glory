@@ -14,6 +14,9 @@ import java.util.Objects;
  * @author reeve
  */
 public class Game implements Serializable{
+       private Player player;
+       private InventoryItem[] inventory;
+       private Map map;
        private Date dateTime;
        private String gameSave;
 
