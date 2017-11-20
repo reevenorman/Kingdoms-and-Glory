@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author reeve
  */
-public class FortuneScene implements Serializable {
+public class FortuneScene extends Scene implements Serializable {
     private long fortuneValue;
     private long misfortuneValue;
 

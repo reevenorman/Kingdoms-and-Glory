@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author piano
  */
-public class CityScene implements Serializable {
+public class CityScene extends Scene implements Serializable {
     
     public Boolean ownership;
     public int riskFactor;

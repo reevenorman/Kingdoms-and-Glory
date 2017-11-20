@@ -12,6 +12,7 @@ import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
 import kingdomsandglory.model.Actor;
 import kingdomsandglory.model.CityScene;
+import kingdomsandglory.model.CoordinateMapEnum;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.GridScene;
 import kingdomsandglory.model.Location;
@@ -144,7 +145,7 @@ public class GameControl {
         return resourceType;
     }
 
-    public static Map createMap(long rowCount, long columnCount) {
+    public static Map createMap(int rowCount, int columnCount) {
         System.out.println("***GameControl() -- createMap() called***");
         if (rowCount < 0 || columnCount < 0) {
             return null;
@@ -157,7 +158,7 @@ public class GameControl {
         Location[][] location = createLocations(rowCount, columnCount);
         
         GridScene gridScene = new GridScene();
-        gridScene = createGridScene();
+        gridScene = createResourceScene();
         
         CityScene cityScene = new CityScene();
         cityScene = createCityScene();
@@ -166,8 +167,15 @@ public class GameControl {
         return map;
     }
 
-    private static GridScene createGridScene() {
-        System.out.println("*** createGridScene() called ***");
+    public static Scene[] createScene() {
+        Scene[] scene = new Scene[25];
+        
+
+        Resource cloth = new Resource();
+        cloth.resourceQty = 0.0;
+        cloth.resourceDiscription = "cloth";
+        resourceType[ResourceEnum.cloth.ordinal()] = cloth;
+        
         return null;
     }
 
@@ -180,8 +188,26 @@ public class GameControl {
         System.out.println("*** savePlayer() called ***");
     }
 
-    public static Location[][] createLocations(long rowCount, long columnCount) {
-        System.out.println("*** createLocations() called ***");
-        return null;
+    public static Location[][] createLocations(int rowCount, int columnCount) {
+        if (rowCount < 1 || columnCount < 1) {
+            return null;
+        
+        }
+        int i = 0;
+        int j = 0;
+        Location[][] allLocations = new Location[rowCount][columnCount];
+        for (Location[] row : allLocations) {
+            j = 0;
+            for (Location aLocation : row) {
+                aLocation = new Location(i, j, false);
+                allLocations[i][j] = aLocation;
+                j++;
+            }
+            i++;
+        }
+        
+        
+        
+        return allLocations;
     }
 }

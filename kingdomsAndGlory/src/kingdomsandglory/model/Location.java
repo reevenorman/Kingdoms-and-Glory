@@ -13,21 +13,27 @@ import java.util.Objects;
  * @author piano
  */
 public class Location implements Serializable {
-    private Long row;
-    private Long column;
+    private int row;
+    private int column;
     private Boolean visited;
-
-    public Location(Long row, Long column, Boolean visited) {
+    
+    public Location() {
         this.row = row;
         this.column = column;
         this.visited = visited;
     }
 
-    public Long getRow() {
+    public Location(int row, int column, Boolean visited) {
+        this.row = row;
+        this.column = column;
+        this.visited = visited;
+    }
+
+    public int getRow() {
         return row;
     }
 
-    public Long getColumn() {
+    public int getColumn() {
         return column;
     }
 
@@ -35,11 +41,11 @@ public class Location implements Serializable {
         return visited;
     }
 
-    public void setRow(Long row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public void setColumn(Long column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 

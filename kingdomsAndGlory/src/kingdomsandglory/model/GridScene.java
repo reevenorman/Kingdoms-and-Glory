@@ -47,18 +47,21 @@ public class GridScene implements Serializable{
     
     public String name;
     public String description;
-    public Point coordinates;
+    public int rowCount;
+    public int columnCount;
     
     public GridScene() {
         this.name = "";
         this.description = "";
-        this.coordinates = null;
+        this.rowCount = 0;
+        this.columnCount = 0;
     }
 
-    GridScene(String name, String description, Point coordinates){
+    GridScene(String name, String description, int columnCount, int rowCount){
         this.name = name;
         this.description = description;
-        this.coordinates = coordinates;
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
     }   
 
     
@@ -70,21 +73,37 @@ public class GridScene implements Serializable{
         return description;
     }
 
-    public Point getCoordinates() {
-        return coordinates;
+    public int getRowCount() {
+        return rowCount;
     }
 
-    @Override
-    public String toString() {
-        return "GridScene{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 17 * hash + Objects.hashCode(this.name);
-        hash = 17 * hash + Objects.hashCode(this.description);
-        hash = 17 * hash + Objects.hashCode(this.coordinates);
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.name);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + this.rowCount;
+        hash = 61 * hash + this.columnCount;
         return hash;
     }
 
@@ -100,17 +119,25 @@ public class GridScene implements Serializable{
             return false;
         }
         final GridScene other = (GridScene) obj;
+        if (this.rowCount != other.rowCount) {
+            return false;
+        }
+        if (this.columnCount != other.columnCount) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.coordinates, other.coordinates)) {
-            return false;
-        }
         return true;
     }
+
+
+
+
+
     
     
 }
