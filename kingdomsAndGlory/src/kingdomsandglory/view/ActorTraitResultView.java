@@ -158,6 +158,7 @@ public class ActorTraitResultView extends View {
         int[] sendInputs = new int[5];
         sendInputs = this.convertInput(inputs);
         int traitresult;
+
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
         
         String actorTraitName = "unknown";

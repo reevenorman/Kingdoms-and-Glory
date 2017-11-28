@@ -11,28 +11,35 @@ import java.io.Serializable;
  *
  * @author reeve
  */
-public class FortuneScene extends Scene implements Serializable {
-    private long fortuneValue;
-    private long misfortuneValue;
+public class ResourceScene extends Scene implements Serializable {
+    
+    public int fortuneValue;
+    public int misfortuneValue;
+    
 
-    public FortuneScene(long fortuneValue, long misfortuneValue) {
+    public ResourceScene() {
+
+    
+    }
+    
+    public ResourceScene(int fortuneValue, int misfortuneValue) {
         this.fortuneValue = fortuneValue;
         this.misfortuneValue = misfortuneValue;
     }
 
-    public long getFortuneValue() {
+    public int getFortuneValue() {
         return fortuneValue;
     }
 
-    public long getMisfortuneValue() {
+    public int getMisfortuneValue() {
         return misfortuneValue;
     }
 
-    public void setFortuneValue(long fortuneValue) {
+    public void setFortuneValue(int fortuneValue) {
         this.fortuneValue = fortuneValue;
     }
 
-    public void setMisfortuneValue(long misfortuneValue) {
+    public void setMisfortuneValue(int misfortuneValue) {
         this.misfortuneValue = misfortuneValue;
     }
 
@@ -60,7 +67,7 @@ public class FortuneScene extends Scene implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final FortuneScene other = (FortuneScene) obj;
+        final ResourceScene other = (ResourceScene) obj;
         if (this.fortuneValue != other.fortuneValue) {
             return false;
         }

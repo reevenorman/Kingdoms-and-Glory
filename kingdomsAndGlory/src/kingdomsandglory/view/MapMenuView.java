@@ -6,6 +6,8 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Location;
 
 /**
  *
@@ -21,7 +23,7 @@ public class MapMenuView extends View{
 
         String MapMenuDisplay;
 
-        MapMenuDisplay = " V - View A Territory \n"
+        MapMenuDisplay = " V - View A Map \n"
                 + " M - Move On Map \n"
                 + " B - Go Back \n";
 
@@ -42,7 +44,7 @@ public class MapMenuView extends View{
 
         switch (menuItem) {
             case 'V':
-                ViewTerritoryView.displayViewTerritoryView();
+                this.displayViewTerritoryView();
                 break;
             case 'M':
                 MoveOnMapMenuView moveOnMapView = new MoveOnMapMenuView();
@@ -55,4 +57,31 @@ public class MapMenuView extends View{
         }
         return false;
     }
+    
+    public void displayViewTerritoryView() {
+        Game game = new Game();
+        game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+            
+        Location[][] locations = game.map.locations;
+        
+        System.out.println("        The Land of Awesomeness         ");
+        System.out.println("      0      1      2      3      4     ");
+  
+        int i = 0;
+        int j = 0;
+        
+        for (Location[] row : locations) {
+            System.out.print("----------------------------------------\n");
+            System.out.print(i);
+            j = 0;
+            for (Location[] column : locations) {
+                System.out.print(" |  " + locations[i][j].locationScene.mapSignal);
+                j++;
+            }
+            i++;
+        }
+        System.out.println("\n----------------------------------------\n");
+    }
 }
+
+

@@ -7,6 +7,7 @@ package kingdomsandglory.control;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.awt.Point;
+import kingdomsandglory.control.MapControl;
 import kingdomsandglory.model.Player;
 import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
@@ -19,6 +20,8 @@ import kingdomsandglory.model.Location;
 import kingdomsandglory.model.Map;
 import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.ResourceEnum;
+import kingdomsandglory.model.ResourceScene;
+import kingdomsandglory.model.Scene;
 import kingdomsandglory.model.Trait;
 import kingdomsandglory.model.TraitEnum;
 import kingdomsandglory.view.StartExistingGameView;
@@ -53,18 +56,20 @@ public class GameControl {
         Actor actor = new Actor(traits, startingPoint);
 
         Resource[] resources = new Resource[5];
-        resources = createItems();
+        resources = ResourceControl.createItems();
         
         //Call Map
-        Map map;
-        long rowCount = 5;
-        long columnCount = 5;
-        map = createMap(rowCount, columnCount);
+        Map map = new Map(5, 5, null);
+        int rowCount = 5;
+        int columnCount = 5;
+        map = MapControl.createMap(rowCount, columnCount);
 
         if (map == null) {
             return -1;
         }
-
+        
+        game.map = map;
+        
         return 1;
     }
 
@@ -114,100 +119,15 @@ public class GameControl {
         return traitType;
     }
 
-    public static Resource[] createItems() {
-        Resource[] resourceType = new Resource[5];
 
-        Resource cloth = new Resource();
-        cloth.resourceQty = 0.0;
-        cloth.resourceDiscription = "cloth";
-        resourceType[ResourceEnum.cloth.ordinal()] = cloth;
-
-        Resource wood = new Resource();
-        wood.resourceQty = 0.0;
-        wood.resourceDiscription = "wood";
-        resourceType[ResourceEnum.wood.ordinal()] = wood;
-
-        Resource stone = new Resource();
-        stone.resourceQty = 0.0;
-        stone.resourceDiscription = "stone";
-        resourceType[ResourceEnum.stone.ordinal()] = stone;
-
-        Resource metal = new Resource();
-        metal.resourceQty = 0.0;
-        metal.resourceDiscription = "metal";
-        resourceType[ResourceEnum.metal.ordinal()] = metal;
-
-        Resource gold = new Resource();
-        gold.resourceQty = 0.0;
-        gold.resourceDiscription = "gold";
-        resourceType[ResourceEnum.gold.ordinal()] = gold;
-
-        return resourceType;
+    private static void assignScenesToLocation() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public static Map createMap(int rowCount, int columnCount) {
-        System.out.println("***GameControl() -- createMap() called***");
-        if (rowCount < 0 || columnCount < 0) {
-            return null;
-        }
-
-        Map map = new Map(rowCount, columnCount);
-        map.setColumnCount(columnCount);
-        map.setRowCount(rowCount);
-
-        Location[][] location = createLocations(rowCount, columnCount);
-        
-        GridScene gridScene = new GridScene();
-        gridScene = createResourceScene();
-        
-        CityScene cityScene = new CityScene();
-        cityScene = createCityScene();
-        
- 
-        return map;
-    }
-
-    public static Scene[] createScene() {
-        Scene[] scene = new Scene[25];
-        
-
-        Resource cloth = new Resource();
-        cloth.resourceQty = 0.0;
-        cloth.resourceDiscription = "cloth";
-        resourceType[ResourceEnum.cloth.ordinal()] = cloth;
-        
-        return null;
-    }
-
-    private static CityScene createCityScene() {
-        System.out.println("*** createCityScene() called ***");
-        return null;
-    }
 
     public GameControl(String name) {
         System.out.println("*** savePlayer() called ***");
     }
 
-    public static Location[][] createLocations(int rowCount, int columnCount) {
-        if (rowCount < 1 || columnCount < 1) {
-            return null;
-        
-        }
-        int i = 0;
-        int j = 0;
-        Location[][] allLocations = new Location[rowCount][columnCount];
-        for (Location[] row : allLocations) {
-            j = 0;
-            for (Location aLocation : row) {
-                aLocation = new Location(i, j, false);
-                allLocations[i][j] = aLocation;
-                j++;
-            }
-            i++;
-        }
-        
-        
-        
-        return allLocations;
-    }
+
 }

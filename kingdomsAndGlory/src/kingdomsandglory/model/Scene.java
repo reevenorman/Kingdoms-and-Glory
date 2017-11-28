@@ -11,7 +11,11 @@ package kingdomsandglory.model;
  */
 public class Scene {
     
-    private String mapSignal;
+    public String mapSignal;
+    public int rowCount;
+    public int columnCount;
+    
+    
 
     public Scene() {
     }

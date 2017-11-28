@@ -6,6 +6,7 @@
 package kingdomsandglory.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,23 +16,66 @@ import java.util.Objects;
  */
 
 public class Game implements Serializable {
-       private Player player;
-       private Resource[] resourceType;
-       private Map map;
-       private long dateTime;
+       public Player player;
+       public Resource[] resourceType;
+       public Map map;
+       public long dateTime;
 
-    public Game(long dateTime) {
+    public Game(Player player, Resource[] resourceType, Map map, long dateTime) {
+        this.player = player;
+        this.resourceType = resourceType;
+        this.map = map;
         this.dateTime = dateTime;
-    }
-
+    }  
+       
     public Game() {
         this.dateTime = System.currentTimeMillis();
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Resource[] getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(Resource[] resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public long getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(long dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" + "player=" + player + ", resourceType=" + resourceType + ", map=" + map + ", dateTime=" + dateTime + '}';
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + (int) (this.dateTime ^ (this.dateTime >>> 32));
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.player);
+        hash = 37 * hash + Arrays.deepHashCode(this.resourceType);
+        hash = 37 * hash + Objects.hashCode(this.map);
+        hash = 37 * hash + (int) (this.dateTime ^ (this.dateTime >>> 32));
         return hash;
     }
 
@@ -50,22 +94,19 @@ public class Game implements Serializable {
         if (this.dateTime != other.dateTime) {
             return false;
         }
+        if (!Objects.equals(this.player, other.player)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.resourceType, other.resourceType)) {
+            return false;
+        }
+        if (!Objects.equals(this.map, other.map)) {
+            return false;
+        }
         return true;
     }
-
-    @Override
-    public String toString() {
-        return "Game{" + "dateTime=" + dateTime + '}';
-    }
-
-    public long getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(long dateTime) {
-        this.dateTime = dateTime;
-    }
-
+    
+    
        
 }
 
