@@ -64,7 +64,7 @@ public class MapMenuView extends View{
             
         Location[][] locations = game.map.locations;
         
-        System.out.println("        The Land of Awesomeness         ");
+        System.out.println("        The Kingdom of Zenobia          ");
         System.out.println("      0      1      2      3      4     ");
         System.out.print("----------------------------------------\n");
         int i = 0;
