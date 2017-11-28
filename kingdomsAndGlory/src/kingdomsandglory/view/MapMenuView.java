@@ -66,12 +66,11 @@ public class MapMenuView extends View{
         
         System.out.println("        The Land of Awesomeness         ");
         System.out.println("      0      1      2      3      4     ");
-  
+        System.out.print("----------------------------------------\n");
         int i = 0;
         int j = 0;
         
         for (Location[] row : locations) {
-            System.out.print("----------------------------------------\n");
             System.out.print(i);
             j = 0;
             for (Location[] column : locations) {
@@ -79,8 +78,8 @@ public class MapMenuView extends View{
                 j++;
             }
             i++;
+            System.out.print("\n----------------------------------------\n");
         }
-        System.out.println("\n----------------------------------------\n");
     }
 }
 

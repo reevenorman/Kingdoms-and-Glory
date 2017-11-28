@@ -265,9 +265,9 @@ public class MapControl {
         sceneArray[CoordinateMapEnum.ForestA.ordinal()] = forestA;
         
         ResourceScene forestB = new ResourceScene();
-        forestA.rowCount = CoordinateMapEnum.ForestB.getcRow();
-        forestA.columnCount = CoordinateMapEnum.ForestB.getcColumn();
-        forestA.mapSignal = "???";
+        forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
+        forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
+        forestB.mapSignal = "???";
         sceneArray[CoordinateMapEnum.ForestB.ordinal()] = forestB;
         
         ResourceScene forestC = new ResourceScene();

@@ -195,9 +195,9 @@ public class ActorTraitResultView extends View {
     private int[] convertInput (String[] inputs) {
         int[] numberInputs = new int[5];
         char change;
-        
-        
-        for (int i = 0; i < inputs.length; i++) {
+        int i = 0;
+        for (int j : numberInputs) {
+            
             change = inputs[i].toUpperCase().charAt(0);
             switch (change) {
             case '1':
@@ -210,7 +210,7 @@ public class ActorTraitResultView extends View {
                 numberInputs[i] = 3;
                 break;
             }
-            
+            i++;
         }
         return numberInputs;
         
