@@ -14,5 +14,6 @@ public enum ResourceEnum {
     wood,
     stone,
     metal,
-    gold;
+    gold,
+    army;
 }

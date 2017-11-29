@@ -13,5 +13,5 @@ public class ManageArmyView {
     
         public void displayManageArmyView() {
         System.out.println("*** Class ManageArmyView - ManageArmyView() Called***");
-    }
+        }
 }

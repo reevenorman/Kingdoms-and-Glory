@@ -5,6 +5,7 @@
  */
 package kingdomsandglory.control;
 
+import kingdomsandglory.model.Army;
 import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.ResourceEnum;
 
@@ -14,7 +15,7 @@ import kingdomsandglory.model.ResourceEnum;
  */
 public class ResourceControl {
     public static Resource[] createItems() {
-        Resource[] resourceType = new Resource[5];
+        Resource[] resourceType = new Resource[6];
 
         Resource cloth = new Resource();
         cloth.resourceQty = 0.0;
@@ -40,6 +41,11 @@ public class ResourceControl {
         gold.resourceQty = 0.0;
         gold.resourceDiscription = "gold";
         resourceType[ResourceEnum.gold.ordinal()] = gold;
+        
+        Army army = new Army();
+        army.totalArmy = 0;
+        resourceType[ResourceEnum.army.ordinal()] = army;
+        
 
         return resourceType;
     }
