@@ -8,6 +8,7 @@ package kingdomsandglory.control;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.awt.Point;
 import kingdomsandglory.control.MapControl;
+import kingdomsandglory.exceptions.GameControlException;
 import kingdomsandglory.model.Player;
 import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
@@ -31,19 +32,19 @@ import kingdomsandglory.view.StartExistingGameView;
  */
 public class GameControl {
 
-    public static Player savePlayer(Player player) {
+    public static Player savePlayer(Player player) throws GameControlException {
         if (player == null) {
-            return null;
+            throw new GameControlException("Player Cannot Be Null");
         }
         kingdomsandglory.setPlayer(player);
 
         return player;
     }
 
-    public static int createNewGame(Player player) {
+    public static void createNewGame(Player player) throws GameControlException {
 
         if (player == null) {
-            return -1;
+            throw new GameControlException("Player Cannot Be Null");
         }
         Game game = new Game();
         setPlayer(player);
@@ -64,12 +65,12 @@ public class GameControl {
         map = MapControl.createMap(rowCount, columnCount);
 
         if (map == null) {
-            return -1;
+            throw new GameControlException("Map Cannot Be Null");
         }
         
         game.map = map;
         
-        return 1;
+        return;
     }
 
     public static void restartGame() {
@@ -82,6 +83,7 @@ public class GameControl {
     }
 
     public static Trait[] createTraits() {
+       
         Trait[] traitType = new Trait[3];
 
         Trait diplomatic = new Trait();
@@ -118,15 +120,8 @@ public class GameControl {
         return traitType;
     }
 
-
-    private static void assignScenesToLocation() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
     public GameControl(String name) {
         System.out.println("*** savePlayer() called ***");
     }
-
 
 }

@@ -6,6 +6,7 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.exceptions.GameControlException;
 
 
 /**
@@ -62,9 +63,11 @@ public class MainMenuView extends View {
 
 
     private void startNewGame() {
-        int returnValue = kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
-        if (returnValue < 0) {
-            System.out.println("ERROR - Failed to create new game");
+        try {
+            kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
+        } catch (GameControlException mce) {
+            System.out.println(mce.getMessage());
+            return;
         }
         ActorTraitView actorTraitView = new ActorTraitView();
         actorTraitView.display();
