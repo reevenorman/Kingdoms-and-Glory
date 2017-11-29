@@ -16,7 +16,6 @@ import kingdomsandglory.model.Actor;
 import kingdomsandglory.model.CityScene;
 import kingdomsandglory.model.CoordinateMapEnum;
 import kingdomsandglory.model.Game;
-import kingdomsandglory.model.GridScene;
 import kingdomsandglory.model.Location;
 import kingdomsandglory.model.Map;
 import kingdomsandglory.model.Resource;
