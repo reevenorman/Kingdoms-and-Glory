@@ -14,14 +14,17 @@ import kingdomsandglory.view.StartProgramView;
  * @author piano
  */
 public class kingdomsandglory {
-    
-    public static void main(String[] args) {
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        
-    }
-   
 
+    public static void main(String[] args) {
+        try {
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.display();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            return;
+        }
+    }
     private static Player player = null;
     private static Game currentGame = null;
 
@@ -41,6 +44,4 @@ public class kingdomsandglory {
         kingdomsandglory.currentGame = currentGame;
     }
 
-
-    
 }

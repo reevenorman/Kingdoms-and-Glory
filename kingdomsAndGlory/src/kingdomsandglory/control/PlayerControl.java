@@ -52,10 +52,11 @@ public class PlayerControl {
         return actorTrait;
     }
     
-    public static int sumOfActorTrait(int questionOne, int questionTwo, int questionThree, int questionFour, int questionFive) {
+    public static int sumOfActorTrait(int[] sendInputs) {
         int total = 0;
-        for (int i = 0 : sendInputs.length -1) {
-        total = total + sendInputs[i];
+        int j = 0;
+        for (int[] row : sendInputs) {
+        total = total + sendInputs[j];
         }
         return total;
     }
