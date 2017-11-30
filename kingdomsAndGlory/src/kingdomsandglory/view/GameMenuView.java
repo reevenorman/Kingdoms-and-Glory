@@ -47,11 +47,11 @@ public class GameMenuView extends View {
         switch (menuItem) {
             case 'A':
                 ManageArmyView manageArmyView = new ManageArmyView();
-                manageArmyView.displayManageArmyView();
+                manageArmyView.display();
                 break;
             case 'R':
                 ManageResourceView manageResourceView = new ManageResourceView();
-                manageResourceView.displayManageResourceView();
+                manageResourceView.display();
                 break;
             case 'M':
                 MapMenuView mapMenuView = new MapMenuView();

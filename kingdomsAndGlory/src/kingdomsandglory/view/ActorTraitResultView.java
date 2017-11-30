@@ -20,9 +20,6 @@ public class ActorTraitResultView extends View {
     @Override
     public String[] getInputs() {
         String[] inputs = new String[5];
-        String userInput;
-        int actorTrait;
-        String actorTraitName;
         Boolean valid = false;
         String questionAnswer = "";
         String actorTraitDisplay;
