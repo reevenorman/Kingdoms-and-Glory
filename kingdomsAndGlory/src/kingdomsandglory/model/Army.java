@@ -13,12 +13,17 @@ import java.io.Serializable;
  */
 public class Army implements Serializable {
     
-    private long totalArmy;
-    private long totalFootman;
-    private long totalArcher;
-    private long totalCalvary;
+    public int totalArmy;
+    public long totalFootman;
+    public long totalArcher;
+    public long totalCalvary;
 
-    public Army(long totalArmy, long totalFootman, long totalArcher, long totalCalvary) {
+    public Army() {
+    }
+
+    
+    
+    public Army(int totalArmy, long totalFootman, long totalArcher, long totalCalvary) {
         this.totalArmy = totalArmy;
         this.totalFootman = totalFootman;
         this.totalArcher = totalArcher;
@@ -41,7 +46,7 @@ public class Army implements Serializable {
         return totalCalvary;
     }
 
-    public void setTotalArmy(long totalArmy) {
+    public void setTotalArmy(int totalArmy) {
         this.totalArmy = totalArmy;
     }
 
