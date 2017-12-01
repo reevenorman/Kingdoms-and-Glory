@@ -58,6 +58,8 @@ public class GameControl {
         Resource[] resources = new Resource[5];
         resources = ResourceControl.createItems();
         
+        game.resourceType = resources;
+        
         //Call Map
         Map map = new Map(5, 5, null);
         int rowCount = 5;

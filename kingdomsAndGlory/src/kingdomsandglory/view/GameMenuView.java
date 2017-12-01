@@ -22,8 +22,8 @@ public class GameMenuView extends View {
 
         String GameMenuDisplay;
 
-        GameMenuDisplay = " A - Manage Army \n"
-                + " R - Manage Resources \n"
+        GameMenuDisplay = 
+                  " R - Manage Resources and Army \n"
                 + " M - View Map \n"
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
@@ -45,10 +45,6 @@ public class GameMenuView extends View {
         menuItem = inputs[0].toUpperCase().charAt(0);
 
         switch (menuItem) {
-            case 'A':
-                ManageArmyView manageArmyView = new ManageArmyView();
-                manageArmyView.display();
-                break;
             case 'R':
                 ManageResourceView manageResourceView = new ManageResourceView();
                 manageResourceView.display();

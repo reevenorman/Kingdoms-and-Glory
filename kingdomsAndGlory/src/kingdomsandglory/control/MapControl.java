@@ -70,7 +70,11 @@ public class MapControl {
 
     
     public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) {
+        Game game = new Game();
+        game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        
         Resource resource = new Resource();
+        
         double outcome;
         String resultOutcome = "error";
                 
@@ -101,7 +105,7 @@ public class MapControl {
         
         if (userGambleOption == 0) {    
             outcome = randResourceAmt * 0.2;
-            resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] + (int)outcome;
+            game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty + (int)outcome;
             resultOutcome = ("You gained " + outcome + " pieces of " + randResourceObj + ".");
             return resultOutcome;
         }
@@ -109,18 +113,15 @@ public class MapControl {
             double guarenteedOutcome = randResourceAmt * 0.2;
             if (randChanceAmt >= 3) {
                 outcome = randResourceAmt * 0.8;
-                resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] + (int)outcome + (int)guarenteedOutcome;
+                game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty + (int)outcome + (int)guarenteedOutcome;
                 resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + ".");
             }
             else {
                 outcome = randResourceAmt * 0.8;
-                resource.resourceType[randResourceObj] = resource.resourceType[randResourceObj] - (int)outcome + (int)guarenteedOutcome;
+                game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty - (int)outcome + (int)guarenteedOutcome;
                 resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + "." 
                     + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + randResourceObj + ".");
-            }
-                  
-            
-            
+            }    
         }  
         return resultOutcome;
         

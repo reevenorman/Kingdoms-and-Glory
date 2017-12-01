@@ -8,7 +8,7 @@ package kingdomsandglory.view;
 import kingdomsandglory.control.PlayerControl;
 import java.util.Scanner;
 import static kingdomsandglory.control.PlayerControl.assignActorTrait;
-import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;
+/*import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;*/
 import kingdomsandglory.view.StartProgramView;
 
 /**
@@ -116,7 +116,7 @@ public class ActorTraitResultView extends View {
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
         
         int sumOfTraitQuestions;
-        sumOfTraitQuestions = sumOfActorTrait(sendInputs);
+        /*sumOfTraitQuestions = sumOfActorTrait(sendInputs);*/
         
         String actorTraitName = "unknown";
        

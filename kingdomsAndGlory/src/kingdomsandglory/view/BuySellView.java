@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.view;
+import kingdomsandglory.control.ResourceControl;
 
 /**
  *
@@ -16,60 +17,146 @@ public class BuySellView extends View{
         String[] inputs = new String[5];
         Boolean valid = false;
         String questionAnswer = "";
-        String BuySellOptionDisplay = "";
+        String buySellOptionDisplay = "";
+        int questionNumber;
+        String answer1 = "";
         
-        BuySellOptionDisplay = "******************************************************************\n"
-                + " Question 1: When negotiating with a foreign empire, are you more likley to... \n"
-                + " A - Meet formally, and discuss matters of concern through proper channels? \n"
-                + " B - Meet formally, and have a carefully crafted plan of what you want to accomplish? \n"
-                + " C - Meet informally, entertain your guest and convince them of your desires? \n"
-                + "******************************************************************\n";
-
-        questionAnswer = this.checkInput(BuySellOptionDisplay);
+        buySellOptionDisplay = "********************************************\n"
+                + "* Would you like to Buy or Sell Resources? *\n"
+                + "* X - Yes I would like to sell stuff       *\n"
+                + "* Z - Yes I would like to buy stuff        *\n"
+                + "* B - I messed up, please go back          *\n"
+                + "********************************************\n";
+        
+        questionNumber = 1;
+        questionAnswer = this.checkInput(buySellOptionDisplay, questionNumber);
         inputs[0] = questionAnswer;
+        if (questionAnswer == "1") {
+            answer1 = "sell";
+        }
+        else {
+            answer1 = "buy";
+        }
         
-        BuySellOptionDisplay = "******************************************************************\n"
-                + "Question 2: While playiing chess do you... \n"
-                + " A - Play in a way that makes the game fair and beneficial to both parties? \n"
-                + " B - Plan out each move in advance for the greatest chance of winning?\n"
-                + " C - Make your moves based on the current moment? \n"
-                + "******************************************************************\n";
-
-        questionAnswer = this.checkInput(actorTraitDisplay);
+        buySellOptionDisplay = "**********************************************\n"
+                + "* Which resource would you like to work with? *\n"
+                + "* C - Cloth                                   *\n"
+                + "* W - Wood                                    *\n"
+                + "* S - Stone                                   *\n"
+                + "* M - Metal                                   *\n"
+                + "* A - Amry                                    *\n"
+                + "* B - I messed up, please go back             *\n"
+                + "***********************************************\n";
+        
+        questionNumber = 2;
+        questionAnswer = this.checkInput(buySellOptionDisplay, questionNumber);
         inputs[1] = questionAnswer;
         
 
-        BuySellOptionDisplay = "******************************************************************\n"
-                + " Question 3: When you want something from someone else, do you... \n"
-                + " A - Kindly ask them for it, promising mutual benefit? \n"
-                + " B - Pre-meditate the most effective way to get what you want without losing anything? \n"
-                + " C - Charm them into giving you what you want? \n"
-                + "******************************************************************\n";
-
-        questionAnswer = this.checkInput(actorTraitDisplay);
+       buySellOptionDisplay = "**********************************************\n"
+                + "* How much would you like to " + answer1 + " ?         *\n"
+                + "* Please Enter a Number Value.                *\n"
+                + "***********************************************\n";
+       
+       questionNumber = 3;
+       questionAnswer = this.checkInput(buySellOptionDisplay, questionNumber);
         inputs[2] = questionAnswer;
 
-        BuySellOptionDisplay = "******************************************************************\n"
-                + "Question 4: Your treasurer has been taking gold from your vault. Will you... \n"
-                + " A - Bring him to justice in the juducial courts of the kingdom? \n"
-                + " B - Set a trap to convict him? \n"
-                + " C - Slay him in the thralls of your anger? \n"
-                + "******************************************************************\n";
+       return inputs;
 
-        questionAnswer = this.checkInput(actorTraitDisplay);
-        inputs[3] = questionAnswer;
+    }
+        private String checkInput(String actorTraitDisplay, int questionNumber) {
+        boolean valid = false;
+        while (!valid) {
+            System.out.println(actorTraitDisplay);
+            
+            char question;
 
-        BuySellOptionDisplay = "******************************************************************\n"
-                + " Question 5: When you gain a victory, do you... \n"
-                + " A - Have a modest gathering, to acknowledge the victory? \n"
-                + " B - Begin plotting for your next impending victory? \n"
-                + " C - Celebrate all night long? \n"
-                + "******************************************************************\n";
+            String question1 = this.getInput("Please Type in a Valid Input");
+            
+            switch (questionNumber) {
+                case 1 :
+                    
+                    question = question1.toUpperCase().charAt(0);
 
-        questionAnswer = this.checkInput(actorTraitDisplay);
-        inputs[4] = questionAnswer;
+                    switch (question) {
+                        case 'X':
+                            return "1";
 
-        return inputs;
+                        case 'Z':
+                            return "0";
 
+                        case 'B':
+                            break;
+
+                        default:
+                            System.out.println("Invalid Input");
+                         break;
+                    }
+                    
+                case 2:
+                    question = question1.toUpperCase().charAt(0);
+
+                    switch (question) {
+                        case 'C':
+                            return "1";
+
+                        case 'W':
+                            return "2";
+
+                        case 'S':
+                            return "3";
+                        
+                        case 'M':
+                            return "4";
+
+                        case 'A':
+                            return "6";
+
+                        case 'B':
+                            break;
+
+                        default:
+                            System.out.println("Invalid Input");
+                         break;
+                    }
+                case 3:
+                    return question1;
+                    
+                default:
+                    System.out.println("Invalid Input");
+                break;        
+            }
+        }
+        return null;
+
+    }
+
+    @Override
+    public boolean doAction(String[] inputs) {
+        int[] sendInputs = new int[3];
+        sendInputs = this.convertInput(inputs);
+        
+        String transaction = ResourceControl.makeTransaction(sendInputs);
+        
+        System.out.println("========================================\n"
+                        + transaction
+                        + "========================================\n");
+
+        return true;
+    }
+    
+        private int[] convertInput (String[] inputs) {
+        int[] numberInputs = new int[5];
+        int change;
+        int i = 0;
+        for (int j : numberInputs) {
+            
+            change = Integer.parseInt(inputs[i]);
+            numberInputs[i] = change;
+            i++;
+        }
+        return numberInputs;
+        
     }
 }

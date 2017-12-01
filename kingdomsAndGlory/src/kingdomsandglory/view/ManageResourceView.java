@@ -5,28 +5,58 @@
  */
 package kingdomsandglory.view;
 
+import kingdomsandglory.model.Resource;
+import kingdomsandglory.model.Game;
 /**
  *
- * @author piano
+ * @author reeve
  */
-public class ManageResourceView extends View{
-
-@Override
+public class ManageResourceView extends View {
+        
+    @Override
     public String[] getInputs() {
+        Game game = new Game();
+        game = kingdomsandglory.kingdomsandglory.getCurrentGame();
         
         String[] input = new String[1];
         String userInput;
         Boolean valid = false;
+        int i = 0;
         
         String manageResourceDisplay;
         
-        manageResourceDisplay = " A - Buy More of a Resource \n"
-                + " S - Sell Resource \n"
-                + " B - Go Back \n";
+        Resource[] resources = game.resourceType;
+        String resourceList = "";
         
+        for (Resource eachResource : resources) {
+            resourceList = resourceList + (" " + eachResource.resourceDiscription + " - " + eachResource.resourceQty + "\n");
+        }
+        
+        manageResourceDisplay = 
+                  "*****************************************************\n"
+                + "* This this game you have the opportunity to buy and*\n"
+                + "* sell resources. Here is a list of Resources and   *\n"
+                + "* their cost.                                       *\n"
+                + "* Resource - Buying Price/Selling Price             *\n"
+                + "* Cloth    -  2 / 1                                 *\n"
+                + "* Wood     -  3 / 2                                 *\n"
+                + "* Stone    -  3 / 2                                 *\n"
+                + "* Metal    -  5 / 3                                 *\n"
+                + "* Amry Men -  7 / 1                                 *\n"
+                + "*                                                   *\n"
+                + "* Also, Here is a list of your current Resources:   *\n" 
+                + "-----------------------------------------------------\n"
+                + resourceList
+                + "-----------------------------------------------------\n"
+                + "* Would you like to Buy or Sell?                    *\n"
+                + "* V - Yes                                           *\n"
+                + "* B - No                                            *\n"
+                + "-----------------------------------------------------\n";
+        
+                
         System.out.println(manageResourceDisplay);
         
-        String value = this.getInput("Please choose a menu Item");
+        String value = this.getInput("Please Select an option");
         String[] inputs = new String[1];
         inputs[0] = value;
         return inputs;        
@@ -39,11 +69,8 @@ public class ManageResourceView extends View{
         menuItem = inputs[0].toUpperCase().charAt(0);
         
         switch (menuItem){
-            case 'A' :
-                BuySellArmyView buySellArmyView = new BuySellArmyView();
-                buySellArmyView.display();
-                break;
-            case 'S' : sellResourceMenu();
+            case 'V' : BuySellView buySellView = new BuySellView();
+                buySellView.display();
                 break;
             case 'B' : return true;
             default : 
@@ -52,5 +79,5 @@ public class ManageResourceView extends View{
         return false;
             
         }
-    }
 }
+
