@@ -148,11 +148,16 @@ public class BuySellView extends View{
     
         private int[] convertInput (String[] inputs) {
         int[] numberInputs = new int[3];
-        int change;
+        int change = 0;
         int i = 0;
         for (int j : numberInputs) {
-            
+            try {
+
             change = Integer.parseInt(inputs[i]);
+            }
+            catch(NumberFormatException nf) {
+                System.out.println("\n You must enter a valid number");
+            }
             numberInputs[i] = change;
             i++;
         }

@@ -7,6 +7,7 @@ package kingdomsandglory.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,12 +16,11 @@ import java.util.Objects;
  */
 public class Actor implements Serializable {
         private Trait[] traits;
-        private Point playerLocation;
+        public Location location;
 
-    public Actor(Trait[] traits, Point playerLocation) {
+    public Actor(Trait[] traits, Location location) {
         this.traits = traits;
-
-        this.playerLocation = playerLocation;
+        this.location = location;
     }
 
     public Trait[] getTraits() {
@@ -31,11 +31,48 @@ public class Actor implements Serializable {
         this.traits = traits;
     }
 
-    public Point getPlayerLocation() {
-        return playerLocation;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setPlayerLocation(Point playerLocation) {
-        this.playerLocation = playerLocation;
-    }    
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    @Override
+    public String toString() {
+        return "Actor{" + "traits=" + traits + ", location=" + location + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Arrays.deepHashCode(this.traits);
+        hash = 53 * hash + Objects.hashCode(this.location);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Actor other = (Actor) obj;
+        if (!Arrays.deepEquals(this.traits, other.traits)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        return true;
+    }
+
+
+ 
 }

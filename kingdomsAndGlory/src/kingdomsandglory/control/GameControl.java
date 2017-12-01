@@ -52,9 +52,7 @@ public class GameControl {
 
         Trait[] traits = new Trait[3];
         traits = createTraits();
-        Point startingPoint = new Point();
-        Actor actor = new Actor(traits, startingPoint);
-
+       
         Resource[] resources = new Resource[5];
         resources = ResourceControl.createItems();
         
@@ -71,6 +69,9 @@ public class GameControl {
         }
         
         game.map = map;
+        
+        Actor actor = new Actor(traits, game.map.location);
+        game.player.actor = actor;
         
         return;
     }

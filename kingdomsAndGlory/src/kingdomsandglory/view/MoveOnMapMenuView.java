@@ -6,6 +6,12 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import kingdomsandglory.control.MapControl;
+import kingdomsandglory.exceptions.MapControlException;
+import kingdomsandglory.model.Actor;
+import static kingdomsandglory.model.Player.getActor;
 
 /**
  *
@@ -21,10 +27,10 @@ public class MoveOnMapMenuView extends View {
 
         String MoveOnMapMenuDisplay;
 
-        MoveOnMapMenuDisplay = " W - UP \n"
-                + " S - Move South \n"
-                + " D - Move East \n"
-                + " A - Move West \n"
+        MoveOnMapMenuDisplay = " W - Up \n"
+                + " S - Down \n"
+                + " D - Right \n"
+                + " A - Left \n"
                 + " B - Go Back \n";
 
         System.out.println(MoveOnMapMenuDisplay);
@@ -53,47 +59,43 @@ public class MoveOnMapMenuView extends View {
 
     @Override
     public boolean doAction(String[] inputs) {
-        char moveDirection;
-        moveDirection = inputs[0].toUpperCase().charAt(0);
-        FortuneOutcomeView fortuneOutcomeView = new FortuneOutcomeView();
-        switch (moveDirection) {
-            case 'W':
-                moveNorth();
-                fortuneOutcomeView.display();
-                break;
-            case 'S':
-                moveSouth();
-                fortuneOutcomeView.display();
-                break;
-            case 'D':
-                moveEast();
-                fortuneOutcomeView.display();
-                break;
-            case 'A':
-                moveWest();
-                fortuneOutcomeView.display();
-                break;
-            case 'B':
-                return true;
-            default:
-                System.out.println("Invalid Input");
+        try {
+            char moveDirection;
+            int direction;
+            Actor actor = new Actor();
+            actor = getActor();
+            moveDirection = inputs[0].toUpperCase().charAt(0);
+            FortuneOutcomeView fortuneOutcomeView = new FortuneOutcomeView();
+            switch (moveDirection) {
+                case 'W':
+                    direction = 1;
+                    MapControl.moveActor(actor, direction);
+                    fortuneOutcomeView.display();
+                    break;
+                case 'S':
+                    direction = 2;
+                    MapControl.moveActor(actor, direction);
+                    fortuneOutcomeView.display();
+                    break;
+                case 'D':
+                    direction = 3;
+                    MapControl.moveActor(actor, direction);
+                    fortuneOutcomeView.display();
+                    break;
+                case 'A':
+                    direction = 4;
+                    MapControl.moveActor(actor, direction);
+                    fortuneOutcomeView.display();
+                    break;
+                case 'B':
+                    return true;
+                default:
+                    System.out.println("Invalid Input");
+            }
+
+        } catch (MapControlException ex) {
+            System.out.println("MapControlException");
         }
         return false;
-    }
-
-    private void moveNorth() {
-        System.out.println("*** Class MoveOnMap - moveNorth() Called***");
-    }
-
-    private void moveSouth() {
-        System.out.println("*** Class MoveOnMap - moveSouth() Called***");
-    }
-
-    private void moveEast() {
-        System.out.println("*** Class MoveOnMap - moveEast() Called***");
-    }
-
-    private void moveWest() {
-        System.out.println("*** Class MoveOnMap - moveWest() Called***");
     }
 }

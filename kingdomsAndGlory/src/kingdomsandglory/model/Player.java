@@ -14,50 +14,32 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     public static String playerName;
-
-    public Player(String playerName) {
-        this.playerName = playerName;
-    }
+    public static Actor actor;
 
     public Player() {
-        
     }
 
     public static String getPlayerName() {
         return playerName;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public static void setPlayerName(String playerName) {
+        Player.playerName = playerName;
+    }
+
+    public static Actor getActor() {
+        return actor;
+    }
+
+    public static void setActor(Actor actor) {
+        Player.actor = actor;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "playerName=" + playerName + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.playerName);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Player other = (Player) obj;
-        return true;
-    }
+        return "Player{" + '}';
     
     
-    
+    }
+   
 }
