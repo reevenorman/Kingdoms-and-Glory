@@ -147,7 +147,7 @@ public class BuySellView extends View{
     }
     
         private int[] convertInput (String[] inputs) {
-        int[] numberInputs = new int[5];
+        int[] numberInputs = new int[3];
         int change;
         int i = 0;
         for (int j : numberInputs) {

@@ -21,10 +21,10 @@ public class MoveOnMapMenuView extends View {
 
         String MoveOnMapMenuDisplay;
 
-        MoveOnMapMenuDisplay = " E - Move North \n"
-                + " D - Move South \n"
-                + " F - Move East \n"
-                + " S - Move West \n"
+        MoveOnMapMenuDisplay = " W - UP \n"
+                + " S - Move South \n"
+                + " D - Move East \n"
+                + " A - Move West \n"
                 + " B - Go Back \n";
 
         System.out.println(MoveOnMapMenuDisplay);
@@ -57,19 +57,19 @@ public class MoveOnMapMenuView extends View {
         moveDirection = inputs[0].toUpperCase().charAt(0);
         FortuneOutcomeView fortuneOutcomeView = new FortuneOutcomeView();
         switch (moveDirection) {
-            case 'E':
+            case 'W':
                 moveNorth();
                 fortuneOutcomeView.display();
                 break;
-            case 'D':
+            case 'S':
                 moveSouth();
                 fortuneOutcomeView.display();
                 break;
-            case 'F':
+            case 'D':
                 moveEast();
                 fortuneOutcomeView.display();
                 break;
-            case 'S':
+            case 'A':
                 moveWest();
                 fortuneOutcomeView.display();
                 break;

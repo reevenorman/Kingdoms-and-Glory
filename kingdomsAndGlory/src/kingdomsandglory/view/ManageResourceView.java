@@ -48,7 +48,7 @@ public class ManageResourceView extends View {
                 + "-----------------------------------------------------\n"
                 + resourceList
                 + "-----------------------------------------------------\n"
-                + "* Would you like to Buy or Sell?                    *\n"
+                + "* Would you like to Buy/Sell any resources?         *\n"
                 + "* V - Yes                                           *\n"
                 + "* B - No                                            *\n"
                 + "-----------------------------------------------------\n";

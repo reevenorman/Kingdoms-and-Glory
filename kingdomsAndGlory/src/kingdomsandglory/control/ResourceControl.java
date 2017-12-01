@@ -15,7 +15,7 @@ import kingdomsandglory.model.ResourceEnum;
  */
 public class ResourceControl {
     public static Resource[] createItems() {
-        Resource[] resourceType = new Resource[5];
+        Resource[] resourceType = new Resource[6];
 
         Resource cloth = new Resource();
         cloth.resourceQty = 0.0;
@@ -41,6 +41,11 @@ public class ResourceControl {
         gold.resourceQty = 0.0;
         gold.resourceDiscription = "gold";
         resourceType[ResourceEnum.gold.ordinal()] = gold;
+        
+        Resource army = new Resource();
+        army.resourceQty = 50.0;
+        army.resourceDiscription = "Army";
+        resourceType[ResourceEnum.army.ordinal()] = army;
         
         
 
