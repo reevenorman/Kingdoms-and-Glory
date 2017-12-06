@@ -6,6 +6,9 @@
 package kingdomsandglory.control;
 //import kingdomsandglory.view.ActorTraitViewTwo;
 //import kingdomsandglory.view.ActorTraitViewThree;
+
+import kingdomsandglory.exceptions.PlayerControlException;
+
 //import kingdomsandglory.view.ActorTraitViewFour;
 //import kingdomsandglory.view.ActorTraitViewFive;
 
@@ -48,16 +51,19 @@ public class PlayerControl {
             return -5;
         }
         double actorTraitEquation = ((questionOne + questionTwo + questionThree + questionFour + questionFive) / 5.0);
-        int actorTrait = (int)((actorTraitEquation + 0.5)/1);
+        int actorTrait = (int) ((actorTraitEquation + 0.5) / 1);
         return actorTrait;
     }
-    
-    /*    public static int sumOfActorTrait(int[] sendInputs) {
-    int total = 0;
-    int j = 0;
-    for (int[] row : sendInputs) {
-    total = total + sendInputs[j];
+
+    public static int sumOfActorTrait(int[] sendInputs) throws PlayerControlException {
+        if (sendInputs == null) {
+            throw new PlayerControlException("Invalid Input"); 
+        }
+        int total = 0;
+        int j = 0;
+        for (int value : sendInputs) {
+            total = total + value;
+        }
+        return total;
     }
-    return total;
-    }*/
 }
