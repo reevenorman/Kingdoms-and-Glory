@@ -7,8 +7,11 @@ package kingdomsandglory.view;
 
 import kingdomsandglory.control.PlayerControl;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static kingdomsandglory.control.PlayerControl.assignActorTrait;
 import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;
+import kingdomsandglory.exceptions.PlayerControlException;
 /*import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;*/
 import kingdomsandglory.view.StartProgramView;
 
@@ -117,7 +120,7 @@ public class ActorTraitResultView extends View {
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
         
         int sumOfTraitQuestions;
-        sumOfTraitQuestions = sumOfActorTrait(sendInputs);
+        sumOfTraitQuestions = sumOfActorTrait(sendInputs);   
         
         String actorTraitName = "unknown";
        
@@ -143,7 +146,7 @@ public class ActorTraitResultView extends View {
                         + "You have received the trait of " + actorTraitName + "!\n"
                         + "You will be known as " + playerName + " the " +  actorTraitName + "!\n"
                         + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
-                        + "The sum of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold. \n"
+                        + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "========================================\n");
 
