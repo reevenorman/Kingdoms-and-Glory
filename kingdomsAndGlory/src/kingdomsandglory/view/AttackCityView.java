@@ -23,9 +23,9 @@ public class AttackCityView extends View {
 
     Game game = kingdomsandglory.getCurrentGame();
     
-    String city = game.player.actor.location.locationScene.cityscene.getName();
-    int risk = game.player.actor.location.locationScene.cityscene.getRiskFactor();
-    String mineral = game.player.actor.location.locationScene.cityscene.getMineralTypetoAttack();
+    String city = game.player.actor.location.locationScene.getName();
+    int risk = game.player.actor.location.locationScene.getRiskFactor();
+    String mineral = game.player.actor.location.locationScene.getMineralTypetoAttack();
     
     
         String questionIntroDisplay;
@@ -58,10 +58,10 @@ public class AttackCityView extends View {
         
         switch (menuItem){
             case 'Y' :
-                int risk = game.player.actor.location.locationScene.cityscene.getRiskFactor();
-                String mineral = game.player.actor.location.locationScene.cityscene.getMineralTypetoAttack();
-                int userArmy = game.resourceType[6].resourceQty;
-                int cityArmy = game.player.actor.location.locationScene.cityscene.getRiskArmyFactor();
+                int risk = game.player.actor.location.locationScene.getRiskFactor();
+                String mineral = game.player.actor.location.locationScene.getMineralTypetoAttack();
+                int userArmy = game.resourceType[5].resourceQty;
+                int cityArmy = game.player.actor.location.locationScene.getRiskArmyFactor();
                 
                 
                 Resource[] resource = game.getResourceType();
@@ -79,7 +79,7 @@ public class AttackCityView extends View {
                     game.resourceType[6].setResourceQty(((int) userResult));
                 } else {
                     System.out.println("Congratulations You have conguered this City!");
-                    game.player.actor.location.locationScene.cityscene.setOwnership(0);
+                    game.player.actor.location.locationScene.setOwnership(0);
                 }            
                 
                 break;

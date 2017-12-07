@@ -6,8 +6,7 @@
 package kingdomsandglory.control;
 
 
-import kingdomsandglory.exceptions.PlayerControlException;
-import 
+import kingdomsandglory.exceptions.PlayerControlException; 
 
 /**
  *
