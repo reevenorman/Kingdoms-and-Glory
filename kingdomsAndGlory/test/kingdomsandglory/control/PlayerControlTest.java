@@ -5,6 +5,9 @@
  */
 package kingdomsandglory.control;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import kingdomsandglory.exceptions.PlayerControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -111,10 +114,6 @@ public class PlayerControlTest {
         expResult = -7;
         result = PlayerControl.assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
         assertEquals(expResult, result);
-        
-        System.out.println("test case 9");
-                
-        questionOne = 3;
         questionTwo = 2;
         questionThree = 4;
         questionFour = 1;
@@ -166,6 +165,36 @@ public class PlayerControlTest {
         expResult = 3;
         result = PlayerControl.assignActorTrait(questionOne, questionTwo, questionThree, questionFour, questionFive);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of sumOfActorTrait method, of class PlayerControl.
+     */
+    
+    @Test
+    public void testSumOfActorTrait() {
+        System.out.println("sumOfActorTrait test 1");
+        int[] sendInputs = {1,2,3,2,1};
+        int expResult = 9;
+        int result;
+        try {
+            result = PlayerControl.sumOfActorTrait(sendInputs);
+            assertEquals(expResult, result);
+        } catch (PlayerControlException ex) {
+            fail("test 1 failed");
+        }
+        
+        
+        System.out.println("sumOfActorTrait test 2");
+        sendInputs = null;
+        expResult = 0;
+        try {
+            result = PlayerControl.sumOfActorTrait(sendInputs);
+            fail("test 2 failed");
+        } catch (PlayerControlException ex) {
+            assertTrue(true);
+        }
+        
     }
     
 }
