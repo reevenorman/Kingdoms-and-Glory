@@ -47,11 +47,15 @@ public class GameControl {
             throw new GameControlException("Player Cannot Be Null");
         }
         Game game = new Game();
-        setPlayer(player);
+        game.setPlayer(kingdomsandglory.getPlayer());
         kingdomsandglory.setCurrentGame(game);
-
+        
         Trait[] traits = new Trait[3];
         traits = createTraits();
+        
+        
+        Actor actor = new Actor();
+        game.player.actor = actor;
        
         Resource[] resources = new Resource[5];
         resources = ResourceControl.createItems();
@@ -70,8 +74,8 @@ public class GameControl {
         
         game.map = map;
         
-        Actor actor = new Actor(traits, game.map.location);
-        game.player.actor = actor;
+        game.player.actor.location = game.map.locations[4][2];
+
         
         return;
     }
@@ -91,33 +95,33 @@ public class GameControl {
 
         Trait diplomatic = new Trait();
         diplomatic.traitName = "Diplomatic";
-        diplomatic.army = 0;
-        diplomatic.cloth = 0;
-        diplomatic.wood = 0;
-        diplomatic.stone = 0;
-        diplomatic.metal = 0;
-        diplomatic.gold = 0;
+        diplomatic.army = 200;
+        diplomatic.cloth = 200;
+        diplomatic.wood = 200;
+        diplomatic.stone = 200;
+        diplomatic.metal = 200;
+        diplomatic.gold = 250;
         traitType[TraitEnum.diplomatic.ordinal()] = diplomatic;
 
         
         Trait strategic = new Trait();
         strategic.traitName = "Strategic";
-        strategic.army = 0;
-        strategic.cloth = 0;
-        strategic.wood = 0;
-        strategic.stone = 0;
-        strategic.metal = 0;
-        strategic.gold = 0;
+        strategic.army = 300;
+        strategic.cloth = 100;
+        strategic.wood = 100;
+        strategic.stone = 100;
+        strategic.metal = 200;
+        strategic.gold = 250;
         traitType[TraitEnum.strategic.ordinal()] = strategic;
 
         Trait charismatic = new Trait();
         charismatic.traitName = "Charismatic";
-        charismatic.army = 0;
-        charismatic.cloth = 0;
-        charismatic.wood = 0;
-        charismatic.stone = 0;
-        charismatic.metal = 0;
-        charismatic.gold = 0;
+        charismatic.army = 500;
+        charismatic.cloth = 100;
+        charismatic.wood = 100;
+        charismatic.stone = 100;
+        charismatic.metal = 100;
+        charismatic.gold = 300;
         traitType[TraitEnum.charismatic.ordinal()] = charismatic;
 
         return traitType;
