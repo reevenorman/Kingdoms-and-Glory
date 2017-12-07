@@ -4,13 +4,10 @@
  * and open the template in the editor.
  */
 package kingdomsandglory.control;
-//import kingdomsandglory.view.ActorTraitViewTwo;
-//import kingdomsandglory.view.ActorTraitViewThree;
+
 
 import kingdomsandglory.exceptions.PlayerControlException;
-
-//import kingdomsandglory.view.ActorTraitViewFour;
-//import kingdomsandglory.view.ActorTraitViewFive;
+import 
 
 /**
  *
@@ -66,4 +63,17 @@ public class PlayerControl {
         }
         return total;
     }
-}
+   
+    /*
+    public static int addSumToGold(String actorTraitName) throws PlayerControlException {
+        if (actorTraitName == "Diplomatic") {
+            diplomatic.gold = diplomatic.gold + sumOfActorTrait;
+        }
+        if (actorTraitName == "Strategic") {
+            strategic.gold = strategic.gold + sumOfActorTrait;
+        }
+        if (actorTraitName == "Charismatic") {
+            charismatic.gold = charismatic.gold + sumOfActorTrait;
+        }
+*/
+    }
