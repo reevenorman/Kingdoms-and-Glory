@@ -13,6 +13,7 @@ import java.util.Objects;
  */
 public class Trait {
     
+    public Trait[] trait;
     public String traitName;
     public int army;
     public int cloth;
@@ -41,6 +42,24 @@ public class Trait {
         this.gold = 0;
     }
 
+    public Trait[] getTrait() {
+        return trait;
+    }
+
+    public void setTrait(Trait[] trait) {
+        this.trait = trait;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    
+    
     public String getTraitName() {
         return traitName;
     }

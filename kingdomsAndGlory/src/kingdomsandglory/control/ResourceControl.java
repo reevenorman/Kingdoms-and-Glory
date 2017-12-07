@@ -18,32 +18,32 @@ public class ResourceControl {
         Resource[] resourceType = new Resource[6];
 
         Resource cloth = new Resource();
-        cloth.resourceQty = 0.0;
+        cloth.resourceQty = 0;
         cloth.resourceDiscription = "cloth";
         resourceType[ResourceEnum.cloth.ordinal()] = cloth;
 
         Resource wood = new Resource();
-        wood.resourceQty = 0.0;
+        wood.resourceQty = 0;
         wood.resourceDiscription = "wood";
         resourceType[ResourceEnum.wood.ordinal()] = wood;
 
         Resource stone = new Resource();
-        stone.resourceQty = 0.0;
+        stone.resourceQty = 0;
         stone.resourceDiscription = "stone";
         resourceType[ResourceEnum.stone.ordinal()] = stone;
 
         Resource metal = new Resource();
-        metal.resourceQty = 0.0;
+        metal.resourceQty = 0;
         metal.resourceDiscription = "metal";
         resourceType[ResourceEnum.metal.ordinal()] = metal;
 
         Resource gold = new Resource();
-        gold.resourceQty = 0.0;
+        gold.resourceQty = 0;
         gold.resourceDiscription = "gold";
         resourceType[ResourceEnum.gold.ordinal()] = gold;
         
         Resource army = new Resource();
-        army.resourceQty = 50.0;
+        army.resourceQty = 50;
         army.resourceDiscription = "Army";
         resourceType[ResourceEnum.army.ordinal()] = army;
         

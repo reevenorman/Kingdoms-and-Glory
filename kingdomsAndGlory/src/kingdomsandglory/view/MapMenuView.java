@@ -6,6 +6,7 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.kingdomsandglory;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Location;
 
@@ -59,26 +60,38 @@ public class MapMenuView extends View{
     }
     
     public void displayViewTerritoryView() {
-        Game game = new Game();
-        game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        String nameLocation;
+        Game game = kingdomsandglory.getCurrentGame();
             
         Location[][] locations = game.map.locations;
+
         
-        System.out.println("        The Kingdom of Zenobia          ");
-        System.out.println("      0      1      2      3      4     ");
-        System.out.print("----------------------------------------\n");
+        
+        System.out.println("          The Kingdom of Zenobia            ");
+        System.out.println("      0       1       2       3       4     ");
+        System.out.print("------------------------------------------\n");
         int i = 0;
         int j = 0;
         
+        
+        
         for (Location[] row : locations) {
-            System.out.print(i);
-            j = 0;
-            for (Location[] column : locations) {
-                System.out.print(" |  " + locations[i][j].locationScene.mapSignal);
-                j++;
-            }
+                System.out.print(i);
+                j = 0;
+                for (Location[] column : locations) {
+                        nameLocation = null;
+                        nameLocation = locations[i][j].locationScene.mapSignal;
+                        if (locations[i][j] == game.player.actor.location) {
+                            nameLocation = ("<" + nameLocation + ">");
+                        }
+                        else {
+                            nameLocation = (" " + nameLocation + " ");
+                        }
+                        System.out.print(" | " + nameLocation);
+                        j++;    
+                } 
             i++;
-            System.out.print("\n----------------------------------------\n");
+            System.out.print("\n------------------------------------------\n");
         }
     }
 }

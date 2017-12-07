@@ -18,6 +18,7 @@ import java.util.Objects;
 public class Game implements Serializable {
        public Player player;
        public Resource[] resourceType;
+       public Trait trait;
        public Map map;
        public long dateTime;
 

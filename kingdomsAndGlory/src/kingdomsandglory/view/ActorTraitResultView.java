@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static kingdomsandglory.control.PlayerControl.assignActorTrait;
+import kingdomsandglory.model.Game;
 import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;
 import kingdomsandglory.exceptions.PlayerControlException;
 /*import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;*/
@@ -139,7 +140,10 @@ public class ActorTraitResultView extends View {
         }
         
         String playerName = "Unknown";
-        playerName = kingdomsandglory.model.Player.getPlayerName();
+        
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        
+        playerName = game.player.getPlayerName();
         
         System.out.println("========================================\n"
                         + "Congratulations, " + playerName + "!\n"
