@@ -15,20 +15,25 @@ import java.util.Objects;
  * @author reeve
  */
 public class Actor implements Serializable {
-        private Trait[] traits;
+        public Trait trait;
         public Location location;
-
-    public Actor(Trait[] traits, Location location) {
-        this.traits = traits;
+        
+    public Actor() {
+        this.trait = trait;
         this.location = location;
     }
 
-    public Trait[] getTraits() {
-        return traits;
+    public Actor(Trait trait, Location location) {
+        this.trait = trait;
+        this.location = location;
     }
 
-    public void setTraits(Trait[] traits) {
-        this.traits = traits;
+    public Trait getTraits() {
+        return trait;
+    }
+
+    public void setTraits(Trait traits) {
+        this.trait = trait;
     }
 
     public Location getLocation() {
@@ -41,13 +46,13 @@ public class Actor implements Serializable {
 
     @Override
     public String toString() {
-        return "Actor{" + "traits=" + traits + ", location=" + location + '}';
+        return "Actor{" + "traits=" + trait + ", location=" + location + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 53 * hash + Arrays.deepHashCode(this.traits);
+        hash = 53 * hash + Objects.hashCode(this.trait);
         hash = 53 * hash + Objects.hashCode(this.location);
         return hash;
     }
@@ -64,7 +69,7 @@ public class Actor implements Serializable {
             return false;
         }
         final Actor other = (Actor) obj;
-        if (!Arrays.deepEquals(this.traits, other.traits)) {
+        if (!Objects.equals(this.trait, other.trait)) {
             return false;
         }
         if (!Objects.equals(this.location, other.location)) {

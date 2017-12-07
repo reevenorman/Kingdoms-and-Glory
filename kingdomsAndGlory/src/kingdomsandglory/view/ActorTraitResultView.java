@@ -8,6 +8,7 @@ package kingdomsandglory.view;
 import kingdomsandglory.control.PlayerControl;
 import java.util.Scanner;
 import static kingdomsandglory.control.PlayerControl.assignActorTrait;
+import kingdomsandglory.model.Game;
 /*import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;*/
 import kingdomsandglory.view.StartProgramView;
 
@@ -135,7 +136,10 @@ public class ActorTraitResultView extends View {
         }
         
         String playerName = "Unknown";
-        playerName = kingdomsandglory.model.Player.getPlayerName();
+        
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        
+        playerName = game.player.getPlayerName();
         
         System.out.println("========================================\n"
                         + "Congratulations, " + playerName + "!\n"
@@ -144,6 +148,8 @@ public class ActorTraitResultView extends View {
                         + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "========================================\n");
+        
+        //game.player.actor.trait.trait = game.trait.trait;
 
         return true;
     }

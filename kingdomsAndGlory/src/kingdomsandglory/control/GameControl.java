@@ -47,11 +47,15 @@ public class GameControl {
             throw new GameControlException("Player Cannot Be Null");
         }
         Game game = new Game();
-        setPlayer(player);
+        game.setPlayer(kingdomsandglory.getPlayer());
         kingdomsandglory.setCurrentGame(game);
-
+        
         Trait[] traits = new Trait[3];
         traits = createTraits();
+        
+        
+        Actor actor = new Actor();
+        game.player.actor = actor;
        
         Resource[] resources = new Resource[5];
         resources = ResourceControl.createItems();
@@ -70,8 +74,8 @@ public class GameControl {
         
         game.map = map;
         
-        Actor actor = new Actor(traits, game.map.location);
-        game.player.actor = actor;
+        game.player.actor.location = game.map.locations[4][2];
+
         
         return;
     }

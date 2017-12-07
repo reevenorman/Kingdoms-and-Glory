@@ -30,55 +30,11 @@ import kingdomsandglory.model.Player;
  */
 public class MapControl {
 
-    public static long battleOutcome(long armyValue, long resourceList, long cityArmyValue, long cityResourceList) {
-
-        if (armyValue > 1000000000) {
-            return -1;
-        }
-        if (armyValue < 0) {
-            return -5;
-        }
-        if (cityArmyValue > 1000000000) {
-            return -3;
-        }
-        if (cityArmyValue < 0) {
-            return -7;
-        }
-        if (resourceList > 1000000000) {
-            return -2;
-        }
-        if (resourceList < 0) {
-            return -6;
-        }
-        if (cityResourceList > 1000000000) {
-            return -4;
-        }
-        if (cityResourceList < 0) {
-            return -8;
-        }
-        if (resourceList == 0 && cityResourceList == 0 && armyValue == 0 && cityArmyValue == 0) {
-            return -9;
-        }
-        double resourceBonus = 1.0;
-        double cityResourceBonus = 1.0;
-        if (resourceList > cityResourceList) {
-            resourceBonus = 1.5;
-        }
-        if (resourceList < cityResourceList) {
-            cityResourceBonus = 1.5;
-        }
-        double attackValue = armyValue + (resourceList * resourceBonus);
-        double cityDefenseValue = cityArmyValue + (cityResourceList * cityResourceBonus);
-
-        if (attackValue >= cityDefenseValue) {
-            return 1;
-        }
-        return 0;
-    }
+    
 
     public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) {
         Game game = new Game();
-        game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        game = kingdomsandglory.getCurrentGame();
 
         Resource resource = new Resource();
 
@@ -201,173 +157,214 @@ public class MapControl {
             }
             i++;
         }
-
+        
         return allLocations;
     }
 
     public static Scene[] createCityScene(Scene[] scene) {
         Scene[] sceneArray = new Scene[25];
+        Game game = kingdomsandglory.getCurrentGame();
 
         CityScene visum = new CityScene();
         visum.rowCount = CoordinateMapEnum.Visum.getcRow();
         visum.columnCount = CoordinateMapEnum.Visum.getcColumn();
+        visum.name = "Visum";
         visum.mapSignal = "Vis";
-        visum.ownership = false;
+        visum.ownership = 1;
         visum.riskFactor = 0;
+        visum.riskArmyFactor = 10;
+        visum.actor = null;
+        visum.mineralTypetoAttack = "mine";
         sceneArray[CoordinateMapEnum.Visum.ordinal()] = visum;
 
         CityScene genus = new CityScene();
         genus.rowCount = CoordinateMapEnum.Genus.getcRow();
         genus.columnCount = CoordinateMapEnum.Genus.getcColumn();
+        genus.name = "Genus";
         genus.mapSignal = "Gen";
-        genus.ownership = false;
+        genus.ownership = 1;
         genus.riskFactor = 0;
+        genus.riskArmyFactor = 10;
+        genus.actor = null;
+        genus.mineralTypetoAttack = "Cloth";
         sceneArray[CoordinateMapEnum.Genus.ordinal()] = genus;
 
         CityScene pacem = new CityScene();
         pacem.rowCount = CoordinateMapEnum.Pacem.getcRow();
         pacem.columnCount = CoordinateMapEnum.Pacem.getcColumn();
+        pacem.name = "Pacem";
         pacem.mapSignal = "Pac";
-        pacem.ownership = false;
+        pacem.ownership = 1;
         pacem.riskFactor = 0;
+        pacem.riskArmyFactor = 10;
+        pacem.actor = null;
+        pacem.mineralTypetoAttack = "Stone";
         sceneArray[CoordinateMapEnum.Pacem.ordinal()] = pacem;
 
         CityScene felicitatem = new CityScene();
         felicitatem.rowCount = CoordinateMapEnum.Felicitatem.getcRow();
         felicitatem.columnCount = CoordinateMapEnum.Felicitatem.getcColumn();
+        felicitatem.name = "Felicitatem";
         felicitatem.mapSignal = "Fel";
-        felicitatem.ownership = false;
+        felicitatem.ownership = 1;
         felicitatem.riskFactor = 0;
+        felicitatem.riskArmyFactor = 10;
+        felicitatem.actor = null;
+        felicitatem.mineralTypetoAttack = "Wood";
         sceneArray[CoordinateMapEnum.Felicitatem.ordinal()] = felicitatem;
 
         CityScene pulchram = new CityScene();
         pulchram.rowCount = CoordinateMapEnum.Pulchram.getcRow();
         pulchram.columnCount = CoordinateMapEnum.Pulchram.getcColumn();
+        pulchram.name = "Pulchram";
         pulchram.mapSignal = "Pul";
-        pulchram.ownership = false;
+        pulchram.ownership = 1;
         pulchram.riskFactor = 0;
+        pulchram.riskArmyFactor = 10;
+        pulchram.actor = null;
+        pulchram.mineralTypetoAttack = "Wood";
         sceneArray[CoordinateMapEnum.Pulchram.ordinal()] = pulchram;
 
         CityScene zenobia = new CityScene();
         zenobia.rowCount = CoordinateMapEnum.Zenobia.getcRow();
         zenobia.columnCount = CoordinateMapEnum.Zenobia.getcColumn();
         zenobia.mapSignal = "Zen";
-        zenobia.ownership = true;
+        zenobia.ownership = 0;
         zenobia.riskFactor = 0;
+        zenobia.actor = game.player.actor;
         sceneArray[CoordinateMapEnum.Zenobia.ordinal()] = zenobia;
 
         ResourceScene forestA = new ResourceScene();
         forestA.rowCount = CoordinateMapEnum.ForestA.getcRow();
         forestA.columnCount = CoordinateMapEnum.ForestA.getcColumn();
         forestA.mapSignal = "???";
+        forestA.actor = null;
         sceneArray[CoordinateMapEnum.ForestA.ordinal()] = forestA;
 
         ResourceScene forestB = new ResourceScene();
         forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
         forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
         forestB.mapSignal = "???";
+        forestB.actor = null;
         sceneArray[CoordinateMapEnum.ForestB.ordinal()] = forestB;
 
         ResourceScene forestC = new ResourceScene();
         forestC.rowCount = CoordinateMapEnum.ForestC.getcRow();
         forestC.columnCount = CoordinateMapEnum.ForestC.getcColumn();
         forestC.mapSignal = "???";
+        forestC.actor = null;
         sceneArray[CoordinateMapEnum.ForestC.ordinal()] = forestC;
 
         ResourceScene forestD = new ResourceScene();
         forestD.rowCount = CoordinateMapEnum.ForestD.getcRow();
         forestD.columnCount = CoordinateMapEnum.ForestD.getcColumn();
         forestD.mapSignal = "???";
+        forestD.actor = null;
         sceneArray[CoordinateMapEnum.ForestD.ordinal()] = forestD;
 
         ResourceScene forestE = new ResourceScene();
         forestE.rowCount = CoordinateMapEnum.ForestE.getcRow();
         forestE.columnCount = CoordinateMapEnum.ForestE.getcColumn();
         forestE.mapSignal = "???";
+        forestE.actor = null;
         sceneArray[CoordinateMapEnum.ForestE.ordinal()] = forestE;
 
         ResourceScene forestF = new ResourceScene();
         forestF.rowCount = CoordinateMapEnum.ForestF.getcRow();
         forestF.columnCount = CoordinateMapEnum.ForestF.getcColumn();
         forestF.mapSignal = "???";
+        forestF.actor = null;
         sceneArray[CoordinateMapEnum.ForestF.ordinal()] = forestF;
 
         ResourceScene millA = new ResourceScene();
         millA.rowCount = CoordinateMapEnum.MillA.getcRow();
         millA.columnCount = CoordinateMapEnum.MillA.getcColumn();
         millA.mapSignal = "???";
+        millA.actor = null;
         sceneArray[CoordinateMapEnum.MillA.ordinal()] = millA;
 
         ResourceScene millB = new ResourceScene();
         millB.rowCount = CoordinateMapEnum.MillB.getcRow();
         millB.columnCount = CoordinateMapEnum.MillB.getcColumn();
         millB.mapSignal = "???";
+        millB.actor = null;
         sceneArray[CoordinateMapEnum.MillB.ordinal()] = millB;
 
         ResourceScene millC = new ResourceScene();
         millC.rowCount = CoordinateMapEnum.MillC.getcRow();
         millC.columnCount = CoordinateMapEnum.MillC.getcColumn();
         millC.mapSignal = "???";
+        millC.actor = null;
         sceneArray[CoordinateMapEnum.MillC.ordinal()] = millC;
 
         ResourceScene millD = new ResourceScene();
         millD.rowCount = CoordinateMapEnum.MillD.getcRow();
         millD.columnCount = CoordinateMapEnum.MillD.getcColumn();
         millD.mapSignal = "???";
+        millD.actor = null;
         sceneArray[CoordinateMapEnum.MillD.ordinal()] = millD;
 
         ResourceScene millE = new ResourceScene();
         millE.rowCount = CoordinateMapEnum.MillE.getcRow();
         millE.columnCount = CoordinateMapEnum.MillE.getcColumn();
         millE.mapSignal = "???";
+        millE.actor = null;
         sceneArray[CoordinateMapEnum.MillE.ordinal()] = millE;
 
         ResourceScene mountainA = new ResourceScene();
         mountainA.rowCount = CoordinateMapEnum.MountainA.getcRow();
         mountainA.columnCount = CoordinateMapEnum.MountainA.getcColumn();
         mountainA.mapSignal = "???";
+        mountainA.actor = null;
         sceneArray[CoordinateMapEnum.MountainA.ordinal()] = mountainA;
 
         ResourceScene mountainB = new ResourceScene();
         mountainB.rowCount = CoordinateMapEnum.MountainB.getcRow();
         mountainB.columnCount = CoordinateMapEnum.MountainB.getcColumn();
         mountainB.mapSignal = "???";
+        mountainB.actor = null;
         sceneArray[CoordinateMapEnum.MountainB.ordinal()] = mountainB;
 
         ResourceScene mountainC = new ResourceScene();
         mountainC.rowCount = CoordinateMapEnum.MountainC.getcRow();
         mountainC.columnCount = CoordinateMapEnum.MountainC.getcColumn();
         mountainC.mapSignal = "???";
+        mountainC.actor = null;
         sceneArray[CoordinateMapEnum.MountainC.ordinal()] = mountainC;
 
         ResourceScene mountainD = new ResourceScene();
         mountainD.rowCount = CoordinateMapEnum.MountainD.getcRow();
         mountainD.columnCount = CoordinateMapEnum.MountainD.getcColumn();
         mountainD.mapSignal = "???";
+        mountainD.actor = null;
         sceneArray[CoordinateMapEnum.MountainD.ordinal()] = mountainD;
 
         ResourceScene mineA = new ResourceScene();
         mineA.rowCount = CoordinateMapEnum.MineA.getcRow();
         mineA.columnCount = CoordinateMapEnum.MineA.getcColumn();
         mineA.mapSignal = "???";
+        mineA.actor = null;
         sceneArray[CoordinateMapEnum.MineA.ordinal()] = mineA;
 
         ResourceScene mineB = new ResourceScene();
         mineB.rowCount = CoordinateMapEnum.MineB.getcRow();
         mineB.columnCount = CoordinateMapEnum.MineB.getcColumn();
         mineB.mapSignal = "???";
+        mineB.actor = null;
         sceneArray[CoordinateMapEnum.MineB.ordinal()] = mineB;
 
         ResourceScene mineC = new ResourceScene();
         mineC.rowCount = CoordinateMapEnum.MineC.getcRow();
         mineC.columnCount = CoordinateMapEnum.MineC.getcColumn();
         mineC.mapSignal = "???";
+        mineC.actor = null;
         sceneArray[CoordinateMapEnum.MineC.ordinal()] = mineC;
 
         ResourceScene mineD = new ResourceScene();
         mineD.rowCount = CoordinateMapEnum.MineD.getcRow();
         mineD.columnCount = CoordinateMapEnum.MineD.getcColumn();
         mineD.mapSignal = "???";
+        mineD.actor = null;
         sceneArray[CoordinateMapEnum.MineD.ordinal()] = mineD;
 
         scene = sceneArray;
@@ -498,34 +495,42 @@ public class MapControl {
     }
 
     public static Location moveActor(Actor actor, int direction) throws MapControlException {
-        Player player = new Player();
-        player = getPlayer();
-        if (player == null) {
+        boolean ifcity;
+        Game game = kingdomsandglory.getCurrentGame();
+        if (actor == null) {
             throw new MapControlException("Player Cannot Be Null");
         }
-        Game game = new Game();
-        setPlayer(player);
-        kingdomsandglory.setCurrentGame(game);
-        int currentRow = actor.actorLocationRow;
-        int currentColumn = actor.actorLocationColumn;
 
-        switch (direction) {
-            case 1:
-                currentColumn = currentColumn - 1;
-                break;
-            case 2:
-                currentColumn = currentColumn + 1;
-                break;
-            case 3:
-                currentRow = currentRow - 1;
-                break;
-            case 4:
-                currentRow = currentRow + 1;
-                break;
-            default:
-                System.out.println("invalid Input");
-        }
+        int currentRow = game.player.actor.location.locationScene.getRowCount();
+        int currentColumn = actor.location.locationScene.getColumnCount();
+        
+        game.map.locations[currentRow][currentColumn].locationScene.actor = null;
+
+            switch (direction) {
+                case 1:
+                    currentRow = currentRow - 1;
+                    break;
+                case 2:
+                    currentRow = currentRow + 1;
+                    break;
+                case 3:
+                    currentColumn = currentColumn + 1;
+                    break;
+                case 4:
+                    currentColumn = currentColumn - 1;
+                    break;
+                default:
+                    System.out.println("invalid Input");
+            }
+        
+        actor.location = game.map.locations[currentRow][currentColumn];
+        
+        game.map.locations[currentRow][currentColumn].locationScene.actor = actor;
+        
+        
 
         return null;
     }
+
+
 }

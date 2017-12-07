@@ -14,20 +14,42 @@ import java.util.Objects;
  */
 public class CityScene extends Scene implements Serializable {
     
-    public Boolean ownership;
+    public String name;
+    public int ownership;
+    public int riskArmyFactor;
     public int riskFactor;
+    public String mineralTypetoAttack;
+
+    public String getMineralTypetoAttack() {
+        return mineralTypetoAttack;
+    }
+
+    public void setMineralTypetoAttack(String mineralTypetoAttack) {
+        this.mineralTypetoAttack = mineralTypetoAttack;
+    }
+
+    public int getRiskArmyFactor() {
+        return riskArmyFactor;
+    }
+
+    public void setRiskArmyFactor(int riskArmyFactor) {
+        this.riskArmyFactor = riskArmyFactor;
+    }
+    
+    
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
     public CityScene() {
-        this.ownership = false;
-        this.riskFactor = 0;
     }
 
-    public CityScene(Boolean ownership, int riskFactor) {
-        this.ownership = ownership;
-        this.riskFactor = riskFactor;
-    }
-
-    public Boolean getOwnership() {
+    public int getOwnership() {
         return ownership;
     }
 
@@ -35,7 +57,7 @@ public class CityScene extends Scene implements Serializable {
         return riskFactor;
     }
 
-    public void setOwnership(Boolean ownership) {
+    public void setOwnership(int ownership) {
         this.ownership = ownership;
     }
 

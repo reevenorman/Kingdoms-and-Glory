@@ -15,11 +15,10 @@ public class ResourceScene extends Scene implements Serializable {
     
     public int fortuneValue;
     public int misfortuneValue;
+    public boolean ownership;
     
 
     public ResourceScene() {
-
-    
     }
     
     public ResourceScene(int fortuneValue, int misfortuneValue) {
@@ -27,6 +26,16 @@ public class ResourceScene extends Scene implements Serializable {
         this.misfortuneValue = misfortuneValue;
     }
 
+    public boolean getOwnership() {
+        return ownership;
+    }
+
+    public void setOwnership(boolean ownership) {
+        this.ownership = ownership;
+    }
+
+    
+    
     public int getFortuneValue() {
         return fortuneValue;
     }

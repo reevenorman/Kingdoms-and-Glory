@@ -6,8 +6,13 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import kingdomsandglory.control.GameControl;
+import kingdomsandglory.exceptions.GameControlException;
 import kingdomsandglory.model.Player;
 import kingdomsandglory.kingdomsandglory;
+import kingdomsandglory.model.Game;
 
 /**
  *
@@ -65,17 +70,16 @@ public class StartProgramView extends View {
     public boolean doAction(String[] inputs) {
         String playersName = inputs[0];
         Player player = new Player();
-        
         player.setPlayerName(playersName);
         
-        kingdomsandglory.setPlayer(player);
-
+            try {
+                GameControl.savePlayer(player);
+            } catch (GameControlException ex) {
+                System.out.println(ex.getMessage());
+                return false;
+            }
         
-        if (player == null){
-            System.out.println("Could not create the player. \n"
-                    + "Enter a different name.");
-            return false;
-        }
+
         System.out.println("========================================\n"
                         + "Welcome to the game, " + playersName + "!\n"
                         + "We hope you have a lot of fun!\n"
@@ -83,12 +87,7 @@ public class StartProgramView extends View {
         
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
-        
-    
-                
-        
-        System.out.println("**** doActionCalled() called ***");
-        System.out.println("**** \tinputs = " + inputs[0] + "    ***");
+
         
         return true;
     }

@@ -6,7 +6,7 @@
 package kingdomsandglory.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
+
 import java.util.Objects;
 
 /**
@@ -14,16 +14,18 @@ import java.util.Objects;
  * @author piano
  */
 public class Location implements Serializable {
-    private int row;
-    private int column;
-    private Boolean visited;
+    public int row;
+    public int column;
+    public Boolean visited;
     public Scene locationScene;
+    
     
     public Location() {
         this.row = row;
         this.column = column;
         this.visited = visited;
         this.locationScene = locationScene;
+
     }
 
     public Location(int row, int column, Boolean visited, Scene scene) {

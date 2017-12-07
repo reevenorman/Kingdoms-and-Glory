@@ -16,16 +16,16 @@ import java.util.Objects;
 public class Resource implements Serializable {
     
     public String resourceDiscription;
-    public Double resourceQty;
+    public int resourceQty;
 
     
     public Resource() {
         this.resourceDiscription = "";
-        this.resourceQty = 0.0;
+        this.resourceQty = 0;
     }
 
     
-    public Resource(int[] resourceType, Double resourceQty, Double moneyQty) {
+    public Resource(int[] resourceType, int resourceQty, int moneyQty) {
         this.resourceQty = resourceQty;
         this.resourceDiscription = resourceDiscription;
     }
@@ -40,13 +40,13 @@ public class Resource implements Serializable {
     
 
 
-    public Double getResourceQty() {
+    public int getResourceQty() {
         return resourceQty;
     }
 
 
 
-    public void setResourceQty(Double resourceQty) {
+    public void setResourceQty(int resourceQty) {
         this.resourceQty = resourceQty;
     }
 
