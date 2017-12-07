@@ -132,9 +132,7 @@ public class MoveOnMapMenuView extends View {
         
         switch (validMove) {
                 case "Mill":
-                    direction = 1;
-                    MapControl.moveActor(actor, direction);
-                    this.attackOption();
+                    fortuneOutcomeView.display();
                     return true;
                 case "Frst":
                     direction = 2;

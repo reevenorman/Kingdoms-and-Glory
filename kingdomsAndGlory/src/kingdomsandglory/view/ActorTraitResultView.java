@@ -149,8 +149,6 @@ public class ActorTraitResultView extends View {
                         + "The sum of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "========================================\n");
-        
-        //game.player.actor.trait.trait = game.trait.trait;
 
         return true;
     }
