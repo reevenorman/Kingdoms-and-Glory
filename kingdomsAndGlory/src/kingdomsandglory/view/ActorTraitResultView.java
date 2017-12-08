@@ -13,13 +13,13 @@ import static kingdomsandglory.control.PlayerControl.assignActorTrait;
 import kingdomsandglory.model.Game;
 import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;
 import kingdomsandglory.exceptions.PlayerControlException;
-/*import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;*/
 import kingdomsandglory.view.StartProgramView;
 
 /**
  *
  * @author piano
  */
+
 public class ActorTraitResultView extends View {
 
     @Override
@@ -120,8 +120,12 @@ public class ActorTraitResultView extends View {
         int traitresult;
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
         
-        int sumOfTraitQuestions;
-        //sumOfTraitQuestions = sumOfActorTrait(sendInputs);   
+        int sumOfTraitQuestions = 0;
+        try {
+            sumOfTraitQuestions = sumOfActorTrait(sendInputs);
+        } catch (PlayerControlException ex) {
+            System.out.println("sumOfTraitQuestions() Broke :(");
+        }
         
         String actorTraitName = "unknown";
        
@@ -138,7 +142,7 @@ public class ActorTraitResultView extends View {
             default:
                 actorTraitName = "Invalid Input";
         }
-        
+         
         String playerName = "Unknown";
         
         Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();

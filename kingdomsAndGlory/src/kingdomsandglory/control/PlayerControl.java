@@ -5,8 +5,11 @@
  */
 package kingdomsandglory.control;
 
-
-import kingdomsandglory.exceptions.PlayerControlException; 
+import kingdomsandglory.exceptions.PlayerControlException;
+import static kingdomsandglory.model.TraitEnum.charismatic;
+import static kingdomsandglory.model.TraitEnum.diplomatic;
+import static kingdomsandglory.model.TraitEnum.strategic;
+import kingdomsandglory.view.ActorTraitResultView;
 
 /**
  *
@@ -53,7 +56,7 @@ public class PlayerControl {
 
     public static int sumOfActorTrait(int[] sendInputs) throws PlayerControlException {
         if (sendInputs == null) {
-            throw new PlayerControlException("Invalid Input"); 
+            throw new PlayerControlException("Invalid Input");
         }
         int total = 0;
         int j = 0;
@@ -62,17 +65,19 @@ public class PlayerControl {
         }
         return total;
     }
-   
-    /*
+
     public static int addSumToGold(String actorTraitName) throws PlayerControlException {
         if (actorTraitName == "Diplomatic") {
-            diplomatic.gold = diplomatic.gold + sumOfActorTrait;
+            diplomatic.gold = diplomatic.gold + sumOfTraitQuestions;
+            return diplomatic.gold;
         }
         if (actorTraitName == "Strategic") {
-            strategic.gold = strategic.gold + sumOfActorTrait;
+            strategic.gold = strategic.gold + sumOfTraitQuestions;
+            return strategic.gold;
         }
         if (actorTraitName == "Charismatic") {
-            charismatic.gold = charismatic.gold + sumOfActorTrait;
+            charismatic.gold = charismatic.gold + sumOfTraitQuestions;
+            return charismatic.gold;
         }
-*/
+        return -1;
     }
