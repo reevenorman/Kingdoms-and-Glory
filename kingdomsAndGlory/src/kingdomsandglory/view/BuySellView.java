@@ -5,6 +5,7 @@
  */
 package kingdomsandglory.view;
 import kingdomsandglory.control.ResourceControl;
+import kingdomsandglory.exceptions.ResourceControlException;
 
 /**
  *
@@ -137,7 +138,14 @@ public class BuySellView extends View{
         int[] sendInputs = new int[3];
         sendInputs = this.convertInput(inputs);
         
-        String transaction = ResourceControl.makeTransaction(sendInputs);
+        String transaction;
+                
+        try {
+        transaction = ResourceControl.makeTransaction(sendInputs);
+        } catch (ResourceControlException ex){
+            System.out.println(ex.getMessage());
+            return false;
+        } 
         
         System.out.println("========================================\n"
                         + transaction
@@ -152,7 +160,6 @@ public class BuySellView extends View{
         int i = 0;
         for (int j : numberInputs) {
             try {
-
             change = Integer.parseInt(inputs[i]);
             }
             catch(NumberFormatException nf) {

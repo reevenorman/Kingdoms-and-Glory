@@ -49,7 +49,7 @@ public class MapMenuView extends View{
                 break;
             case 'M':
                 MoveOnMapMenuView moveOnMapView = new MoveOnMapMenuView();
-                moveOnMapView.displayMoveOnMapView();
+                moveOnMapView.display();
                 break;
             case 'B':
                 return true;

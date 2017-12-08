@@ -5,6 +5,7 @@
  */
 package kingdomsandglory.control;
 
+import kingdomsandglory.exceptions.ResourceControlException;
 import kingdomsandglory.model.Army;
 import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.ResourceEnum;
@@ -52,7 +53,7 @@ public class ResourceControl {
         return resourceType;
     }
     
-    public static String makeTransaction(int[] inputs) {
+    public static String makeTransaction(int[] inputs) throws ResourceControlException {
         System.out.println("*** makeTransaction() called ***");
         return null;
     }

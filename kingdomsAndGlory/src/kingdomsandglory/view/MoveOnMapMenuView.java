@@ -42,18 +42,6 @@ public class MoveOnMapMenuView extends View {
         return inputs;
     }
 
-    public void displayMoveOnMapView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length == 0 || inputs[0].toUpperCase().equals("Q")) {
-                return;
-            }
-            endView = doAction(inputs);
-
-        } while (!endView);
-    }
-
     @Override
     public boolean doAction(String[] inputs) {
         //try {

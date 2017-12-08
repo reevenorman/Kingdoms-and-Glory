@@ -32,7 +32,7 @@ public class MapControl {
 
     
 
-    public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) {
+    public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) throws MapControlException {
         Game game = new Game();
         game = kingdomsandglory.getCurrentGame();
 
@@ -91,7 +91,7 @@ public class MapControl {
 
     public static Map createMap(int rowCount, int columnCount) {
         if (rowCount < 0 || columnCount < 0) {
-            return null;
+           return null;
         }
 
         Map map = new Map(rowCount, columnCount, null);

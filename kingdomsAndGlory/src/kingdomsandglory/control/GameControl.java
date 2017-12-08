@@ -9,6 +9,7 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.awt.Point;
 import kingdomsandglory.control.MapControl;
 import kingdomsandglory.exceptions.GameControlException;
+import kingdomsandglory.exceptions.MapControlException;
 import kingdomsandglory.model.Player;
 import kingdomsandglory.kingdomsandglory;
 import static kingdomsandglory.kingdomsandglory.setPlayer;
@@ -71,8 +72,9 @@ public class GameControl {
         Map map = new Map(5, 5, null);
         int rowCount = 5;
         int columnCount = 5;
-        map = MapControl.createMap(rowCount, columnCount);
 
+        map = MapControl.createMap(rowCount, columnCount);
+        
         if (map == null) {
             throw new GameControlException("Map Cannot Be Null");
         }

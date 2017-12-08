@@ -20,7 +20,6 @@ import kingdomsandglory.view.StartProgramView;
  *
  * @author piano
  */
-
 public class ActorTraitResultView extends View {
 
     @Override
@@ -29,7 +28,7 @@ public class ActorTraitResultView extends View {
         Boolean valid = false;
         String questionAnswer = "";
         String actorTraitDisplay;
-        
+
         actorTraitDisplay = "******************************************************************\n"
                 + " Question 1: When negotiating with a foreign empire, are you more likley to... \n"
                 + " A - Meet formally, and discuss matters of concern through proper channels? \n"
@@ -39,7 +38,7 @@ public class ActorTraitResultView extends View {
 
         questionAnswer = this.checkInput(actorTraitDisplay);
         inputs[0] = questionAnswer;
-        
+
         actorTraitDisplay = "******************************************************************\n"
                 + "Question 2: While playiing chess do you... \n"
                 + " A - Play in a way that makes the game fair and beneficial to both parties? \n"
@@ -49,7 +48,6 @@ public class ActorTraitResultView extends View {
 
         questionAnswer = this.checkInput(actorTraitDisplay);
         inputs[1] = questionAnswer;
-        
 
         actorTraitDisplay = "******************************************************************\n"
                 + " Question 3: When you want something from someone else, do you... \n"
@@ -84,7 +82,7 @@ public class ActorTraitResultView extends View {
         return inputs;
 
     }
-
+    
     private String checkInput(String actorTraitDisplay) {
         boolean valid = false;
         while (!valid) {
@@ -117,81 +115,97 @@ public class ActorTraitResultView extends View {
     public boolean doAction(String[] inputs) {
         int[] sendInputs = new int[5];
         sendInputs = this.convertInput(inputs);
+
+        /*
+        try {
+            sumOfTraitQuestions = sumOfActorTrait(sendInputs);
+        } catch (PlayerControlException ex) {
+            System.out.println(ex.getMessage());
+            return false;
+        }
+    */
         
         int traitresult;
+        try {
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
+        } catch (PlayerControlException ex){
+         System.out.println(ex.getMessage());
+            return false;
+        }
+        
         
         int sumOfTraitQuestions = 0;
         try {
             sumOfTraitQuestions = sumOfActorTrait(sendInputs);
         } catch (PlayerControlException ex) {
-            System.out.println("sumOfTraitQuestions() Broke :(");
+            System.out.println(ex.getMessage());
+            return false;
         }
-        
+
         String actorTraitName = "unknown";
-       
+
         switch (traitresult) {
             case 1:
                 actorTraitName = "Diplomatic";
-                
+
                 break;
             case 2:
                 actorTraitName = "Strategic";
                 break;
             case 3:
                 actorTraitName = "Charismatic";
-                break; 
+                break;
             default:
                 actorTraitName = "Invalid Input";
         }
-        
+
         try {
             int gold = PlayerControl.addSumToGold(actorTraitName, sumOfTraitQuestions);
         } catch (PlayerControlException ex) {
-            System.out.println("addSumToGold() Broke :(");
+            System.out.println(ex.getMessage());
+            return false;
         }
-        
+
         String playerName = "Unknown";
-        
+
         Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
-        
+
         playerName = game.player.getPlayerName();
-        
+
         System.out.println("========================================\n"
-                        + "Congratulations, " + playerName + "!\n"
-                        + "You have received the trait of " + actorTraitName + "!\n"
-                        + "You will be known as " + playerName + " the " +  actorTraitName + "!\n"
-                        + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
-    //                    + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
-                        + "View your resources to see what advantages you have received! \n"
-                        + "========================================\n");
+                + "Congratulations, " + playerName + "!\n"
+                + "You have received the trait of " + actorTraitName + "!\n"
+                + "You will be known as " + playerName + " the " + actorTraitName + "!\n"
+                + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
+                + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
+                + "View your resources to see what advantages you have received! \n"
+                + "========================================\n");
 
         return true;
     }
 
-    
-    private int[] convertInput (String[] inputs) {
+    private int[] convertInput(String[] inputs) {
         int[] numberInputs = new int[5];
         char change;
         int i = 0;
         for (int j : numberInputs) {
-            
+
             change = inputs[i].toUpperCase().charAt(0);
             switch (change) {
-            case '1':
-                numberInputs[i] = 1;
-                break;
-            case '2':
-                numberInputs[i] = 2;
-                break;
-            case '3':
-                numberInputs[i] = 3;
-                break;
+                case '1':
+                    numberInputs[i] = 1;
+                    break;
+                case '2':
+                    numberInputs[i] = 2;
+                    break;
+                case '3':
+                    numberInputs[i] = 3;
+                    break;
             }
             i++;
         }
         return numberInputs;
-        
+
     }
 
 }

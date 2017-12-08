@@ -6,7 +6,10 @@
 package kingdomsandglory.view;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kingdomsandglory.control.MapControl;
+import kingdomsandglory.exceptions.MapControlException;
 
 /**
  *
@@ -49,16 +52,31 @@ public class FortuneOutcomeView extends View {
         int randResourceAmt = rand.nextInt(101) + 1;
         int randResourceObj = rand.nextInt(3) + 0;
         int randChanceAmt = rand.nextInt(7) + 1;
-
+        
+        
         switch (gambleOption) {
             case 'Y':
                 userGambleOption = 1;
+        {
+            try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+            } catch (MapControlException ex) {
+                System.out.println(ex.getMessage());
+                return false;
+            }
+        }
                 System.out.println(message);
                 return true;
             case 'N':
                 userGambleOption = 0;
+        {
+            try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+            } catch (MapControlException ex) {
+                System.out.println(ex.getMessage());
+                return false;
+            }
+        }
                 System.out.println(message);
                 return true;
 

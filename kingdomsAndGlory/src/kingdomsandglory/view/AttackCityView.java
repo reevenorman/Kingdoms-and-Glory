@@ -6,6 +6,7 @@
 package kingdomsandglory.view;
 
 import kingdomsandglory.control.ArmyControl;
+import kingdomsandglory.exceptions.ArmyControlException;
 import kingdomsandglory.kingdomsandglory;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Resource;
@@ -72,7 +73,14 @@ public class AttackCityView extends View {
                 
                 int userResource = resource[i].getResourceQty();
                 
-                int result = ArmyControl.battleOutcome(userArmy, userResource, cityArmy, risk);
+                int result;
+                        
+                try {
+                result = ArmyControl.battleOutcome(userArmy, userResource, cityArmy, risk);
+                } catch (ArmyControlException ex) {
+                    System.out.println(ex.getMessage());
+                    return false;
+                } 
                 
                 if (result == 0) {
                     double userResult = userArmy * 0.5;

@@ -18,7 +18,7 @@ import kingdomsandglory.view.ActorTraitResultView;
  */
 public class PlayerControl {
 
-    public static int assignActorTrait(int questionOne, int questionTwo, int questionThree, int questionFour, int questionFive) {
+    public static int assignActorTrait(int questionOne, int questionTwo, int questionThree, int questionFour, int questionFive) throws PlayerControlException {
 
         if (questionOne > 3) {
             return -6;
@@ -70,7 +70,7 @@ public class PlayerControl {
     public static int addSumToGold(String actorTraitName, int sumOfTraitQuestions) throws PlayerControlException {
         Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
         if (actorTraitName == null) {
-            throw new PlayerControlException("actorTraitName is null");
+            throw new PlayerControlException("actorTraitName() is null");
         }
         
         if (actorTraitName == "Diplomatic") {

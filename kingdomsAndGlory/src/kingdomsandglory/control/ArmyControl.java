@@ -5,12 +5,14 @@
  */
 package kingdomsandglory.control;
 
+import kingdomsandglory.exceptions.ArmyControlException;
+
 /**
  *
  * @author piano
  */
 public class ArmyControl {
-    public static int battleOutcome(int armyValue, int resourceList, int cityArmyValue, int cityResourceList) {
+    public static int battleOutcome(int armyValue, int resourceList, int cityArmyValue, int cityResourceList) throws ArmyControlException {
 
         if (armyValue > 1000000000) {
             return -1;
