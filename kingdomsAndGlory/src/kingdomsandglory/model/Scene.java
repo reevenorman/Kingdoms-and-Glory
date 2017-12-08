@@ -19,8 +19,57 @@ public abstract class Scene {
     public Actor actor;
     public ResourceScene resourceScene;
     public CityScene cityscene;
+    public String name;
+    public int riskArmyFactor;
+    public int riskFactor;
+    public String mineralTypetoAttack;
+    public int ownership;
+
+    public int getOwnership() {
+        return ownership;
+    }
+
+    public void setOwnership(int ownership) {
+        this.ownership = ownership;
+    }
+    
+    public int getRiskArmyFactor() {
+        return riskArmyFactor;
+    }
+
+    public void setRiskArmyFactor(int riskArmyFactor) {
+        this.riskArmyFactor = riskArmyFactor;
+    }
+
+    public int getRiskFactor() {
+        return riskFactor;
+    }
+
+    public void setRiskFactor(int riskFactor) {
+        this.riskFactor = riskFactor;
+    }
+
+    public String getMineralTypetoAttack() {
+        return mineralTypetoAttack;
+    }
+
+    public void setMineralTypetoAttack(String mineralTypetoAttack) {
+        this.mineralTypetoAttack = mineralTypetoAttack;
+    }
+
     
     
+    public ResourceScene getResourceScene() {
+        return resourceScene;
+    }
+
+    public CityScene getCityscene() {
+        return cityscene;
+    }
+
+    public String getName() {
+        return name;
+    }
     
 
     public Scene() {

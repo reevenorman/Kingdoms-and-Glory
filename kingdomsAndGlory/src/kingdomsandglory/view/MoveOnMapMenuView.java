@@ -128,39 +128,46 @@ public class MoveOnMapMenuView extends View {
         int plyRow = game.player.actor.location.locationScene.getRowCount();
         int plyCol = game.player.actor.location.locationScene.getColumnCount();
 
-        validMove = game.map.locations[plyRow][plyCol].locationScene.cityscene.getMapSignal();
+        validMove = game.map.locations[plyRow][plyCol].locationScene.getMapSignal();
         
         switch (validMove) {
                 case "Mill":
                     fortuneOutcomeView.display();
-                    return true;
+                    return;
                 case "Frst":
-                    direction = 2;
-                    MapControl.moveActor(actor, direction);
-                    this.attackOption();
-                    return true;
+                    fortuneOutcomeView.display();
+                    return;
                 case "Mine":
-                    direction = 3;
-                    MapControl.moveActor(actor, direction);
-                    this.attackOption();
-                    return true;
+                    fortuneOutcomeView.display();
+                    return;
                 case "Mtn ":
-                    direction = 4;
-                    MapControl.moveActor(actor, direction);
-                    this.attackOption();
-                    return true;
-                case 'B':
-                    return true;
-                default:
-                    System.out.println("Invalid Input");
-        if (citysignal != "???") {
-            if (validcity ) {
-                attackCityView.display();
-            } else {
-                fortuneOutcomeView.display();
-            }
-        } else {
-            fortuneOutcomeView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Visu":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Genu":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Pace":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Feli":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Pulc":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
+                case "Zeon":
+                    attackCityView.display();
+                    fortuneOutcomeView.display();
+                    return;
         }
     }
+
 }

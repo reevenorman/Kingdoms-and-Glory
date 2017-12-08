@@ -169,7 +169,7 @@ public class MapControl {
         visum.rowCount = CoordinateMapEnum.Visum.getcRow();
         visum.columnCount = CoordinateMapEnum.Visum.getcColumn();
         visum.name = "Visum";
-        visum.mapSignal = "Vis";
+        visum.mapSignal = "Visu";
         visum.ownership = 1;
         visum.riskFactor = 0;
         visum.riskArmyFactor = 10;
@@ -181,7 +181,7 @@ public class MapControl {
         genus.rowCount = CoordinateMapEnum.Genus.getcRow();
         genus.columnCount = CoordinateMapEnum.Genus.getcColumn();
         genus.name = "Genus";
-        genus.mapSignal = "Gen";
+        genus.mapSignal = "Genu";
         genus.ownership = 1;
         genus.riskFactor = 0;
         genus.riskArmyFactor = 10;
@@ -193,7 +193,7 @@ public class MapControl {
         pacem.rowCount = CoordinateMapEnum.Pacem.getcRow();
         pacem.columnCount = CoordinateMapEnum.Pacem.getcColumn();
         pacem.name = "Pacem";
-        pacem.mapSignal = "Pac";
+        pacem.mapSignal = "Pace";
         pacem.ownership = 1;
         pacem.riskFactor = 0;
         pacem.riskArmyFactor = 10;
@@ -205,7 +205,7 @@ public class MapControl {
         felicitatem.rowCount = CoordinateMapEnum.Felicitatem.getcRow();
         felicitatem.columnCount = CoordinateMapEnum.Felicitatem.getcColumn();
         felicitatem.name = "Felicitatem";
-        felicitatem.mapSignal = "Fel";
+        felicitatem.mapSignal = "Feli";
         felicitatem.ownership = 1;
         felicitatem.riskFactor = 0;
         felicitatem.riskArmyFactor = 10;
@@ -217,7 +217,7 @@ public class MapControl {
         pulchram.rowCount = CoordinateMapEnum.Pulchram.getcRow();
         pulchram.columnCount = CoordinateMapEnum.Pulchram.getcColumn();
         pulchram.name = "Pulchram";
-        pulchram.mapSignal = "Pul";
+        pulchram.mapSignal = "Pulc";
         pulchram.ownership = 1;
         pulchram.riskFactor = 0;
         pulchram.riskArmyFactor = 10;
@@ -228,7 +228,7 @@ public class MapControl {
         CityScene zenobia = new CityScene();
         zenobia.rowCount = CoordinateMapEnum.Zenobia.getcRow();
         zenobia.columnCount = CoordinateMapEnum.Zenobia.getcColumn();
-        zenobia.mapSignal = "Zen";
+        zenobia.mapSignal = "Zeno";
         zenobia.ownership = 0;
         zenobia.riskFactor = 0;
         zenobia.actor = game.player.actor;
@@ -237,133 +237,133 @@ public class MapControl {
         ResourceScene forestA = new ResourceScene();
         forestA.rowCount = CoordinateMapEnum.ForestA.getcRow();
         forestA.columnCount = CoordinateMapEnum.ForestA.getcColumn();
-        forestA.mapSignal = "???";
+        forestA.mapSignal = "Frst";
         forestA.actor = null;
         sceneArray[CoordinateMapEnum.ForestA.ordinal()] = forestA;
 
         ResourceScene forestB = new ResourceScene();
         forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
         forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
-        forestB.mapSignal = "???";
+        forestB.mapSignal = "Frst";
         forestB.actor = null;
         sceneArray[CoordinateMapEnum.ForestB.ordinal()] = forestB;
 
         ResourceScene forestC = new ResourceScene();
         forestC.rowCount = CoordinateMapEnum.ForestC.getcRow();
         forestC.columnCount = CoordinateMapEnum.ForestC.getcColumn();
-        forestC.mapSignal = "???";
+        forestC.mapSignal = "Frst";
         forestC.actor = null;
         sceneArray[CoordinateMapEnum.ForestC.ordinal()] = forestC;
 
         ResourceScene forestD = new ResourceScene();
         forestD.rowCount = CoordinateMapEnum.ForestD.getcRow();
         forestD.columnCount = CoordinateMapEnum.ForestD.getcColumn();
-        forestD.mapSignal = "???";
+        forestD.mapSignal = "Frst";
         forestD.actor = null;
         sceneArray[CoordinateMapEnum.ForestD.ordinal()] = forestD;
 
         ResourceScene forestE = new ResourceScene();
         forestE.rowCount = CoordinateMapEnum.ForestE.getcRow();
         forestE.columnCount = CoordinateMapEnum.ForestE.getcColumn();
-        forestE.mapSignal = "???";
+        forestE.mapSignal = "Frst";
         forestE.actor = null;
         sceneArray[CoordinateMapEnum.ForestE.ordinal()] = forestE;
 
         ResourceScene forestF = new ResourceScene();
         forestF.rowCount = CoordinateMapEnum.ForestF.getcRow();
         forestF.columnCount = CoordinateMapEnum.ForestF.getcColumn();
-        forestF.mapSignal = "???";
+        forestF.mapSignal = "Frst";
         forestF.actor = null;
         sceneArray[CoordinateMapEnum.ForestF.ordinal()] = forestF;
 
         ResourceScene millA = new ResourceScene();
         millA.rowCount = CoordinateMapEnum.MillA.getcRow();
         millA.columnCount = CoordinateMapEnum.MillA.getcColumn();
-        millA.mapSignal = "???";
+        millA.mapSignal = "Mill";
         millA.actor = null;
         sceneArray[CoordinateMapEnum.MillA.ordinal()] = millA;
 
         ResourceScene millB = new ResourceScene();
         millB.rowCount = CoordinateMapEnum.MillB.getcRow();
         millB.columnCount = CoordinateMapEnum.MillB.getcColumn();
-        millB.mapSignal = "???";
+        millB.mapSignal = "Mill";
         millB.actor = null;
         sceneArray[CoordinateMapEnum.MillB.ordinal()] = millB;
 
         ResourceScene millC = new ResourceScene();
         millC.rowCount = CoordinateMapEnum.MillC.getcRow();
         millC.columnCount = CoordinateMapEnum.MillC.getcColumn();
-        millC.mapSignal = "???";
+        millC.mapSignal = "Mill";
         millC.actor = null;
         sceneArray[CoordinateMapEnum.MillC.ordinal()] = millC;
 
         ResourceScene millD = new ResourceScene();
         millD.rowCount = CoordinateMapEnum.MillD.getcRow();
         millD.columnCount = CoordinateMapEnum.MillD.getcColumn();
-        millD.mapSignal = "???";
+        millD.mapSignal = "Mill";
         millD.actor = null;
         sceneArray[CoordinateMapEnum.MillD.ordinal()] = millD;
 
         ResourceScene millE = new ResourceScene();
         millE.rowCount = CoordinateMapEnum.MillE.getcRow();
         millE.columnCount = CoordinateMapEnum.MillE.getcColumn();
-        millE.mapSignal = "???";
+        millE.mapSignal = "Mill";
         millE.actor = null;
         sceneArray[CoordinateMapEnum.MillE.ordinal()] = millE;
 
         ResourceScene mountainA = new ResourceScene();
         mountainA.rowCount = CoordinateMapEnum.MountainA.getcRow();
         mountainA.columnCount = CoordinateMapEnum.MountainA.getcColumn();
-        mountainA.mapSignal = "???";
+        mountainA.mapSignal = "Mtn ";
         mountainA.actor = null;
         sceneArray[CoordinateMapEnum.MountainA.ordinal()] = mountainA;
 
         ResourceScene mountainB = new ResourceScene();
         mountainB.rowCount = CoordinateMapEnum.MountainB.getcRow();
         mountainB.columnCount = CoordinateMapEnum.MountainB.getcColumn();
-        mountainB.mapSignal = "???";
+        mountainB.mapSignal = "Mtn ";
         mountainB.actor = null;
         sceneArray[CoordinateMapEnum.MountainB.ordinal()] = mountainB;
 
         ResourceScene mountainC = new ResourceScene();
         mountainC.rowCount = CoordinateMapEnum.MountainC.getcRow();
         mountainC.columnCount = CoordinateMapEnum.MountainC.getcColumn();
-        mountainC.mapSignal = "???";
+        mountainC.mapSignal = "Mtn ";
         mountainC.actor = null;
         sceneArray[CoordinateMapEnum.MountainC.ordinal()] = mountainC;
 
         ResourceScene mountainD = new ResourceScene();
         mountainD.rowCount = CoordinateMapEnum.MountainD.getcRow();
         mountainD.columnCount = CoordinateMapEnum.MountainD.getcColumn();
-        mountainD.mapSignal = "???";
+        mountainD.mapSignal = "Mtn ";
         mountainD.actor = null;
         sceneArray[CoordinateMapEnum.MountainD.ordinal()] = mountainD;
 
         ResourceScene mineA = new ResourceScene();
         mineA.rowCount = CoordinateMapEnum.MineA.getcRow();
         mineA.columnCount = CoordinateMapEnum.MineA.getcColumn();
-        mineA.mapSignal = "???";
+        mineA.mapSignal = "Mine";
         mineA.actor = null;
         sceneArray[CoordinateMapEnum.MineA.ordinal()] = mineA;
 
         ResourceScene mineB = new ResourceScene();
         mineB.rowCount = CoordinateMapEnum.MineB.getcRow();
         mineB.columnCount = CoordinateMapEnum.MineB.getcColumn();
-        mineB.mapSignal = "???";
+        mineB.mapSignal = "Mine";
         mineB.actor = null;
         sceneArray[CoordinateMapEnum.MineB.ordinal()] = mineB;
 
         ResourceScene mineC = new ResourceScene();
         mineC.rowCount = CoordinateMapEnum.MineC.getcRow();
         mineC.columnCount = CoordinateMapEnum.MineC.getcColumn();
-        mineC.mapSignal = "???";
+        mineC.mapSignal = "Mine";
         mineC.actor = null;
         sceneArray[CoordinateMapEnum.MineC.ordinal()] = mineC;
 
         ResourceScene mineD = new ResourceScene();
         mineD.rowCount = CoordinateMapEnum.MineD.getcRow();
         mineD.columnCount = CoordinateMapEnum.MineD.getcColumn();
-        mineD.mapSignal = "???";
+        mineD.mapSignal = "Mine";
         mineD.actor = null;
         sceneArray[CoordinateMapEnum.MineD.ordinal()] = mineD;
 

@@ -162,7 +162,7 @@ public class ActorTraitResultView extends View {
                         + "You have received the trait of " + actorTraitName + "!\n"
                         + "You will be known as " + playerName + " the " +  actorTraitName + "!\n"
                         + "Each attribute you receive gives you a unique starting advantage in your resources. \n"
-                        + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
+    //                    + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
                         + "View your resources to see what advantages you have received! \n"
                         + "========================================\n");
 
