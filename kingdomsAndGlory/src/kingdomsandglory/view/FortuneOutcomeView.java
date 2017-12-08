@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import kingdomsandglory.control.MapControl;
 import kingdomsandglory.exceptions.MapControlException;
+import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Resource;
 
 /**
  *
@@ -22,11 +24,14 @@ public class FortuneOutcomeView extends View {
     public String[] getInputs() {
         String[] input = new String[1];
         String userInput;
-
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        String place = game.player.actor.location.locationScene.getName();
+        String mineral = game.player.actor.location.locationScene.getMineralTypeThere();
         String MoveMenuDisplay;
 
         MoveMenuDisplay = ("================================================================\n"
-                    + "You have stumbled upon a pile of resources. 20% of these you can\n"
+                    + "You have stumbled upon a " + place + ". There is some resources of \n"
+                    + " " + mineral + ".  20% of these you can\n"
                     + "certainly take. But, you might have to gamble for the other 80% \n"
                     + "Would you like to game for the other 80%?\n"
                     + "Y - Yes\n"
@@ -48,10 +53,21 @@ public class FortuneOutcomeView extends View {
         String message;
         gambleOption = inputs[0].toUpperCase().charAt(0);
         
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        
+        Resource[] resource = game.getResourceType();
+        String mineralChoice;
+        String mineral = game.player.actor.location.locationScene.getMineralTypeThere();
+        int i = -1;
+        do {
+            i++;
+            mineralChoice = resource[i].getResourceDiscription();
+        } while (mineralChoice == mineral);
+        
         Random rand = new Random();
-        int randResourceAmt = rand.nextInt(101) + 1;
-        int randResourceObj = rand.nextInt(3) + 0;
-        int randChanceAmt = rand.nextInt(7) + 1;
+        int randResourceAmt = rand.nextInt(100) + 1;
+        int ResourceObj = i; 
+        int randChanceAmt = rand.nextInt(6) + 1;
         
         
         switch (gambleOption) {
@@ -59,7 +75,7 @@ public class FortuneOutcomeView extends View {
                 userGambleOption = 1;
         {
             try {
-                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
                 System.out.println(ex.getMessage());
                 return false;
@@ -71,7 +87,7 @@ public class FortuneOutcomeView extends View {
                 userGambleOption = 0;
         {
             try {
-                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, randResourceObj, randChanceAmt);
+                message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
                 System.out.println(ex.getMessage());
                 return false;
