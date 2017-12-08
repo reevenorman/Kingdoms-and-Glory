@@ -68,7 +68,7 @@ public class AttackCityView extends View {
                 int i = 0;
                 do {
                     i++;  
-                } while (resource[i].resourceDiscription != mineral);
+                } while (resource[i].resourceDiscription.equals(mineral));
                 
                 int userResource = resource[i].getResourceQty();
                 
