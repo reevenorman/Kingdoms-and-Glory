@@ -90,9 +90,9 @@ public class AttackCityView extends View {
                     game.player.actor.location.locationScene.setOwnership(0);
                 }            
                 
-                break;
+                return true;
             case 'N' :
-                break;
+                return true;
             default :
                 System.out.println("Invalid Input");
                 

@@ -24,7 +24,16 @@ public abstract class Scene {
     public int riskFactor;
     public String mineralTypetoAttack;
     public int ownership;
+    public String mineralTypeThere;
 
+    public String getMineralTypeThere() {
+        return mineralTypeThere;
+    }
+
+    public void setMineralTypeThere(String mineralTypeThere) {
+        this.mineralTypeThere = mineralTypeThere;
+    }
+    
     public int getOwnership() {
         return ownership;
     }

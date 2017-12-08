@@ -67,9 +67,9 @@ public class MapMenuView extends View{
 
         
         
-        System.out.println("          The Kingdom of Zenobia            ");
-        System.out.println("      0       1       2       3       4     ");
-        System.out.print("------------------------------------------\n");
+        System.out.println("            The Kingdom of Zenobia              ");
+        System.out.println("      0         1        2       3        4     ");
+        System.out.print("-----------------------------------------------\n");
         int i = 0;
         int j = 0;
         
@@ -91,7 +91,7 @@ public class MapMenuView extends View{
                         j++;    
                 } 
             i++;
-            System.out.print("\n------------------------------------------\n");
+            System.out.print("\n-----------------------------------------------\n");
         }
     }
 }

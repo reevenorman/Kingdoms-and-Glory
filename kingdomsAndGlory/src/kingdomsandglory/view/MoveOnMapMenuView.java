@@ -112,11 +112,13 @@ public class MoveOnMapMenuView extends View {
         String citysignal = "";
 
         String validMove;
-        boolean setvalid = true;
+        int owned = 0;
         int plyRow = game.player.actor.location.locationScene.getRowCount();
         int plyCol = game.player.actor.location.locationScene.getColumnCount();
 
         validMove = game.map.locations[plyRow][plyCol].locationScene.getMapSignal();
+        
+        owned = game.map.locations[plyRow][plyCol].locationScene.getOwnership();
         
         switch (validMove) {
                 case "Mill":
@@ -132,28 +134,58 @@ public class MoveOnMapMenuView extends View {
                     fortuneOutcomeView.display();
                     return;
                 case "Visu":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
                 case "Genu":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
                 case "Pace":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
                 case "Feli":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
                 case "Pulc":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
                 case "Zeon":
-                    attackCityView.display();
-                    fortuneOutcomeView.display();
+                    if (owned == 1) {
+                        attackCityView.display();
+                        fortuneOutcomeView.display();
+                    } else {
+                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        fortuneOutcomeView.display();
+                    }
                     return;
         }
     }

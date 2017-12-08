@@ -15,7 +15,7 @@ public class BuySellView extends View{
     
     @Override
     public String[] getInputs() {
-        String[] inputs = new String[5];
+        String[] inputs = new String[3];
         Boolean valid = false;
         String questionAnswer = "";
         String buySellOptionDisplay = "";
@@ -100,19 +100,19 @@ public class BuySellView extends View{
 
                     switch (question) {
                         case 'C':
-                            return "1";
+                            return "0";
 
                         case 'W':
-                            return "2";
+                            return "1";
 
                         case 'S':
-                            return "3";
+                            return "2";
                         
                         case 'M':
-                            return "4";
+                            return "3";
 
                         case 'A':
-                            return "6";
+                            return "5";
 
                         case 'B':
                             break;

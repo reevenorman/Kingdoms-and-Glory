@@ -32,11 +32,9 @@ public class MapControl {
 
     
 
-    public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int randResourceObj, int randChanceAmt) throws MapControlException {
+    public static String fortuneOutcome(int userGambleOption, int randResourceAmt, int ResourceObj, int randChanceAmt) throws MapControlException {
         Game game = new Game();
         game = kingdomsandglory.getCurrentGame();
-
-        Resource resource = new Resource();
 
         double outcome;
         String resultOutcome = "error";
@@ -53,10 +51,10 @@ public class MapControl {
         if (randResourceAmt < 0) {
             return "-4";
         }
-        if (randResourceObj >= 5) {
+        if (ResourceObj >= 5) {
             return "-5";
         }
-        if (randResourceObj < -1) {
+        if (ResourceObj < -1) {
             return "-6";
         }
         if (randChanceAmt >= 7) {
@@ -65,24 +63,33 @@ public class MapControl {
         if (randChanceAmt <= 0) {
             return "-8";
         }
-
+        int resourceQty;
         if (userGambleOption == 0) {
             outcome = randResourceAmt * 0.2;
-            game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty + (int) outcome;
-            resultOutcome = ("You gained " + outcome + " pieces of " + randResourceObj + ".");
+            resourceQty = game.resourceType[ResourceObj].getResourceQty();
+            resourceQty = resourceQty + (int) outcome;
+            game.resourceType[ResourceObj].setResourceQty(resourceQty);
+            String mineral = game.resourceType[ResourceObj].getResourceDiscription();
+            resultOutcome = ("You gained " + outcome + " pieces of " + mineral + ".");
             return resultOutcome;
         }
         if (userGambleOption == 1) {
             double guarenteedOutcome = randResourceAmt * 0.2;
             if (randChanceAmt >= 3) {
                 outcome = randResourceAmt * 0.8;
-                game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty + (int) outcome + (int) guarenteedOutcome;
-                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + ".");
+                resourceQty = game.resourceType[ResourceObj].getResourceQty();
+                resourceQty = resourceQty + (int) outcome + (int) guarenteedOutcome;
+                game.resourceType[ResourceObj].setResourceQty(resourceQty);
+                String mineral = game.resourceType[ResourceObj].getResourceDiscription();
+                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + mineral + ".");
             } else {
                 outcome = randResourceAmt * 0.8;
-                game.resourceType[randResourceObj].resourceQty = game.resourceType[randResourceObj].resourceQty - (int) outcome + (int) guarenteedOutcome;
-                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + randResourceObj + "."
-                        + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + randResourceObj + ".");
+                resourceQty = game.resourceType[ResourceObj].getResourceQty();
+                resourceQty = resourceQty - (int) outcome + (int) guarenteedOutcome;
+                game.resourceType[ResourceObj].setResourceQty(resourceQty);
+                String mineral = game.resourceType[ResourceObj].getResourceDiscription();
+                resultOutcome = ("You gained " + randResourceAmt + " pieces of " + mineral + "."
+                        + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + mineral + ".");
             }
         }
         return resultOutcome;
@@ -103,7 +110,6 @@ public class MapControl {
 
         Scene[] scene = new Scene[25];
         scene = MapControl.createCityScene(scene);
-        //scene = MapControl.createResourceScene(scene);
 
         assignScenesToLocations(map, scene);
 
@@ -174,7 +180,8 @@ public class MapControl {
         visum.riskFactor = 0;
         visum.riskArmyFactor = 10;
         visum.actor = null;
-        visum.mineralTypetoAttack = "mine";
+        visum.mineralTypetoAttack = "metal";
+        visum.mineralTypeThere = "metal";
         sceneArray[CoordinateMapEnum.Visum.ordinal()] = visum;
 
         CityScene genus = new CityScene();
@@ -187,6 +194,7 @@ public class MapControl {
         genus.riskArmyFactor = 10;
         genus.actor = null;
         genus.mineralTypetoAttack = "Cloth";
+        genus.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.Genus.ordinal()] = genus;
 
         CityScene pacem = new CityScene();
@@ -199,6 +207,7 @@ public class MapControl {
         pacem.riskArmyFactor = 10;
         pacem.actor = null;
         pacem.mineralTypetoAttack = "Stone";
+        pacem.mineralTypeThere = "Stone";
         sceneArray[CoordinateMapEnum.Pacem.ordinal()] = pacem;
 
         CityScene felicitatem = new CityScene();
@@ -211,6 +220,7 @@ public class MapControl {
         felicitatem.riskArmyFactor = 10;
         felicitatem.actor = null;
         felicitatem.mineralTypetoAttack = "Wood";
+        felicitatem.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.Felicitatem.ordinal()] = felicitatem;
 
         CityScene pulchram = new CityScene();
@@ -223,6 +233,7 @@ public class MapControl {
         pulchram.riskArmyFactor = 10;
         pulchram.actor = null;
         pulchram.mineralTypetoAttack = "Wood";
+        pulchram.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.Pulchram.ordinal()] = pulchram;
 
         CityScene zenobia = new CityScene();
@@ -232,139 +243,178 @@ public class MapControl {
         zenobia.ownership = 0;
         zenobia.riskFactor = 0;
         zenobia.actor = game.player.actor;
+        zenobia.mineralTypeThere = "Gold";
         sceneArray[CoordinateMapEnum.Zenobia.ordinal()] = zenobia;
 
         ResourceScene forestA = new ResourceScene();
         forestA.rowCount = CoordinateMapEnum.ForestA.getcRow();
         forestA.columnCount = CoordinateMapEnum.ForestA.getcColumn();
+        forestA.name = "Forest";
         forestA.mapSignal = "Frst";
         forestA.actor = null;
+        forestA.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestA.ordinal()] = forestA;
 
         ResourceScene forestB = new ResourceScene();
         forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
         forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
+        forestB.name = "Forest";
         forestB.mapSignal = "Frst";
         forestB.actor = null;
+        forestB.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestB.ordinal()] = forestB;
 
         ResourceScene forestC = new ResourceScene();
         forestC.rowCount = CoordinateMapEnum.ForestC.getcRow();
         forestC.columnCount = CoordinateMapEnum.ForestC.getcColumn();
+        forestC.name = "Forest";
         forestC.mapSignal = "Frst";
         forestC.actor = null;
+        forestC.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestC.ordinal()] = forestC;
 
         ResourceScene forestD = new ResourceScene();
         forestD.rowCount = CoordinateMapEnum.ForestD.getcRow();
         forestD.columnCount = CoordinateMapEnum.ForestD.getcColumn();
+        forestD.name = "Forest";
         forestD.mapSignal = "Frst";
         forestD.actor = null;
+        forestD.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestD.ordinal()] = forestD;
 
         ResourceScene forestE = new ResourceScene();
         forestE.rowCount = CoordinateMapEnum.ForestE.getcRow();
         forestE.columnCount = CoordinateMapEnum.ForestE.getcColumn();
+        forestE.name = "Forest";
         forestE.mapSignal = "Frst";
         forestE.actor = null;
+        forestE.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestE.ordinal()] = forestE;
 
         ResourceScene forestF = new ResourceScene();
         forestF.rowCount = CoordinateMapEnum.ForestF.getcRow();
         forestF.columnCount = CoordinateMapEnum.ForestF.getcColumn();
+        forestF.name = "Forest";
         forestF.mapSignal = "Frst";
         forestF.actor = null;
+        forestF.mineralTypeThere = "Wood";
         sceneArray[CoordinateMapEnum.ForestF.ordinal()] = forestF;
 
         ResourceScene millA = new ResourceScene();
         millA.rowCount = CoordinateMapEnum.MillA.getcRow();
         millA.columnCount = CoordinateMapEnum.MillA.getcColumn();
+        millA.name = "Mill";
         millA.mapSignal = "Mill";
         millA.actor = null;
+        millA.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.MillA.ordinal()] = millA;
 
         ResourceScene millB = new ResourceScene();
         millB.rowCount = CoordinateMapEnum.MillB.getcRow();
         millB.columnCount = CoordinateMapEnum.MillB.getcColumn();
+        millB.name = "Mill";
         millB.mapSignal = "Mill";
         millB.actor = null;
+        millB.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.MillB.ordinal()] = millB;
 
         ResourceScene millC = new ResourceScene();
         millC.rowCount = CoordinateMapEnum.MillC.getcRow();
         millC.columnCount = CoordinateMapEnum.MillC.getcColumn();
+        millC.name = "Mill";
         millC.mapSignal = "Mill";
         millC.actor = null;
+        millC.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.MillC.ordinal()] = millC;
 
         ResourceScene millD = new ResourceScene();
         millD.rowCount = CoordinateMapEnum.MillD.getcRow();
         millD.columnCount = CoordinateMapEnum.MillD.getcColumn();
+        millD.name = "Mill";
         millD.mapSignal = "Mill";
         millD.actor = null;
+        millD.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.MillD.ordinal()] = millD;
 
         ResourceScene millE = new ResourceScene();
         millE.rowCount = CoordinateMapEnum.MillE.getcRow();
         millE.columnCount = CoordinateMapEnum.MillE.getcColumn();
+        millE.name = "Mill";
         millE.mapSignal = "Mill";
         millE.actor = null;
+        millE.mineralTypeThere = "Cloth";
         sceneArray[CoordinateMapEnum.MillE.ordinal()] = millE;
 
         ResourceScene mountainA = new ResourceScene();
         mountainA.rowCount = CoordinateMapEnum.MountainA.getcRow();
         mountainA.columnCount = CoordinateMapEnum.MountainA.getcColumn();
+        mountainA.name = "Mountain";
         mountainA.mapSignal = "Mtn ";
         mountainA.actor = null;
+        mountainA.mineralTypeThere = "Stone";
         sceneArray[CoordinateMapEnum.MountainA.ordinal()] = mountainA;
 
         ResourceScene mountainB = new ResourceScene();
         mountainB.rowCount = CoordinateMapEnum.MountainB.getcRow();
         mountainB.columnCount = CoordinateMapEnum.MountainB.getcColumn();
+        mountainB.name = "Mountain";
         mountainB.mapSignal = "Mtn ";
         mountainB.actor = null;
+        mountainB.mineralTypeThere = "Stone";
         sceneArray[CoordinateMapEnum.MountainB.ordinal()] = mountainB;
 
         ResourceScene mountainC = new ResourceScene();
         mountainC.rowCount = CoordinateMapEnum.MountainC.getcRow();
         mountainC.columnCount = CoordinateMapEnum.MountainC.getcColumn();
+        mountainC.name = "Mountain";
         mountainC.mapSignal = "Mtn ";
         mountainC.actor = null;
+        mountainC.mineralTypeThere = "Stone";
         sceneArray[CoordinateMapEnum.MountainC.ordinal()] = mountainC;
 
         ResourceScene mountainD = new ResourceScene();
         mountainD.rowCount = CoordinateMapEnum.MountainD.getcRow();
         mountainD.columnCount = CoordinateMapEnum.MountainD.getcColumn();
+        mountainD.name = "Mountain";
         mountainD.mapSignal = "Mtn ";
         mountainD.actor = null;
+        mountainD.mineralTypeThere = "Stone";
         sceneArray[CoordinateMapEnum.MountainD.ordinal()] = mountainD;
 
         ResourceScene mineA = new ResourceScene();
         mineA.rowCount = CoordinateMapEnum.MineA.getcRow();
         mineA.columnCount = CoordinateMapEnum.MineA.getcColumn();
+        mineA.name = "Mine";
         mineA.mapSignal = "Mine";
         mineA.actor = null;
+        mineA.mineralTypeThere = "Metal";
         sceneArray[CoordinateMapEnum.MineA.ordinal()] = mineA;
 
         ResourceScene mineB = new ResourceScene();
         mineB.rowCount = CoordinateMapEnum.MineB.getcRow();
         mineB.columnCount = CoordinateMapEnum.MineB.getcColumn();
+        mineB.name = "Mine";
         mineB.mapSignal = "Mine";
         mineB.actor = null;
+        mineB.mineralTypeThere = "Metal";
         sceneArray[CoordinateMapEnum.MineB.ordinal()] = mineB;
 
         ResourceScene mineC = new ResourceScene();
         mineC.rowCount = CoordinateMapEnum.MineC.getcRow();
         mineC.columnCount = CoordinateMapEnum.MineC.getcColumn();
+        mineC.name = "Mine";
         mineC.mapSignal = "Mine";
         mineC.actor = null;
+        mineC.mineralTypeThere = "Metal";
         sceneArray[CoordinateMapEnum.MineC.ordinal()] = mineC;
 
         ResourceScene mineD = new ResourceScene();
         mineD.rowCount = CoordinateMapEnum.MineD.getcRow();
         mineD.columnCount = CoordinateMapEnum.MineD.getcColumn();
+        mineD.name = "Mine";
         mineD.mapSignal = "Mine";
         mineD.actor = null;
+        mineD.mineralTypeThere = "Metal";
         sceneArray[CoordinateMapEnum.MineD.ordinal()] = mineD;
 
         scene = sceneArray;
@@ -503,6 +553,8 @@ public class MapControl {
 
         int currentRow = game.player.actor.location.locationScene.getRowCount();
         int currentColumn = actor.location.locationScene.getColumnCount();
+        int justincaseRow = currentRow;
+        int justincaseCol = currentColumn;
         
         game.map.locations[currentRow][currentColumn].locationScene.actor = null;
 
@@ -522,6 +574,17 @@ public class MapControl {
                 default:
                     System.out.println("invalid Input");
             }
+            
+        if (currentRow < 0 || currentRow > 4) {
+            System.out.println("You cannot move off the map.");
+            game.map.locations[justincaseRow][justincaseCol].locationScene.actor = actor;
+            return null;
+        }
+        if (currentColumn < 0 || currentColumn > 4) {
+            System.out.println("You cannot move off the map.");
+            game.map.locations[justincaseRow][justincaseCol].locationScene.actor = actor;
+            return null;
+        }
         
         actor.location = game.map.locations[currentRow][currentColumn];
         

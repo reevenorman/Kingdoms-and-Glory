@@ -7,6 +7,7 @@ package kingdomsandglory.control;
 
 import kingdomsandglory.exceptions.ResourceControlException;
 import kingdomsandglory.model.Army;
+import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.ResourceEnum;
 
@@ -54,8 +55,106 @@ public class ResourceControl {
     }
     
     public static String makeTransaction(int[] inputs) throws ResourceControlException {
-        System.out.println("*** makeTransaction() called ***");
-        return null;
+        String cannot;
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        int minQty = game.resourceType[(inputs[1])].getResourceQty();
+        int gold = game.resourceType[4].resourceQty;
+        int sellQty = inputs[2];
+        String min = game.resourceType[(inputs[1])].getResourceDiscription();
+        int subtotalSell = minQty - sellQty;
+        int sellPrice = checkSellPrice(inputs);
+        int buyPrice = checkBuyPrice(inputs);
+        int transaction;
+        int total;
+        int newGold;
+        int subtotalBuy = sellQty * buyPrice;
+        
+        /*+ "* This this game you have the opportunity to buy and*\n"
+        + "* sell resources. Here is a list of Resources and   *\n"
+        + "* their cost.                                       *\n"
+        + "* Resource - Buying Price/Selling Price             *\n"
+        + "* Cloth    -  2 / 1                                 *\n"
+        + "* Wood     -  3 / 2                                 *\n"
+        + "* Stone    -  3 / 2                                 *\n"
+        + "* Metal    -  5 / 3                                 *\n"
+        + "* Amry Men -  7 / 1                                 *\n"
+        input 1 = 1 - sell
+                  0 - buy
+        input 2 = 0 - cloth
+                  2 - wood, stone, metal, gold, army
+        input 3 = how many*/
+        
+        if (inputs[0] == 1) {
+            if (minQty < 1 || subtotalSell < 0){
+                cannot = ("You do not have enough " + min + " to sell. Please choose something else.\n");
+                return cannot;
+            } else {
+                transaction = sellPrice * sellQty;
+                newGold = gold + transaction;
+                total = minQty - sellQty;
+                game.resourceType[(inputs[1])].setResourceQty(total);
+                game.resourceType[4].setResourceQty(newGold);
+                String succes = ("You have successfully sold " + minQty + " " + min + " for " + transaction + " Gold.\n");
+                return succes;
+            }
+        } else {
+            if (gold < 1 || subtotalBuy > gold){
+                cannot = ("You do not have enough gold to buy that much. Please choose something else.\n");
+                return cannot;
+            } else {
+                transaction = buyPrice * sellQty;
+                newGold = gold - transaction;
+                total = minQty + sellQty;
+                game.resourceType[(inputs[1])].setResourceQty(total);
+                game.resourceType[4].setResourceQty(newGold);
+                String succes = ("You have successfully bought " + minQty + " " + min + " for " + transaction + " Gold.\n");
+                return succes;
+            }
+        }
+    }
+
+    private static int checkSellPrice(int[] inputs) {
+        int sell = 0;
+        switch (inputs[1]) {
+            case 0:
+                sell = 1;
+                break;
+            case 1:
+                sell = 2;
+                break;
+            case 2:
+                sell = 2;
+                break;
+            case 3:
+                sell = 3;
+                break;
+            case 5:
+                sell = 1;
+                break;
+        }
+        return sell;
+    }
+
+    private static int checkBuyPrice(int[] inputs) {
+        int buy = 0;
+        switch (inputs[1]) {
+            case 0:
+                buy = 2;
+                break;
+            case 1:
+                buy = 3;
+                break;
+            case 2:
+                buy = 3;
+                break;
+            case 3:
+                buy = 5;
+                break;
+            case 5:
+                buy = 7;
+                break;
+        }
+        return buy;
     }
     
 }
