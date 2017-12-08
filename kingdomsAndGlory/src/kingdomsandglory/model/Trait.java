@@ -33,13 +33,7 @@ public class Trait {
     }
 
     public Trait() {
-        this.traitName = "";
-        this.army = 0;
-        this.cloth = 0;
-        this.wood = 0;
-        this.stone = 0;
-        this.metal = 0;
-        this.gold = 0;
+
     }
 
     public Trait[] getTrait() {

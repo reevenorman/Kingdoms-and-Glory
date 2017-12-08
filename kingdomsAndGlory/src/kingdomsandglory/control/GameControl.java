@@ -50,9 +50,14 @@ public class GameControl {
         game.setPlayer(kingdomsandglory.getPlayer());
         kingdomsandglory.setCurrentGame(game);
         
+        Trait trait = new Trait();
+        game.trait = trait;
+        
+        
         Trait[] traits = new Trait[3];
         traits = createTraits();
         
+        game.trait.trait = traits;
         
         Actor actor = new Actor();
         game.player.actor = actor;
@@ -73,6 +78,8 @@ public class GameControl {
         }
         
         game.map = map;
+        
+
         
         game.player.actor.location = game.map.locations[4][2];
 

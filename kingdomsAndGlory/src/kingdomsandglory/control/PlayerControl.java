@@ -6,6 +6,7 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.exceptions.PlayerControlException;
+import kingdomsandglory.model.Game;
 import static kingdomsandglory.model.TraitEnum.charismatic;
 import static kingdomsandglory.model.TraitEnum.diplomatic;
 import static kingdomsandglory.model.TraitEnum.strategic;
@@ -66,18 +67,33 @@ public class PlayerControl {
         return total;
     }
 
-    public static int addSumToGold(String actorTraitName) throws PlayerControlException {
+    public static int addSumToGold(String actorTraitName, int sumOfTraitQuestions) throws PlayerControlException {
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        if (actorTraitName == null) {
+            throw new PlayerControlException("actorTraitName is null");
+        }
+        
         if (actorTraitName == "Diplomatic") {
-            diplomatic.gold = diplomatic.gold + sumOfTraitQuestions;
-            return diplomatic.gold;
+            int gold = game.trait.trait[0].getGold();
+            gold = gold + sumOfTraitQuestions;
+            game.trait.trait[0].setGold(gold);
+            return gold;
         }
         if (actorTraitName == "Strategic") {
-            strategic.gold = strategic.gold + sumOfTraitQuestions;
-            return strategic.gold;
+            int gold = game.trait.trait[1].getGold();
+            gold = gold + sumOfTraitQuestions;
+            game.trait.trait[1].setGold(gold);
+            return gold;
         }
         if (actorTraitName == "Charismatic") {
-            charismatic.gold = charismatic.gold + sumOfTraitQuestions;
-            return charismatic.gold;
-        }
+            int gold = game.trait.trait[2].getGold();
+            gold = gold + sumOfTraitQuestions;
+            game.trait.trait[2].setGold(gold);
+            return gold;
+        } else {
         return -1;
+        }
     }
+            
+}                   
+            

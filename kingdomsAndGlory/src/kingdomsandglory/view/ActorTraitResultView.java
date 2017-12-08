@@ -9,6 +9,7 @@ import kingdomsandglory.control.PlayerControl;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static kingdomsandglory.control.PlayerControl.addSumToGold;
 import static kingdomsandglory.control.PlayerControl.assignActorTrait;
 import kingdomsandglory.model.Game;
 import static kingdomsandglory.control.PlayerControl.sumOfActorTrait;
@@ -132,6 +133,7 @@ public class ActorTraitResultView extends View {
         switch (traitresult) {
             case 1:
                 actorTraitName = "Diplomatic";
+                
                 break;
             case 2:
                 actorTraitName = "Strategic";
@@ -142,7 +144,13 @@ public class ActorTraitResultView extends View {
             default:
                 actorTraitName = "Invalid Input";
         }
-         
+        
+        try {
+            int gold = PlayerControl.addSumToGold(actorTraitName, sumOfTraitQuestions);
+        } catch (PlayerControlException ex) {
+            System.out.println("addSumToGold() Broke :(");
+        }
+        
         String playerName = "Unknown";
         
         Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
