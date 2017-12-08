@@ -94,9 +94,6 @@ public class GameControl {
         savedGame.displayStartExistingGameView();
     }
 
-    private static void createActors() {
-        System.out.println("***GameControl() -- createActor() called***");
-    }
 
     public static Trait[] createTraits() {
        

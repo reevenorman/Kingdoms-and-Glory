@@ -180,6 +180,8 @@ public class ActorTraitResultView extends View {
                 + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
                 + "View your resources to see what advantages you have received! \n"
                 + "========================================\n");
+        
+        
 
         return true;
     }

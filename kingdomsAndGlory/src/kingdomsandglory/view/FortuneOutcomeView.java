@@ -62,7 +62,7 @@ public class FortuneOutcomeView extends View {
         do {
             i++;
             mineralChoice = resource[i].getResourceDiscription();
-        } while (mineralChoice == mineral);
+        } while (mineralChoice != mineral);
         
         Random rand = new Random();
         int randResourceAmt = rand.nextInt(100) + 1;

@@ -23,6 +23,7 @@ import kingdomsandglory.model.ResourceScene;
 import kingdomsandglory.model.Scene;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Player;
+import kingdomsandglory.view.ErrorView;
 
 /**
  *
@@ -572,7 +573,7 @@ public class MapControl {
                     currentColumn = currentColumn - 1;
                     break;
                 default:
-                    System.out.println("invalid Input");
+                    throw new MapControlException ("Invalid Selection");
             }
             
         if (currentRow < 0 || currentRow > 4) {

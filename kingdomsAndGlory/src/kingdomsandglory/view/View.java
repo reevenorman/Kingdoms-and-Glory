@@ -5,13 +5,22 @@
  */
 package kingdomsandglory.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import kingdomsandglory.kingdomsandglory;
 
 /**
  *
  * @author piano
  */
 public abstract class View implements ViewInterface {
+    
+    private String message;
+    
+    protected final BufferedReader keyboard = kingdomsandglory.getInFile();
+    protected final PrintWriter console = kingdomsandglory.getOutFile();
+    
 
     public View() {
     }
@@ -34,14 +43,13 @@ public abstract class View implements ViewInterface {
     public String getInput(String promptMessage) {
         boolean valid = false;
         String selection = null;
-        Scanner inputName;
-        inputName = new Scanner(System.in);
+        String inputName = null;
+        inputName = this.keyboard.readLine();
         
         System.out.println(promptMessage);
 
         while (!valid) {
-            inputName = new Scanner(System.in);
-            selection = inputName.nextLine();
+            selection = this.keyboard.readLine();
             selection = selection.trim();
 
             if (selection.length() < 1) {

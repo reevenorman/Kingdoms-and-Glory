@@ -21,27 +21,27 @@ public class ResourceControl {
 
         Resource cloth = new Resource();
         cloth.resourceQty = 0;
-        cloth.resourceDiscription = "cloth";
+        cloth.resourceDiscription = "Cloth";
         resourceType[ResourceEnum.cloth.ordinal()] = cloth;
 
         Resource wood = new Resource();
         wood.resourceQty = 0;
-        wood.resourceDiscription = "wood";
+        wood.resourceDiscription = "Wood";
         resourceType[ResourceEnum.wood.ordinal()] = wood;
 
         Resource stone = new Resource();
         stone.resourceQty = 0;
-        stone.resourceDiscription = "stone";
+        stone.resourceDiscription = "Stone";
         resourceType[ResourceEnum.stone.ordinal()] = stone;
 
         Resource metal = new Resource();
         metal.resourceQty = 0;
-        metal.resourceDiscription = "metal";
+        metal.resourceDiscription = "Metal";
         resourceType[ResourceEnum.metal.ordinal()] = metal;
 
         Resource gold = new Resource();
         gold.resourceQty = 0;
-        gold.resourceDiscription = "gold";
+        gold.resourceDiscription = "Gold";
         resourceType[ResourceEnum.gold.ordinal()] = gold;
         
         Resource army = new Resource();
