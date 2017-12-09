@@ -178,7 +178,7 @@ public class MoveOnMapMenuView extends View {
                         fortuneOutcomeView.display();
                     }
                     return;
-                case "Zeon":
+                case "Zeno":
                     if (owned == 1) {
                         attackCityView.display();
                         fortuneOutcomeView.display();

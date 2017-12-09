@@ -40,7 +40,7 @@ public class ActorTraitResultView extends View {
         inputs[0] = questionAnswer;
 
         actorTraitDisplay = "******************************************************************\n"
-                + "Question 2: While playiing chess do you... \n"
+                + "Question 2: While playing chess do you... \n"
                 + " A - Play in a way that makes the game fair and beneficial to both parties? \n"
                 + " B - Plan out each move in advance for the greatest chance of winning?\n"
                 + " C - Make your moves based on the current moment? \n"
@@ -165,6 +165,8 @@ public class ActorTraitResultView extends View {
             System.out.println(ex.getMessage());
             return false;
         }
+        
+        PlayerControl.setPlayerTrait(actorTraitName);
 
         String playerName = "Unknown";
 
@@ -180,8 +182,6 @@ public class ActorTraitResultView extends View {
                 + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
                 + "View your resources to see what advantages you have received! \n"
                 + "========================================\n");
-        
-        
 
         return true;
     }

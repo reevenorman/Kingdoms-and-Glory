@@ -94,6 +94,25 @@ public class PlayerControl {
         return -1;
         }
     }
-            
+    
+    public static void setPlayerTrait(String traitName) {
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        String listOfTraitName;
+        
+        int i = -1;
+        do {
+            i++;
+            listOfTraitName = game.trait.trait[i].traitName;
+        } while (listOfTraitName != traitName);
+        
+        game.resourceType[0].setResourceQty(game.trait.trait[i].getCloth());
+        game.resourceType[1].setResourceQty(game.trait.trait[i].getWood());
+        game.resourceType[2].setResourceQty(game.trait.trait[i].getStone());
+        game.resourceType[3].setResourceQty(game.trait.trait[i].getMetal());
+        game.resourceType[4].setResourceQty(game.trait.trait[i].getGold());
+        game.resourceType[5].setResourceQty(game.trait.trait[i].getArmy());
+        
+        
+    }
 }                   
             

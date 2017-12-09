@@ -6,8 +6,11 @@
 package kingdomsandglory.view;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kingdomsandglory.kingdomsandglory;
 
 /**
@@ -44,12 +47,20 @@ public abstract class View implements ViewInterface {
         boolean valid = false;
         String selection = null;
         String inputName = null;
-        inputName = this.keyboard.readLine();
+        try {
+            inputName = this.keyboard.readLine();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
         
         System.out.println(promptMessage);
 
         while (!valid) {
-            selection = this.keyboard.readLine();
+            try {
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                System.out.println(ex);
+            }
             selection = selection.trim();
 
             if (selection.length() < 1) {
