@@ -57,7 +57,7 @@ public class StartProgramView extends View {
                         + "* attack and build your resources is up to you, King of Zenobia.                   *\n"
  */                     + "************************************************************************************");
                   
-            System.out.println(welcomeBanner);
+            this.console.println(welcomeBanner);
         
             String value = this.getInput("Please Enter Your Name");
             String[] inputs = new String[1];
@@ -75,12 +75,12 @@ public class StartProgramView extends View {
             try {
                 GameControl.savePlayer(player);
             } catch (GameControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
                 return false;
             }
         
 
-        System.out.println("========================================\n"
+        this.console.println("========================================\n"
                         + "Welcome to the game, " + playersName + "!\n"
                         + "We hope you have a lot of fun!\n"
                         + "========================================\n");

@@ -34,7 +34,7 @@ public class MoveOnMapMenuView extends View {
                 + " A - Left \n"
                 + " B - Go Back \n";
 
-        System.out.println(MoveOnMapMenuDisplay);
+        this.console.println(MoveOnMapMenuDisplay);
 
         String value = this.getInput("Please Choose a Menu Item");
         String[] inputs = new String[1];
@@ -86,15 +86,12 @@ public class MoveOnMapMenuView extends View {
                 case 'B':
                     return true;
                 default:
-                    System.out.println("Invalid Input");
+                    this.console.println("Invalid Input");
             }
         } catch (MapControlException ex) {
-            System.out.println(ex);
+            ErrorView.display(this.getClass().getName(), "Moving the actor did not work.");
         }
 
-        //} catch (MapControlException ex) {
-        //    System.out.println("MapControlException");
-        //}
         return false;
     } 
     
@@ -138,7 +135,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;
@@ -147,7 +144,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;
@@ -156,7 +153,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;
@@ -165,7 +162,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;
@@ -174,7 +171,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;
@@ -183,7 +180,7 @@ public class MoveOnMapMenuView extends View {
                         attackCityView.display();
                         fortuneOutcomeView.display();
                     } else {
-                        System.out.println("You already own this city! But, You might be able to get some resources here");
+                        this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
                     }
                     return;

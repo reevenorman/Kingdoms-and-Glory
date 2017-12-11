@@ -27,7 +27,7 @@ public class HelpMenuView extends View{
                 + " C - Learn About Waging War and Conquering Cities \n"
                 + " B - Go Back \n";
 
-        System.out.println(helpMenuDisplay);
+        this.console.println(helpMenuDisplay);
 
         String value = this.getInput("Please choose a menu Item");
         String[] inputs = new String[1];
@@ -60,13 +60,13 @@ public class HelpMenuView extends View{
             case 'Q':
                 return false;
             default:
-                System.out.println("Invalid Input");
+                this.console.println("Invalid Input");
         }
         return true;
     }
 
     private void armyInfoView() {
-        System.out.println("*** The following menu will be displayed:\n"
+        this.console.println("*** The following menu will be displayed:\n"
                 + "\n"
                 + "G - Gain Recruits\n"
                 + "S - Sell Army\n"
@@ -89,7 +89,7 @@ public class HelpMenuView extends View{
     }
 
     private void resourceInfoView() {
-        System.out.println("*********************************************************************************************"
+        this.console.println("*********************************************************************************************"
                 + "* Manage Resources                                                                          *\n"
                 + "* The following menu will be displayed:                                                     *\n"
                 + "*                                                                                           *\n"
@@ -111,7 +111,7 @@ public class HelpMenuView extends View{
     }
 
     private void mapAndMovementInfoView() {
-        System.out.println("*********************************************************************************************"
+        this.console.println("*********************************************************************************************"
                 + "* View Map Menu                                                                                           *\n"
                 + "* The following menu will be displayed:                                                                   *\n"
                 + "*                                                                                                         *\n"
@@ -131,7 +131,7 @@ public class HelpMenuView extends View{
     }
 
     private void conquerCitiesInfoView() {
-        System.out.println("*********************************************************************************************"
+        this.console.println("*********************************************************************************************"
                 + "* Manage Army                                                                               *\n" 
                 + "* The following menu will be displayed:                                                     *\n" 
                 + "*                                                                                           *\n" 

@@ -30,7 +30,7 @@ public class MainMenuView extends View {
                 + " H - Get Help on How to Play the Game \n"
                 + " Q - Quit \n";
         
-        System.out.println(mainMenuDisplay);
+        this.console.println(mainMenuDisplay);
         
         String value = this.getInput("Please choose a menu Item");
         String[] inputs = new String[1];
@@ -55,7 +55,7 @@ public class MainMenuView extends View {
                 break;
             case 'Q' : return true;
             default : 
-                System.out.println("Invalid Input");
+                this.console.println("Invalid Input");
         }
         return false;
             
@@ -66,7 +66,7 @@ public class MainMenuView extends View {
         try {
             kingdomsandglory.control.GameControl.createNewGame(kingdomsandglory.kingdomsandglory.getPlayer());
         } catch (GameControlException mce) {
-            System.out.println(mce.getMessage());
+            ErrorView.display(this.getClass().getName(), mce.getMessage());
             return;
         }
         ActorTraitView actorTraitView = new ActorTraitView();
@@ -75,11 +75,11 @@ public class MainMenuView extends View {
     }
 
     private void loadGame() {
-        System.out.println("*** MainMenuView - loadGame() Called ***");
+        this.console.println("*** MainMenuView - loadGame() Called ***");
     }
 
     private void backgroundStory() {
-        System.out.println("*** MainMenuView - backgroundStory() Called ***");
+        this.console.println("*** MainMenuView - backgroundStory() Called ***");
     }
 
     private void helpMenu() {

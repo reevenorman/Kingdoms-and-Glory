@@ -47,24 +47,19 @@ public abstract class View implements ViewInterface {
         boolean valid = false;
         String selection = null;
         String inputName = null;
-        try {
-            inputName = this.keyboard.readLine();
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-        
-        System.out.println(promptMessage);
+
 
         while (!valid) {
             try {
+                this.console.println(promptMessage);
                 selection = this.keyboard.readLine();
             } catch (IOException ex) {
-                System.out.println(ex);
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
             }
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                System.out.print("Invalid Input");
+                ErrorView.display(this.getClass().getName(), "Invalid Input");
                 continue;
             }
             break;

@@ -28,7 +28,7 @@ public class MapMenuView extends View{
                 + " M - Move On Map \n"
                 + " B - Go Back \n";
 
-        System.out.println(MapMenuDisplay);
+        this.console.println(MapMenuDisplay);
            
         String value = this.getInput("Please Choose a Map Menu Item");
         String[] inputs = new String[1];
@@ -54,7 +54,7 @@ public class MapMenuView extends View{
             case 'B':
                 return true;
             default:
-                System.out.println("Invalid Input");
+                this.console.println("Invalid Input");
         }
         return false;
     }
@@ -67,16 +67,16 @@ public class MapMenuView extends View{
 
         
         
-        System.out.println("            The Kingdom of Zenobia              ");
-        System.out.println("      0         1        2       3        4     ");
-        System.out.print("-----------------------------------------------\n");
+        this.console.println("            The Kingdom of Zenobia              ");
+        this.console.println("      0         1        2       3        4     ");
+        this.console.print("-----------------------------------------------\n");
         int i = 0;
         int j = 0;
         
         
         
         for (Location[] row : locations) {
-                System.out.print(i);
+                this.console.print(i);
                 j = 0;
                 for (Location[] column : locations) {
                         nameLocation = null;
@@ -87,11 +87,11 @@ public class MapMenuView extends View{
                         else {
                             nameLocation = (" " + nameLocation + " ");
                         }
-                        System.out.print(" | " + nameLocation);
+                        this.console.print(" | " + nameLocation);
                         j++;    
                 } 
             i++;
-            System.out.print("\n-----------------------------------------------\n");
+            this.console.print("\n-----------------------------------------------\n");
         }
     }
 }

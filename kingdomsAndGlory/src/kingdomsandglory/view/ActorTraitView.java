@@ -5,7 +5,6 @@
  */
 package kingdomsandglory.view;
 
-import java.util.Scanner;
 
 /**
  *
@@ -28,7 +27,7 @@ public class ActorTraitView extends View {
                 + " of questions to determine what kind of   \n"
                 + " leader that you are.                     \n");
         
-        System.out.println(questionIntroDisplay);
+        this.console.println(questionIntroDisplay);
         
         ActorTraitResultView actorTraitResultView = new ActorTraitResultView();
         actorTraitResultView.display();

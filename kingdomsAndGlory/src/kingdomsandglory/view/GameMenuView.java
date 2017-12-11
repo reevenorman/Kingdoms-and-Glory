@@ -30,7 +30,7 @@ public class GameMenuView extends View {
                 + " B - Go Back to Main Menu \n"
                 + " X - Quit \n";
 
-        System.out.println(GameMenuDisplay);
+        this.console.println(GameMenuDisplay);
            
         String value = this.getInput("Please Choose a Game Menu Item");
         String[] inputs = new String[1];
@@ -65,13 +65,13 @@ public class GameMenuView extends View {
             case 'X':
                 System.exit(0);
             default:
-                System.out.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(), "Invalid Input");
         }
         return false;
     }
 
     private void saveGame() {
-        System.out.println("*** Class GameMenuView - saveGame() Called***");
+        this.console.println("*** Class GameMenuView - saveGame() Called***");
     }
     
 }

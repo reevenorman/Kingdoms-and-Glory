@@ -54,7 +54,7 @@ public class ManageResourceView extends View {
                 + "-----------------------------------------------------\n";
         
                 
-        System.out.println(manageResourceDisplay);
+        this.console.println(manageResourceDisplay);
         
         String value = this.getInput("Please Select an option");
         String[] inputs = new String[1];
@@ -74,7 +74,7 @@ public class ManageResourceView extends View {
                 break;
             case 'B' : return true;
             default : 
-                System.out.println("Invalid Input");
+                this.console.println("Invalid Input");
         }
         return false;
             

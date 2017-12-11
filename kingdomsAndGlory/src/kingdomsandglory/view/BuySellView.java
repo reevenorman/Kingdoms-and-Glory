@@ -69,7 +69,7 @@ public class BuySellView extends View{
         private String checkInput(String actorTraitDisplay, int questionNumber) {
         boolean valid = false;
         while (!valid) {
-            System.out.println(actorTraitDisplay);
+            this.console.println(actorTraitDisplay);
             
             char question;
 
@@ -91,7 +91,7 @@ public class BuySellView extends View{
                             break;
 
                         default:
-                            System.out.println("Invalid Input");
+                            this.console.println("Invalid Input");
                          break;
                     }
                     
@@ -118,14 +118,14 @@ public class BuySellView extends View{
                             break;
 
                         default:
-                            System.out.println("Invalid Input");
+                            this.console.println("Invalid Input");
                          break;
                     }
                 case 3:
                     return question1;
                     
                 default:
-                    System.out.println("Invalid Input");
+                    this.console.println("Invalid Input");
                 break;        
             }
         }
@@ -143,11 +143,11 @@ public class BuySellView extends View{
         try {
         transaction = ResourceControl.makeTransaction(sendInputs);
         } catch (ResourceControlException ex){
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
             return false;
         } 
         
-        System.out.println("========================================\n"
+        this.console.println("========================================\n"
                         + transaction
                         + "========================================\n");
 
@@ -163,7 +163,7 @@ public class BuySellView extends View{
             change = Integer.parseInt(inputs[i]);
             }
             catch(NumberFormatException nf) {
-                System.out.println("\n You must enter a valid number");
+                ErrorView.display(this.getClass().getName(), "\n You must enter a valid number");
             }
             numberInputs[i] = change;
             i++;

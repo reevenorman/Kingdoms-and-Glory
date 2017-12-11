@@ -38,7 +38,7 @@ public class FortuneOutcomeView extends View {
                     + "N - No\n"
                     + "================================================================");
 
-        System.out.println(MoveMenuDisplay);
+        this.console.println(MoveMenuDisplay);
 
         String value = this.getInput("Please Type an Answer.");
         String[] inputs = new String[1];
@@ -77,11 +77,11 @@ public class FortuneOutcomeView extends View {
             try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
                 return false;
             }
         }
-                System.out.println(message);
+                this.console.println(message);
                 return true;
             case 'N':
                 userGambleOption = 0;
@@ -89,15 +89,15 @@ public class FortuneOutcomeView extends View {
             try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
-                System.out.println(ex.getMessage());
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
                 return false;
             }
         }
-                System.out.println(message);
+                this.console.println(message);
                 return true;
 
             default:
-                System.out.println("Invalid Input");
+                this.console.println("Invalid Input");
         }
         return false;
     }

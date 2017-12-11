@@ -86,7 +86,7 @@ public class ResourceControl {
         
         if (inputs[0] == 1) {
             if (minQty < 1 || subtotalSell < 0){
-                cannot = ("You do not have enough " + min + " to sell. Please choose something else.\n");
+                cannot = ("You do not have enough " + min + " to sell. Please choose something else or a different amount.\n");
                 return cannot;
             } else {
                 transaction = sellPrice * sellQty;

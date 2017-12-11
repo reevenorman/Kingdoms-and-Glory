@@ -22,13 +22,7 @@ import kingdomsandglory.view.StartProgramView;
 public class kingdomsandglory {
 
     public static void main(String[] args) {
-        /*        try {
-        
-        } catch (Throwable te) {
-        System.out.println(te.getMessage());
-        te.printStackTrace();
-        return;
-        }*/
+   
         
         try { 
             kingdomsandglory.inFile = 
@@ -36,7 +30,7 @@ public class kingdomsandglory {
             
             kingdomsandglory.outFile = new PrintWriter(System.out, true);
             
-            String filePath = "log.text";
+            String filePath = "logfile.txt";
             kingdomsandglory.logFile = new PrintWriter(filePath);
             
             

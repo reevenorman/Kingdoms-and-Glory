@@ -41,7 +41,7 @@ public class AttackCityView extends View {
                 + " Y - Yes \n"
                 + " N - No  \n");
         
-        System.out.println(questionIntroDisplay);
+        this.console.println(questionIntroDisplay);
         
         String value = this.getInput("Please select a Valid Option");
         String[] inputs = new String[1];
@@ -78,7 +78,7 @@ public class AttackCityView extends View {
                 try {
                 result = ArmyControl.battleOutcome(userArmy, userResource, cityArmy, risk);
                 } catch (ArmyControlException ex) {
-                    System.out.println(ex.getMessage());
+                   ErrorView.display(this.getClass().getName(), ex.getMessage());
                     return false;
                 } 
                 
@@ -86,7 +86,7 @@ public class AttackCityView extends View {
                     double userResult = userArmy * 0.5;
                     game.resourceType[6].setResourceQty(((int) userResult));
                 } else {
-                    System.out.println("Congratulations You have conguered this City!");
+                    this.console.println("Congratulations You have conguered this City!");
                     game.player.actor.location.locationScene.setOwnership(0);
                 }            
                 
@@ -94,7 +94,7 @@ public class AttackCityView extends View {
             case 'N' :
                 return true;
             default :
-                System.out.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(), "Invalid Input");
                 
         }
         return false;

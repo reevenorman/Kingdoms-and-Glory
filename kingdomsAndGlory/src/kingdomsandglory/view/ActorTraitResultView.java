@@ -86,7 +86,7 @@ public class ActorTraitResultView extends View {
     private String checkInput(String actorTraitDisplay) {
         boolean valid = false;
         while (!valid) {
-            System.out.println(actorTraitDisplay);
+            this.console.println(actorTraitDisplay);
 
             String question1 = this.getInput("Please Selection an Option");
 
@@ -103,7 +103,7 @@ public class ActorTraitResultView extends View {
                     return "3";
 
                 default:
-                    System.out.println("Invalid Input");
+                    ErrorView.display(this.getClass().getName(), "Invalid Input");
                     break;
             }
         }
@@ -116,21 +116,13 @@ public class ActorTraitResultView extends View {
         int[] sendInputs = new int[5];
         sendInputs = this.convertInput(inputs);
 
-        /*
-        try {
-            sumOfTraitQuestions = sumOfActorTrait(sendInputs);
-        } catch (PlayerControlException ex) {
-            System.out.println(ex.getMessage());
-            return false;
-        }
-    */
         
         int traitresult;
         try {
         traitresult = assignActorTrait(sendInputs[0], sendInputs[1], sendInputs[2], sendInputs[3], sendInputs[4]);
         } catch (PlayerControlException ex){
-         System.out.println(ex.getMessage());
-            return false;
+            ErrorView.display(this.getClass().getName(), "Trait result is null");
+                    return false;
         }
         
         
@@ -138,7 +130,7 @@ public class ActorTraitResultView extends View {
         try {
             sumOfTraitQuestions = sumOfActorTrait(sendInputs);
         } catch (PlayerControlException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
             return false;
         }
 
@@ -162,7 +154,7 @@ public class ActorTraitResultView extends View {
         try {
             int gold = PlayerControl.addSumToGold(actorTraitName, sumOfTraitQuestions);
         } catch (PlayerControlException ex) {
-            System.out.println(ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
             return false;
         }
         
@@ -174,7 +166,7 @@ public class ActorTraitResultView extends View {
 
         playerName = game.player.getPlayerName();
 
-        System.out.println("========================================\n"
+        this.console.println("========================================\n"
                 + "Congratulations, " + playerName + "!\n"
                 + "You have received the trait of " + actorTraitName + "!\n"
                 + "You will be known as " + playerName + " the " + actorTraitName + "!\n"
