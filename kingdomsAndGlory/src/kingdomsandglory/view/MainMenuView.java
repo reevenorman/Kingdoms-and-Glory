@@ -80,7 +80,8 @@ public class MainMenuView extends View {
     }
 
     private void backgroundStory() {
-        this.console.println("*** MainMenuView - backgroundStory() Called ***");
+        BackGroundStoryView backGroundStoryView = new BackGroundStoryView();
+        backGroundStoryView.display();
     }
 
     private void helpMenu() {

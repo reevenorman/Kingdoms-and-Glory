@@ -32,7 +32,6 @@ import kingdomsandglory.model.ResourceScene;
 import kingdomsandglory.model.Scene;
 import kingdomsandglory.model.Trait;
 import kingdomsandglory.model.TraitEnum;
-import kingdomsandglory.view.StartExistingGameView;
 
 /**
  *
@@ -95,12 +94,6 @@ public class GameControl {
         
         return;
     }
-
-    public static void restartGame() {
-        StartExistingGameView savedGame = new StartExistingGameView();
-        savedGame.displayStartExistingGameView();
-    }
-
 
     public static Trait[] createTraits() {
        
