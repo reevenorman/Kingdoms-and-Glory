@@ -91,7 +91,7 @@ public class BuySellView extends View{
                             break;
 
                         default:
-                            this.console.println("Invalid Input");
+                            ErrorView.display(this.getClass().getName(),"Invalid Input");
                          break;
                     }
                     
@@ -118,14 +118,14 @@ public class BuySellView extends View{
                             break;
 
                         default:
-                            this.console.println("Invalid Input");
+                            ErrorView.display(this.getClass().getName(),"Invalid Input");
                          break;
                     }
                 case 3:
                     return question1;
                     
                 default:
-                    this.console.println("Invalid Input");
+                    ErrorView.display(this.getClass().getName(),"Invalid Input");
                 break;        
             }
         }

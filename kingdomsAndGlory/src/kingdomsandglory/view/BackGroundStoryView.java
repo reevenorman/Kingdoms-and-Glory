@@ -53,7 +53,7 @@ public class BackGroundStoryView extends View {
         this.console.println(backgroundStoryDisplay);
         String value = this.getInput("Please Select on Option \n"
                 + "R - Return to Main Menu \n"
-                + "Q - Quit");
+                + "X - Quit");
         String[] inputs = new String[1];
         inputs[0] = value;
         return inputs;
@@ -69,10 +69,10 @@ public class BackGroundStoryView extends View {
                 MainMenuView mainMenuView = new MainMenuView();
                 mainMenuView.display();
                 break;
-            case 'Q':
+            case 'X':
                 System.exit(0);
             default:
-                this.console.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
         return true;
     }

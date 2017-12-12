@@ -8,6 +8,7 @@ package kingdomsandglory.view;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import kingdomsandglory.control.GameControl;
 import kingdomsandglory.control.MapControl;
 import kingdomsandglory.exceptions.MapControlException;
 import kingdomsandglory.model.Actor;
@@ -77,6 +78,7 @@ public class MoveOnMapMenuView extends View {
                     direction = 3;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    this.checkForWin();
                     return true;
                 case 'A':
                     direction = 4;
@@ -86,7 +88,7 @@ public class MoveOnMapMenuView extends View {
                 case 'B':
                     return true;
                 default:
-                    this.console.println("Invalid Input");
+                    ErrorView.display(this.getClass().getName(),"Invalid Input");
             }
         } catch (MapControlException ex) {
             ErrorView.display(this.getClass().getName(), "Moving the actor did not work.");
@@ -186,5 +188,17 @@ public class MoveOnMapMenuView extends View {
                     return;
         }
     }
-
+    
+    public void checkForWin() {
+        Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+        
+        int win = GameControl.checkWin(game);
+        
+        if (win == 0) {
+            WinView winView = new WinView();
+            winView.display();
+        } else {
+            return;
+        }
+    }
 }

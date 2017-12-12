@@ -60,7 +60,7 @@ public class HelpMenuView extends View{
             case 'Q':
                 return false;
             default:
-                this.console.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
         return true;
     }

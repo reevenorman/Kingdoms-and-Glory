@@ -5,13 +5,14 @@
  */
 package kingdomsandglory.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author reeve
  */
-public abstract class Scene {
+public abstract class Scene implements Serializable {
     
     public String mapSignal;
     public int rowCount;

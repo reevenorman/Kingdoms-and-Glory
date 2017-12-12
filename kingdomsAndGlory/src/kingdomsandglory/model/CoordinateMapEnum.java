@@ -6,6 +6,7 @@
 package kingdomsandglory.model;
 
 import java.awt.Point;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.logging.Logger;
 
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author reeve
  */
-public enum CoordinateMapEnum {
+public enum CoordinateMapEnum implements Serializable {
     
     
     
