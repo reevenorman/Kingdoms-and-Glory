@@ -7,6 +7,13 @@ package kingdomsandglory.control;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import kingdomsandglory.control.MapControl;
 import kingdomsandglory.exceptions.GameControlException;
 import kingdomsandglory.exceptions.MapControlException;
@@ -132,9 +139,55 @@ public class GameControl {
 
         return traitType;
     }
+    
+    public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
+        if (game == null || filePath == null) {
+            throw new GameControlException("Game Cannot Be Null");
+        }
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath));
+        try {
+                out.writeObject(game);
+                
+            }   catch (IOException ex) {
+                        throw new IOException("Your File Path Was Invalid, Please Try Again");
+                        
+            } finally {
+                try {
+                    if (out != null) {
+                        out.close();
+                    }
+                } catch (IOException ex) {
+                    throw new IOException("Your File Was Null");
+                }
+            }
 
-    public GameControl(String name) {
-        System.out.println("*** savePlayer() called ***");
+        return;
+    }
+    
+        public static void LoadGame(String filePath) throws GameControlException, IOException, ClassNotFoundException {
+        if (filePath == null) {
+            throw new GameControlException("Game Cannot Be Null");
+        }
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath));
+        try {
+            Game game = new Game();
+            Player player = new Player();
+                game = (Game) in.readObject();
+                
+                kingdomsandglory.setCurrentGame(game);
+                
+                player = game.getPlayer();
+                
+                kingdomsandglory.setPlayer(player);
+                
+            }   catch (IOException ex) {
+                        throw new IOException("Your File Path Was Invalid, Please Try Again");
+                        
+            } catch (ClassNotFoundException ex) {
+                        throw new ClassNotFoundException("Your game was not found :( ");
+            }
+
+        return;
     }
 
 }

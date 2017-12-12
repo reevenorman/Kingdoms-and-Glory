@@ -75,7 +75,8 @@ public class MainMenuView extends View {
     }
 
     private void loadGame() {
-        this.console.println("*** MainMenuView - loadGame() Called ***");
+        LoadGameView loadGameView = new LoadGameView();
+        loadGameView.display();
     }
 
     private void backgroundStory() {

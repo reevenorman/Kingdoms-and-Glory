@@ -58,7 +58,8 @@ public class GameMenuView extends View {
                 helpMenuView.display();
                 break;
             case 'S':
-                saveGame();
+                SaveGameView saveGameView = new SaveGameView();
+                saveGameView.display();
             case 'B':
                 MainMenuView mainMenuView = new MainMenuView();
                 mainMenuView.display();
@@ -68,10 +69,6 @@ public class GameMenuView extends View {
                 ErrorView.display(this.getClass().getName(), "Invalid Input");
         }
         return false;
-    }
-
-    private void saveGame() {
-        this.console.println("*** Class GameMenuView - saveGame() Called***");
     }
     
 }
