@@ -6,6 +6,8 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.control.ResourceControl;
+import kingdomsandglory.model.Game;
 
 /**
  *
