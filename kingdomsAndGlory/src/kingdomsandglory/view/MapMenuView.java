@@ -45,7 +45,7 @@ public class MapMenuView extends View{
 
         switch (menuItem) {
             case 'V':
-                this.displayViewTerritoryView();
+                this.displayMap();
                 break;
             case 'M':
                 MoveOnMapMenuView moveOnMapView = new MoveOnMapMenuView();
@@ -59,7 +59,7 @@ public class MapMenuView extends View{
         return false;
     }
     
-    public void displayViewTerritoryView() {
+    public void displayMap() {
         String nameLocation;
         Game game = kingdomsandglory.getCurrentGame();
             

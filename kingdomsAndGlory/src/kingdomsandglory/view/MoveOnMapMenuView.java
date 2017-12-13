@@ -55,6 +55,7 @@ public class MoveOnMapMenuView extends View {
         moveDirection = inputs[0].toUpperCase().charAt(0);
         FortuneOutcomeView fortuneOutcomeView = new FortuneOutcomeView();
         AttackCityView attackCityView = new AttackCityView();
+        MapMenuView mapMenuView = new MapMenuView();
 
         String citysignal = "";
 
@@ -67,21 +68,25 @@ public class MoveOnMapMenuView extends View {
                     direction = 1;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    mapMenuView.displayMap();
                     return true;
                 case 'S':
                     direction = 2;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    mapMenuView.displayMap();
                     return true;
                 case 'D':
                     direction = 3;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    mapMenuView.displayMap();
                     return true;
                 case 'A':
                     direction = 4;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    mapMenuView.displayMap();
                     return true;
                 case 'B':
                     return true;
@@ -133,7 +138,6 @@ public class MoveOnMapMenuView extends View {
                 case "Visu":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
@@ -142,7 +146,6 @@ public class MoveOnMapMenuView extends View {
                 case "Genu":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
@@ -151,7 +154,6 @@ public class MoveOnMapMenuView extends View {
                 case "Pace":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
@@ -160,7 +162,6 @@ public class MoveOnMapMenuView extends View {
                 case "Feli":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
@@ -169,7 +170,6 @@ public class MoveOnMapMenuView extends View {
                 case "Pulc":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();
@@ -178,7 +178,6 @@ public class MoveOnMapMenuView extends View {
                 case "Zeno":
                     if (owned == 1) {
                         attackCityView.display();
-                        fortuneOutcomeView.display();
                     } else {
                         this.console.println("You already own this city! But, You might be able to get some resources here");
                         fortuneOutcomeView.display();

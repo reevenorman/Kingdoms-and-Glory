@@ -93,6 +93,8 @@ public class MapControl {
                         + "But, You were attacked by bandits! And lost, " + outcome + " pieces of " + mineral + ".");
             }
         }
+        resultOutcome = resultOutcome + "\n================================================================";
+        
         return resultOutcome;
 
     }
