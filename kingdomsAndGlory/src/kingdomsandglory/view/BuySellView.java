@@ -23,9 +23,9 @@ public class BuySellView extends View{
         String answer1 = "";
         
         buySellOptionDisplay = "********************************************\n"
-                + "* Would you like to Buy or Sell Resources? *\n"
-                + "* X - Yes I would like to sell stuff       *\n"
-                + "* Z - Yes I would like to buy stuff        *\n"
+                + "* Please Select an Option:                 *\n"
+                + "* X - Sell from my inventory               *\n"
+                + "* Z - Buy more inventory                   *\n"
                 + "* B - I messed up, please go back          *\n"
                 + "********************************************\n";
         
@@ -45,7 +45,7 @@ public class BuySellView extends View{
                 + "* W - Wood                                    *\n"
                 + "* S - Stone                                   *\n"
                 + "* M - Metal                                   *\n"
-                + "* A - Amry                                    *\n"
+                + "* A - Army                                    *\n"
                 + "* B - I messed up, please go back             *\n"
                 + "***********************************************\n";
         
@@ -55,8 +55,8 @@ public class BuySellView extends View{
         
 
        buySellOptionDisplay = "**********************************************\n"
-                + "* How much would you like to " + answer1 + " ?         *\n"
-                + "* Please Enter a Number Value.                *\n"
+                + "* How much would you like to " + answer1 + " ?           *\n"
+                + "* Please Enter a Number Value.                           *\n"
                 + "***********************************************\n";
        
        questionNumber = 3;
