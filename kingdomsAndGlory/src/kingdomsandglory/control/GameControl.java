@@ -9,9 +9,12 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.dateTime;
 import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import kingdomsandglory.control.MapControl;
@@ -169,7 +172,7 @@ public class GameControl {
 
         return;
     }
-    
+
     public static int checkWin(Game game) {
         int[] winner = new int[5];
         winner[0] = game.map.locations[0][1].locationScene.getOwnership();
@@ -177,13 +180,98 @@ public class GameControl {
         winner[2] = game.map.locations[2][0].locationScene.getOwnership();
         winner[3] = game.map.locations[2][2].locationScene.getOwnership();
         winner[4] = game.map.locations[2][4].locationScene.getOwnership();
-        
+
         int total = 0;
-        
+
         for (int value : winner) {
             total = total + value;
         }
         return total;
     }
 
+    public static void printLocations(Game game, String filePath) throws GameControlException, IOException {
+        if (game == null || filePath == null) {
+            throw new GameControlException("Game Cannot Be Null");
+        }
+        
+        String message;
+        Location[][] locations = game.map.getLocations();
+        int i = 0;
+        int j = 0;
+        String locationName = "";
+        int locationRow = 0;
+        int locationColumn = 0;
+        String coordinates = "";
+
+        try (PrintWriter out
+                = new PrintWriter(new FileOutputStream(filePath))) {
+            out.println("             The Kingdom of Zenobia               \n");
+            out.printf("%n%-20s%30s%n", "Location Name", "Location Coordinates");
+            out.println("--------------------------------------------------");
+
+            for (Location[] row : locations) {
+                j = 0;
+                for (Location[] column : locations) {
+                    locationName = locations[i][j].locationScene.getName();
+                    locationRow = locations[i][j].locationScene.getRowCount();
+                    locationColumn = locations[i][j].locationScene.getColumnCount();
+                    coordinates = locationRow + ", " + locationColumn;
+                    out.printf("%n%-20s%30s", locationName, coordinates);
+
+                    j++;
+                }
+                i++;
+            }
+
+        } catch (IOException ex) {
+            throw new IOException("Your File Path Was Invalid " + ex.getMessage());
+        }
+    }
+
+    public static void printResources(Game game, String filePath) throws GameControlException, IOException {
+        String message;
+        Resource[] resource = game.getResourceType();
+        String place = "";
+        int i = 0;
+        String resourceName;
+        int resourceQty;
+
+        try (PrintWriter out
+                = new PrintWriter(new FileOutputStream(filePath))) {
+            out.println("     The Kingdom of Zenobia        \n");
+            out.printf("%n%-20s%10s%n", "Resource Name", "Resource Qty");
+            out.println("---------------------------------");
+
+            for (Resource row : resource) {
+                place = null;
+                resourceName = resource[i].getResourceDiscription();
+                resourceQty = resource[i].getResourceQty();
+                out.printf("%n%-20s%10s", resourceName, resourceQty);
+                i++;
+            }
+
+        } catch (IOException ex) {
+            throw new IOException("Your File Path Was Invalid " + ex.getMessage());
+        }
+    }
+
+    public static String LoadDocument(String filePath) throws GameControlException, IOException, ClassNotFoundException {
+        if (filePath == null) {
+            throw new GameControlException("Game Cannot Be Null");
+        }
+
+        String message = "";
+
+        try (Scanner in
+                = new Scanner(new FileReader(filePath))) {
+
+            while (in.hasNextLine()) {
+                message = message + in.next();
+            }
+        } catch (IOException ex) {
+            throw new IOException("Your File Path Was Invalid, Please Try Again" + ex.getMessage());
+        }
+
+        return message;
+    }
 }

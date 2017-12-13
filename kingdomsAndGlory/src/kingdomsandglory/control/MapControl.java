@@ -256,7 +256,7 @@ public class MapControl {
         ResourceScene forestA = new ResourceScene();
         forestA.rowCount = CoordinateMapEnum.ForestA.getcRow();
         forestA.columnCount = CoordinateMapEnum.ForestA.getcColumn();
-        forestA.name = "A Forest";
+        forestA.name = "a Forest";
         forestA.mapSignal = "Frst";
         forestA.actor = null;
         forestA.mineralTypeThere = "Wood";
@@ -265,7 +265,7 @@ public class MapControl {
         ResourceScene forestB = new ResourceScene();
         forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
         forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
-        forestB.name = "A Forest";
+        forestB.name = "a Forest";
         forestB.mapSignal = "Frst";
         forestB.actor = null;
         forestB.mineralTypeThere = "Wood";
@@ -274,7 +274,7 @@ public class MapControl {
         ResourceScene forestC = new ResourceScene();
         forestC.rowCount = CoordinateMapEnum.ForestC.getcRow();
         forestC.columnCount = CoordinateMapEnum.ForestC.getcColumn();
-        forestC.name = "A Forest";
+        forestC.name = "a Forest";
         forestC.mapSignal = "Frst";
         forestC.actor = null;
         forestC.mineralTypeThere = "Wood";
