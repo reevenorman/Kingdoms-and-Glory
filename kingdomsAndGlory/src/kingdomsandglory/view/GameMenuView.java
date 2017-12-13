@@ -27,6 +27,8 @@ public class GameMenuView extends View {
                 + " M - View Map Menu \n"
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
+                + " P - Print Resources \n"
+                + " L - Print Locations \n"
                 + " B - Go Back to Main Menu \n"
                 + " X - Quit \n";
 
@@ -60,6 +62,12 @@ public class GameMenuView extends View {
             case 'S':
                 SaveGameView saveGameView = new SaveGameView();
                 saveGameView.display();
+            case 'P':
+                PrintLogView printLogView = new printLogView();
+                printLogView.display();
+            case 'L':
+                PrintLogView printLogView = new printLogView();
+                printLogView.display();
             case 'B':
                 MainMenuView mainMenuView = new MainMenuView();
                 mainMenuView.display();
