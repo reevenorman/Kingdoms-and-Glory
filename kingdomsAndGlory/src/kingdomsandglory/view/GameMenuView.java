@@ -6,6 +6,8 @@
 package kingdomsandglory.view;
 
 import java.util.Scanner;
+import kingdomsandglory.control.ResourceControl;
+import kingdomsandglory.model.Game;
 
 /**
  *
@@ -27,6 +29,7 @@ public class GameMenuView extends View {
                 + " M - View Map Menu \n"
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
+                + " T - Total Resources \n"
                 + " B - Go Back to Main Menu \n"
                 + " X - Quit \n";
 
@@ -60,6 +63,11 @@ public class GameMenuView extends View {
             case 'S':
                 SaveGameView saveGameView = new SaveGameView();
                 saveGameView.display();
+            case 'T':
+                Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+                int total;
+                total = ResourceControl.totalResources(game);
+                this.console.println(total);
             case 'B':
                 MainMenuView mainMenuView = new MainMenuView();
                 mainMenuView.display();

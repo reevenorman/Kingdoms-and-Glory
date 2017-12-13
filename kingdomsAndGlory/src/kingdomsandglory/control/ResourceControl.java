@@ -154,4 +154,18 @@ public class ResourceControl {
         return buy;
     }
     
+    public static int totalResources(Game game) {
+        Resource[] resource = game.getResourceType();
+        int total = 0;
+        int item;
+        int i = 0;
+        for (Resource value : resource) {
+            item = resource[i].getResourceQty();
+            total = total + item;
+            i++;
+        }
+        return total;
+    }
+            
+    
 }
