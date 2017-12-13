@@ -6,7 +6,6 @@
 package kingdomsandglory.control;
 
 import kingdomsandglory.exceptions.ResourceControlException;
-import kingdomsandglory.model.Army;
 import kingdomsandglory.model.Game;
 import kingdomsandglory.model.Resource;
 import kingdomsandglory.model.ResourceEnum;
@@ -69,15 +68,13 @@ public class ResourceControl {
         int newGold;
         int subtotalBuy = sellQty * buyPrice;
         
-        /*+ "* This this game you have the opportunity to buy and*\n"
-        + "* sell resources. Here is a list of Resources and   *\n"
-        + "* their cost.                                       *\n"
-        + "* Resource - Buying Price/Selling Price             *\n"
-        + "* Cloth    -  2 / 1                                 *\n"
-        + "* Wood     -  3 / 2                                 *\n"
-        + "* Stone    -  3 / 2                                 *\n"
-        + "* Metal    -  5 / 3                                 *\n"
-        + "* Amry Men -  7 / 1                                 *\n"
+
+        /*Resource - Buying Price/Selling Price       
+        Cloth    -  2 / 1                               
+        Wood     -  3 / 2                              
+        Stone    -  3 / 2               
+        Metal    -  5 / 3                               
+        Amry Men -  7 / 1                                 
         input 1 = 1 - sell
                   0 - buy
         input 2 = 0 - cloth
