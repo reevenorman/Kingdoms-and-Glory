@@ -178,7 +178,7 @@ public class MapControl {
         visum.name = "Visum";
         visum.mapSignal = "Visu";
         visum.ownership = 1;
-        visum.riskFactor = 0;
+        visum.riskFactor = 800;
         visum.riskArmyFactor = 10;
         visum.actor = null;
         visum.mineralTypetoAttack = "metal";
@@ -191,7 +191,7 @@ public class MapControl {
         genus.name = "Genus";
         genus.mapSignal = "Genu";
         genus.ownership = 1;
-        genus.riskFactor = 0;
+        genus.riskFactor = 300;
         genus.riskArmyFactor = 10;
         genus.actor = null;
         genus.mineralTypetoAttack = "Cloth";
@@ -204,7 +204,7 @@ public class MapControl {
         pacem.name = "Pacem";
         pacem.mapSignal = "Pace";
         pacem.ownership = 1;
-        pacem.riskFactor = 0;
+        pacem.riskFactor = 500;
         pacem.riskArmyFactor = 10;
         pacem.actor = null;
         pacem.mineralTypetoAttack = "Stone";
@@ -217,7 +217,7 @@ public class MapControl {
         felicitatem.name = "Felicitatem";
         felicitatem.mapSignal = "Feli";
         felicitatem.ownership = 1;
-        felicitatem.riskFactor = 0;
+        felicitatem.riskFactor = 400;
         felicitatem.riskArmyFactor = 10;
         felicitatem.actor = null;
         felicitatem.mineralTypetoAttack = "Wood";
@@ -230,7 +230,7 @@ public class MapControl {
         pulchram.name = "Pulchram";
         pulchram.mapSignal = "Pulc";
         pulchram.ownership = 1;
-        pulchram.riskFactor = 0;
+        pulchram.riskFactor = 450;
         pulchram.riskArmyFactor = 10;
         pulchram.actor = null;
         pulchram.mineralTypetoAttack = "Wood";
