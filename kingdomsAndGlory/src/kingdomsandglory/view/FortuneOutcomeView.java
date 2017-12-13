@@ -29,14 +29,14 @@ public class FortuneOutcomeView extends View {
         String mineral = game.player.actor.location.locationScene.getMineralTypeThere();
         String MoveMenuDisplay;
 
-        MoveMenuDisplay = ("================================================================\n"
-                    + "You have stumbled upon a " + place + ". There is some resources of \n"
+        MoveMenuDisplay = ("========================================================================\n"
+                    + "You have stumbled upon " + place + ". There is some resources of \n"
                     + " " + mineral + ".  20% of these you can\n"
                     + "certainly take. But, you might have to gamble for the other 80% \n"
                     + "Would you like to game for the other 80%?\n"
                     + "Y - Yes\n"
                     + "N - No\n"
-                    + "================================================================");
+                    + "========================================================================");
 
         this.console.println(MoveMenuDisplay);
 
@@ -71,34 +71,34 @@ public class FortuneOutcomeView extends View {
         
         
         switch (gambleOption) {
-            case 'Y':
+            case 'Y': {
                 userGambleOption = 1;
-        {
+        
             try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
                 ErrorView.display(this.getClass().getName(), ex.getMessage());
-                return false;
-            }
-        }
-                this.console.println(message);
                 return true;
-            case 'N':
+            }
+        
+                this.console.println(message);
+                return true; }
+            case 'N': {
                 userGambleOption = 0;
-        {
+        
             try {
                 message = MapControl.fortuneOutcome(userGambleOption, randResourceAmt, ResourceObj, randChanceAmt);
             } catch (MapControlException ex) {
                 ErrorView.display(this.getClass().getName(), ex.getMessage());
-                return false;
+                return true;
             }
-        }
+        
                 this.console.println(message);
                 return true;
-
+            }        
             default:
                 ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
-        return false;
+        return true;
     }
 }

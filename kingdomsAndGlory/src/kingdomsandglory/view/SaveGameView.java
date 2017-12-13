@@ -49,7 +49,8 @@ public class SaveGameView extends View {
             return false;
         }
          
-         this.console.println("Your file was successfully saved in " + filePath);
+         this.console.println("\n"
+                 + "Your file was successfully saved in " + filePath + "\n");
          return true;
     }
               

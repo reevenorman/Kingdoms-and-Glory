@@ -69,26 +69,29 @@ public class MoveOnMapMenuView extends View {
                     direction = 1;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    this.checkForWin();
                     mapMenuView.displayMap();
-                    return true;
+                    return false;
                 case 'S':
                     direction = 2;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    this.checkForWin();
                     mapMenuView.displayMap();
-                    return true;
+                    return false;
                 case 'D':
                     direction = 3;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
                     this.checkForWin();
-                    return true;
+                    return false;
                 case 'A':
                     direction = 4;
                     MapControl.moveActor(actor, direction);
                     this.attackOption();
+                    this.checkForWin();
                     mapMenuView.displayMap();
-                    return true;
+                    return false;
                 case 'B':
                     return true;
                 default:

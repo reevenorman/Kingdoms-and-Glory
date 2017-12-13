@@ -24,7 +24,7 @@ public class GameMenuView extends View {
 
         GameMenuDisplay = 
                   " R - Manage Resources and Army \n"
-                + " M - View Map \n"
+                + " M - View Map Menu \n"
                 + " H - View Help Menu \n"
                 + " S - Save Game \n"
                 + " B - Go Back to Main Menu \n"

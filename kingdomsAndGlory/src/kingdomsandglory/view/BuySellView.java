@@ -55,9 +55,9 @@ public class BuySellView extends View{
         
 
        buySellOptionDisplay = "**********************************************\n"
-                + "* How much would you like to " + answer1 + " ?           *\n"
-                + "* Please Enter a Number Value.                           *\n"
-                + "***********************************************\n";
+                + "* How much would you like to " + answer1 + "?            *\n"
+                + "* Please Enter a Number Value.               *\n"
+                + "**********************************************\n";
        
        questionNumber = 3;
        questionAnswer = this.checkInput(buySellOptionDisplay, questionNumber);

@@ -23,7 +23,7 @@ public class LoadGameView extends View{
 
         String LoadGameDisplay;
 
-        LoadGameDisplay = "To Load Your Game, Please Enter The Valid File Path Where It Was Saved";
+        LoadGameDisplay = "\nTo Load Your Game, Please Enter The Valid File Path Where It Was Saved";
 
         String value = this.getInput(LoadGameDisplay);
         String[] inputs = new String[1];
@@ -47,6 +47,9 @@ public class LoadGameView extends View{
          } catch (ClassNotFoundException ex) {
              ErrorView.display(this.getClass().getName(), ex.getMessage());
          }
+         
+         this.console.println("\n"
+                 + "Your file was successfully loaded from " + filePath + "\n");
          
          GameMenuView gameMenuView = new GameMenuView();
          gameMenuView.display();

@@ -24,7 +24,7 @@ public class MapMenuView extends View{
 
         String MapMenuDisplay;
 
-        MapMenuDisplay = " V - View A Map \n"
+        MapMenuDisplay = " V - View Map \n"
                 + " M - Move On Map \n"
                 + " B - Go Back \n";
 
@@ -93,7 +93,8 @@ public class MapMenuView extends View{
             i++;
             this.console.print("\n-----------------------------------------------\n");
         }
-    }
+        this.console.print("\n");
+    } 
 }
 
 

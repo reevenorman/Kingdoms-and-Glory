@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package kingdomsandglory.control;
 
 import java.util.logging.Level;
@@ -24,7 +19,7 @@ public class PlayerControlTest {
      * Test of assignActorTrait method, of class PlayerControl.
      */
     @Test
-    public void testAssignActorTrait() {
+    public void testAssignActorTrait() throws PlayerControlException {
         System.out.println("assignActorTrait");
         
         System.out.println("test case 1");

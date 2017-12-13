@@ -34,7 +34,7 @@ public class ManageResourceView extends View {
         
         manageResourceDisplay = 
                   "*****************************************************\n"
-                + "* This this game you have the opportunity to buy and*\n"
+                + "* In this game you have the opportunity to buy and  *\n"
                 + "* sell resources. Here is a list of Resources and   *\n"
                 + "* their cost.                                       *\n"
                 + "* Resource - Buying Price/Selling Price             *\n"
@@ -42,13 +42,13 @@ public class ManageResourceView extends View {
                 + "* Wood     -  3 / 2                                 *\n"
                 + "* Stone    -  3 / 2                                 *\n"
                 + "* Metal    -  5 / 3                                 *\n"
-                + "* Amry Men -  7 / 1                                 *\n"
+                + "* Army     -  7 / 1                                 *\n"
                 + "*                                                   *\n"
                 + "* Also, Here is a list of your current Resources:   *\n" 
                 + "-----------------------------------------------------\n"
                 + resourceList
                 + "-----------------------------------------------------\n"
-                + "* Would you like to Buy/Sell any resources?         *\n"
+                + "* Would you like to Buy/Sell resources?             *\n"
                 + "* V - Yes                                           *\n"
                 + "* B - No                                            *\n"
                 + "-----------------------------------------------------\n";

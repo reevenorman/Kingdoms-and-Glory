@@ -27,7 +27,7 @@ public class MainMenuView extends View {
         mainMenuDisplay = " G - Start New Game \n"
                 + " L - Load Saved Game \n"
                 + " B - Background Story \n"
-                + " H - Get Help on How to Play the Game \n"
+                + " H - Help Menu \n"
                 + " Q - Quit \n";
         
         this.console.println(mainMenuDisplay);

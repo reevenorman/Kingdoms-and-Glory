@@ -72,6 +72,9 @@ public class MapControl {
             game.resourceType[ResourceObj].setResourceQty(resourceQty);
             String mineral = game.resourceType[ResourceObj].getResourceDiscription();
             resultOutcome = ("You gained " + outcome + " pieces of " + mineral + ".");
+            
+            resultOutcome = resultOutcome + "\n================================================================";
+            
             return resultOutcome;
         }
         if (userGambleOption == 1) {
@@ -177,7 +180,7 @@ public class MapControl {
         CityScene visum = new CityScene();
         visum.rowCount = CoordinateMapEnum.Visum.getcRow();
         visum.columnCount = CoordinateMapEnum.Visum.getcColumn();
-        visum.name = "Visum";
+        visum.name = "The City of Visum";
         visum.mapSignal = "Visu";
         visum.ownership = 1;
         visum.riskFactor = 800;
@@ -190,7 +193,7 @@ public class MapControl {
         CityScene genus = new CityScene();
         genus.rowCount = CoordinateMapEnum.Genus.getcRow();
         genus.columnCount = CoordinateMapEnum.Genus.getcColumn();
-        genus.name = "Genus";
+        genus.name = "The City of Genus";
         genus.mapSignal = "Genu";
         genus.ownership = 1;
         genus.riskFactor = 300;
@@ -203,7 +206,7 @@ public class MapControl {
         CityScene pacem = new CityScene();
         pacem.rowCount = CoordinateMapEnum.Pacem.getcRow();
         pacem.columnCount = CoordinateMapEnum.Pacem.getcColumn();
-        pacem.name = "Pacem";
+        pacem.name = "The City of Pacem";
         pacem.mapSignal = "Pace";
         pacem.ownership = 1;
         pacem.riskFactor = 500;
@@ -216,7 +219,7 @@ public class MapControl {
         CityScene felicitatem = new CityScene();
         felicitatem.rowCount = CoordinateMapEnum.Felicitatem.getcRow();
         felicitatem.columnCount = CoordinateMapEnum.Felicitatem.getcColumn();
-        felicitatem.name = "Felicitatem";
+        felicitatem.name = "The City of Felicitatem";
         felicitatem.mapSignal = "Feli";
         felicitatem.ownership = 1;
         felicitatem.riskFactor = 400;
@@ -229,7 +232,7 @@ public class MapControl {
         CityScene pulchram = new CityScene();
         pulchram.rowCount = CoordinateMapEnum.Pulchram.getcRow();
         pulchram.columnCount = CoordinateMapEnum.Pulchram.getcColumn();
-        pulchram.name = "Pulchram";
+        pulchram.name = "The City of Pulchram";
         pulchram.mapSignal = "Pulc";
         pulchram.ownership = 1;
         pulchram.riskFactor = 450;
@@ -242,6 +245,7 @@ public class MapControl {
         CityScene zenobia = new CityScene();
         zenobia.rowCount = CoordinateMapEnum.Zenobia.getcRow();
         zenobia.columnCount = CoordinateMapEnum.Zenobia.getcColumn();
+        zenobia.name = "The City of Zenobia";
         zenobia.mapSignal = "Zeno";
         zenobia.ownership = 0;
         zenobia.riskFactor = 0;
@@ -252,7 +256,7 @@ public class MapControl {
         ResourceScene forestA = new ResourceScene();
         forestA.rowCount = CoordinateMapEnum.ForestA.getcRow();
         forestA.columnCount = CoordinateMapEnum.ForestA.getcColumn();
-        forestA.name = "Forest";
+        forestA.name = "A Forest";
         forestA.mapSignal = "Frst";
         forestA.actor = null;
         forestA.mineralTypeThere = "Wood";
@@ -261,7 +265,7 @@ public class MapControl {
         ResourceScene forestB = new ResourceScene();
         forestB.rowCount = CoordinateMapEnum.ForestB.getcRow();
         forestB.columnCount = CoordinateMapEnum.ForestB.getcColumn();
-        forestB.name = "Forest";
+        forestB.name = "A Forest";
         forestB.mapSignal = "Frst";
         forestB.actor = null;
         forestB.mineralTypeThere = "Wood";
@@ -270,7 +274,7 @@ public class MapControl {
         ResourceScene forestC = new ResourceScene();
         forestC.rowCount = CoordinateMapEnum.ForestC.getcRow();
         forestC.columnCount = CoordinateMapEnum.ForestC.getcColumn();
-        forestC.name = "Forest";
+        forestC.name = "A Forest";
         forestC.mapSignal = "Frst";
         forestC.actor = null;
         forestC.mineralTypeThere = "Wood";
@@ -279,7 +283,7 @@ public class MapControl {
         ResourceScene forestD = new ResourceScene();
         forestD.rowCount = CoordinateMapEnum.ForestD.getcRow();
         forestD.columnCount = CoordinateMapEnum.ForestD.getcColumn();
-        forestD.name = "Forest";
+        forestD.name = "a Forest";
         forestD.mapSignal = "Frst";
         forestD.actor = null;
         forestD.mineralTypeThere = "Wood";
@@ -288,7 +292,7 @@ public class MapControl {
         ResourceScene forestE = new ResourceScene();
         forestE.rowCount = CoordinateMapEnum.ForestE.getcRow();
         forestE.columnCount = CoordinateMapEnum.ForestE.getcColumn();
-        forestE.name = "Forest";
+        forestE.name = "a Forest";
         forestE.mapSignal = "Frst";
         forestE.actor = null;
         forestE.mineralTypeThere = "Wood";
@@ -297,7 +301,7 @@ public class MapControl {
         ResourceScene forestF = new ResourceScene();
         forestF.rowCount = CoordinateMapEnum.ForestF.getcRow();
         forestF.columnCount = CoordinateMapEnum.ForestF.getcColumn();
-        forestF.name = "Forest";
+        forestF.name = "a Forest";
         forestF.mapSignal = "Frst";
         forestF.actor = null;
         forestF.mineralTypeThere = "Wood";
@@ -306,7 +310,7 @@ public class MapControl {
         ResourceScene millA = new ResourceScene();
         millA.rowCount = CoordinateMapEnum.MillA.getcRow();
         millA.columnCount = CoordinateMapEnum.MillA.getcColumn();
-        millA.name = "Mill";
+        millA.name = "a Mill";
         millA.mapSignal = "Mill";
         millA.actor = null;
         millA.mineralTypeThere = "Cloth";
@@ -315,7 +319,7 @@ public class MapControl {
         ResourceScene millB = new ResourceScene();
         millB.rowCount = CoordinateMapEnum.MillB.getcRow();
         millB.columnCount = CoordinateMapEnum.MillB.getcColumn();
-        millB.name = "Mill";
+        millB.name = "a Mill";
         millB.mapSignal = "Mill";
         millB.actor = null;
         millB.mineralTypeThere = "Cloth";
@@ -324,7 +328,7 @@ public class MapControl {
         ResourceScene millC = new ResourceScene();
         millC.rowCount = CoordinateMapEnum.MillC.getcRow();
         millC.columnCount = CoordinateMapEnum.MillC.getcColumn();
-        millC.name = "Mill";
+        millC.name = "a Mill";
         millC.mapSignal = "Mill";
         millC.actor = null;
         millC.mineralTypeThere = "Cloth";
@@ -333,7 +337,7 @@ public class MapControl {
         ResourceScene millD = new ResourceScene();
         millD.rowCount = CoordinateMapEnum.MillD.getcRow();
         millD.columnCount = CoordinateMapEnum.MillD.getcColumn();
-        millD.name = "Mill";
+        millD.name = "a Mill";
         millD.mapSignal = "Mill";
         millD.actor = null;
         millD.mineralTypeThere = "Cloth";
@@ -342,7 +346,7 @@ public class MapControl {
         ResourceScene millE = new ResourceScene();
         millE.rowCount = CoordinateMapEnum.MillE.getcRow();
         millE.columnCount = CoordinateMapEnum.MillE.getcColumn();
-        millE.name = "Mill";
+        millE.name = "a Mill";
         millE.mapSignal = "Mill";
         millE.actor = null;
         millE.mineralTypeThere = "Cloth";
@@ -351,7 +355,7 @@ public class MapControl {
         ResourceScene mountainA = new ResourceScene();
         mountainA.rowCount = CoordinateMapEnum.MountainA.getcRow();
         mountainA.columnCount = CoordinateMapEnum.MountainA.getcColumn();
-        mountainA.name = "Mountain";
+        mountainA.name = "a Mountain";
         mountainA.mapSignal = "Mtn ";
         mountainA.actor = null;
         mountainA.mineralTypeThere = "Stone";
@@ -360,7 +364,7 @@ public class MapControl {
         ResourceScene mountainB = new ResourceScene();
         mountainB.rowCount = CoordinateMapEnum.MountainB.getcRow();
         mountainB.columnCount = CoordinateMapEnum.MountainB.getcColumn();
-        mountainB.name = "Mountain";
+        mountainB.name = "a Mountain";
         mountainB.mapSignal = "Mtn ";
         mountainB.actor = null;
         mountainB.mineralTypeThere = "Stone";
@@ -369,7 +373,7 @@ public class MapControl {
         ResourceScene mountainC = new ResourceScene();
         mountainC.rowCount = CoordinateMapEnum.MountainC.getcRow();
         mountainC.columnCount = CoordinateMapEnum.MountainC.getcColumn();
-        mountainC.name = "Mountain";
+        mountainC.name = "a Mountain";
         mountainC.mapSignal = "Mtn ";
         mountainC.actor = null;
         mountainC.mineralTypeThere = "Stone";
@@ -378,7 +382,7 @@ public class MapControl {
         ResourceScene mountainD = new ResourceScene();
         mountainD.rowCount = CoordinateMapEnum.MountainD.getcRow();
         mountainD.columnCount = CoordinateMapEnum.MountainD.getcColumn();
-        mountainD.name = "Mountain";
+        mountainD.name = "a Mountain";
         mountainD.mapSignal = "Mtn ";
         mountainD.actor = null;
         mountainD.mineralTypeThere = "Stone";
@@ -387,7 +391,7 @@ public class MapControl {
         ResourceScene mineA = new ResourceScene();
         mineA.rowCount = CoordinateMapEnum.MineA.getcRow();
         mineA.columnCount = CoordinateMapEnum.MineA.getcColumn();
-        mineA.name = "Mine";
+        mineA.name = "a Mine";
         mineA.mapSignal = "Mine";
         mineA.actor = null;
         mineA.mineralTypeThere = "Metal";
@@ -396,7 +400,7 @@ public class MapControl {
         ResourceScene mineB = new ResourceScene();
         mineB.rowCount = CoordinateMapEnum.MineB.getcRow();
         mineB.columnCount = CoordinateMapEnum.MineB.getcColumn();
-        mineB.name = "Mine";
+        mineB.name = "a Mine";
         mineB.mapSignal = "Mine";
         mineB.actor = null;
         mineB.mineralTypeThere = "Metal";
@@ -405,7 +409,7 @@ public class MapControl {
         ResourceScene mineC = new ResourceScene();
         mineC.rowCount = CoordinateMapEnum.MineC.getcRow();
         mineC.columnCount = CoordinateMapEnum.MineC.getcColumn();
-        mineC.name = "Mine";
+        mineC.name = "a Mine";
         mineC.mapSignal = "Mine";
         mineC.actor = null;
         mineC.mineralTypeThere = "Metal";
@@ -414,7 +418,7 @@ public class MapControl {
         ResourceScene mineD = new ResourceScene();
         mineD.rowCount = CoordinateMapEnum.MineD.getcRow();
         mineD.columnCount = CoordinateMapEnum.MineD.getcColumn();
-        mineD.name = "Mine";
+        mineD.name = "a Mine";
         mineD.mapSignal = "Mine";
         mineD.actor = null;
         mineD.mineralTypeThere = "Metal";
