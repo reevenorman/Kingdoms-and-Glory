@@ -5,13 +5,14 @@
  */
 package kingdomsandglory.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author piano
  */
-public class Trait {
+public class Trait implements Serializable {
     
     public Trait[] trait;
     public String traitName;

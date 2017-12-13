@@ -84,7 +84,7 @@ public class AttackCityView extends View {
                 
                 if (result == 0) {
                     double userResult = userArmy * 0.5;
-                    game.resourceType[6].setResourceQty(((int) userResult));
+                    game.resourceType[5].setResourceQty(((int) userResult));
                 } else {
                     this.console.println("Congratulations You have conguered this City!");
                     game.player.actor.location.locationScene.setOwnership(0);

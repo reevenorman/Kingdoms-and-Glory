@@ -5,11 +5,13 @@
  */
 package kingdomsandglory.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author piano
  */
-public enum TraitEnum {
+public enum TraitEnum implements Serializable {
     diplomatic,
     strategic,
     charismatic;

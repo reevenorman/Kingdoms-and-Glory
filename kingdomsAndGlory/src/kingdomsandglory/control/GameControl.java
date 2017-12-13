@@ -56,47 +56,43 @@ public class GameControl {
         Game game = new Game();
         game.setPlayer(kingdomsandglory.getPlayer());
         kingdomsandglory.setCurrentGame(game);
-        
+
         Trait trait = new Trait();
         game.trait = trait;
-        
-        
+
         Trait[] traits = new Trait[3];
         traits = createTraits();
-        
+
         game.trait.trait = traits;
-        
+
         Actor actor = new Actor();
         game.player.actor = actor;
-       
+
         Resource[] resources = new Resource[5];
         resources = ResourceControl.createItems();
-        
+
         game.resourceType = resources;
-        
+
         //Call Map
         Map map = new Map(5, 5, null);
         int rowCount = 5;
         int columnCount = 5;
 
         map = MapControl.createMap(rowCount, columnCount);
-        
+
         if (map == null) {
             throw new GameControlException("Map Cannot Be Null");
         }
-        
-        game.map = map;
-        
 
-        
+        game.map = map;
+
         game.player.actor.location = game.map.locations[4][2];
 
-        
         return;
     }
 
     public static Trait[] createTraits() {
-       
+
         Trait[] traitType = new Trait[3];
 
         Trait diplomatic = new Trait();
@@ -109,7 +105,6 @@ public class GameControl {
         diplomatic.gold = 250;
         traitType[TraitEnum.diplomatic.ordinal()] = diplomatic;
 
-        
         Trait strategic = new Trait();
         strategic.traitName = "Strategic";
         strategic.army = 300;
@@ -132,55 +127,63 @@ public class GameControl {
 
         return traitType;
     }
-    
+
     public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
         if (game == null || filePath == null) {
             throw new GameControlException("Game Cannot Be Null");
         }
-        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath));
-        try {
-                out.writeObject(game);
-                
-            }   catch (IOException ex) {
-                        throw new IOException("Your File Path Was Invalid, Please Try Again");
-                        
-            } finally {
-                try {
-                    if (out != null) {
-                        out.close();
-                    }
-                } catch (IOException ex) {
-                    throw new IOException("Your File Was Null");
-                }
-            }
+
+        try (ObjectOutputStream out
+                = new ObjectOutputStream(new FileOutputStream(filePath))) {
+
+            out.writeObject(game);
+
+        } catch (IOException ex) {
+            throw new IOException("Your File Path Was Invalid " + ex.getMessage());
+        }
+
+        return;
+    }
+
+    public static void LoadGame(String filePath) throws GameControlException, IOException, ClassNotFoundException {
+        if (filePath == null) {
+            throw new GameControlException("Game Cannot Be Null");
+        }
+
+        try (ObjectInputStream in
+                = new ObjectInputStream(new FileInputStream(filePath))) {
+
+            Game game = new Game();
+            Player player = new Player();
+            game = (Game) in.readObject();
+
+            kingdomsandglory.setCurrentGame(game);
+
+            player = game.getPlayer();
+
+            kingdomsandglory.setPlayer(player);
+
+        } catch (IOException | ClassNotFoundException ex) {
+            throw new IOException("Your File Path Was Invalid, Please Try Again" + ex.getMessage());
+        }
 
         return;
     }
     
-        public static void LoadGame(String filePath) throws GameControlException, IOException, ClassNotFoundException {
-        if (filePath == null) {
-            throw new GameControlException("Game Cannot Be Null");
+    public static int checkWin(Game game) {
+        int[] winner = new int[5];
+        winner[0] = game.map.locations[0][1].locationScene.getOwnership();
+        winner[1] = game.map.locations[0][3].locationScene.getOwnership();
+        winner[2] = game.map.locations[2][0].locationScene.getOwnership();
+        winner[3] = game.map.locations[2][2].locationScene.getOwnership();
+        winner[4] = game.map.locations[2][4].locationScene.getOwnership();
+        
+        int total = 0;
+        
+        for (int value : winner) {
+            total = total + value;
         }
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(filePath));
-        try {
-            Game game = new Game();
-            Player player = new Player();
-                game = (Game) in.readObject();
-                
-                kingdomsandglory.setCurrentGame(game);
-                
-                player = game.getPlayer();
-                
-                kingdomsandglory.setPlayer(player);
-                
-            }   catch (IOException ex) {
-                        throw new IOException("Your File Path Was Invalid, Please Try Again");
-                        
-            } catch (ClassNotFoundException ex) {
-                        throw new ClassNotFoundException("Your game was not found :( ");
-            }
-
-        return;
+        return total;
     }
 
 }

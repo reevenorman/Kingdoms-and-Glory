@@ -97,7 +97,7 @@ public class FortuneOutcomeView extends View {
                 return true;
 
             default:
-                this.console.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
         return false;
     }

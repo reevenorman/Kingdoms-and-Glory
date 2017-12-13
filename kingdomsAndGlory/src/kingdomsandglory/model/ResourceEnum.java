@@ -5,11 +5,13 @@
  */
 package kingdomsandglory.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author piano
  */
-public enum ResourceEnum {
+public enum ResourceEnum implements Serializable{
     cloth,
     wood,
     stone,

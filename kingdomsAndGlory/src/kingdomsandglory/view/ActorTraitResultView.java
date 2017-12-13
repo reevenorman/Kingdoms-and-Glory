@@ -148,7 +148,7 @@ public class ActorTraitResultView extends View {
                 actorTraitName = "Charismatic";
                 break;
             default:
-                actorTraitName = "Invalid Input";
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
 
         try {
@@ -174,7 +174,10 @@ public class ActorTraitResultView extends View {
                 + "The sum total of your questionaire was " + sumOfTraitQuestions + "! This will be added to your Gold as a bonus. \n"
                 + "View your resources to see what advantages you have received! \n"
                 + "========================================\n");
-
+        
+        String actorName = (playerName + " the " + actorTraitName);
+        game.player.actor.setActorName(actorName);
+        
         return true;
     }
 
@@ -203,3 +206,4 @@ public class ActorTraitResultView extends View {
     }
 
 }
+

@@ -54,7 +54,7 @@ public class MapMenuView extends View{
             case 'B':
                 return true;
             default:
-                this.console.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
         return false;
     }

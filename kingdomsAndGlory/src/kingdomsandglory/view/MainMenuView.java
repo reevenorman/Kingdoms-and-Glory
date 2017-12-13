@@ -55,7 +55,7 @@ public class MainMenuView extends View {
                 break;
             case 'Q' : return true;
             default : 
-                this.console.println("Invalid Input");
+                ErrorView.display(this.getClass().getName(),"Invalid Input");
         }
         return false;
             
