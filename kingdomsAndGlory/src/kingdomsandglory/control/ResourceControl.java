@@ -154,13 +154,15 @@ public class ResourceControl {
         return buy;
     }
     
-    public static int totalResources(Game game) {
-        Resource[] resource = game.getResourceType();
+    public static int totalResources(int[] resource) throws ResourceControlException {
+        if (resource == null) {
+            throw new ResourceControlException("Invalid Input");
+        }
         int total = 0;
         int item;
         int i = 0;
-        for (Resource value : resource) {
-            item = resource[i].getResourceQty();
+        for (int value : resource) {
+            item = resource[i];
             total = total + item;
             i++;
         }

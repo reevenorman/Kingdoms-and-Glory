@@ -7,7 +7,9 @@ package kingdomsandglory.view;
 
 import java.util.Scanner;
 import kingdomsandglory.control.ResourceControl;
+import kingdomsandglory.exceptions.ResourceControlException;
 import kingdomsandglory.model.Game;
+import kingdomsandglory.model.Resource;
 
 /**
  *
@@ -71,9 +73,21 @@ public class GameMenuView extends View {
                 break;
             case 'T':
                 Game game = kingdomsandglory.kingdomsandglory.getCurrentGame();
+                Resource[] resource = game.getResourceType();
+                int[] item = new int[6];
                 int total;
-                total = ResourceControl.totalResources(game);
-                this.console.println(total); 
+                int i = 0;
+                for (Resource value : resource) {
+                    item[i] = resource[i].getResourceQty();
+                    i++;
+                }
+                try {
+                    total = ResourceControl.totalResources(item);
+                    this.console.println(total);
+                } catch (ResourceControlException ex) {
+                    ErrorView.display(this.getClass().getName(), ex.getMessage());
+                }
+         
                 break;
             case 'B':
                 MainMenuView mainMenuView = new MainMenuView();
@@ -85,5 +99,5 @@ public class GameMenuView extends View {
         }
         return false;
     }
-    
+
 }
